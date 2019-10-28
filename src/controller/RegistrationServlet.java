@@ -35,21 +35,21 @@ public class RegistrationServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
      String fullName = request.getParameter("fullName");
-        String usersName = request.getParameter("usersName");
-        String passWord = request.getParameter("passWord");
+        String usersname = request.getParameter("usersName");
+        String password = request.getParameter("passWord");
         String gender = request.getParameter("gender");
-        String Email = request.getParameter("Email");
+        String email = request.getParameter("Email");
         String phoneNum = request.getParameter("phoneNum");
         String address = request.getParameter("address");
         String yeucau = request.getParameter("yeucau");
         String page = "";
         String message = "";
 HttpSession session = request.getSession();
-        Registration products = new Registration(usersName, passWord, phoneNum, address, gender, fullName, Email);
+        Registration users = new Registration(usersname, password, fullName, gender,address,phoneNum,email);
 
         RegistrationModel productsModel = new RegistrationModel();
         if (yeucau.equals("insert")) {
-            int kq = productsModel.insertProduct(products);
+            int kq = productsModel.insertUsers(users);
 
             if (kq != -1) {
                 if (kq != 1) {

@@ -5,9 +5,10 @@
  */
 package Model;
 
-import com.mysql.jdbc.PreparedStatement;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -18,7 +19,7 @@ public class JDBCConnection {
             PreparedStatement cone = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conec = DriverManager.getConnection("jdbc:mysql://localhost:3306/task4","root","");
+            Connection conec = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
             cone = (PreparedStatement) conec.prepareStatement(sql);
         }
         catch(Exception e){

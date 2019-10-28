@@ -24,7 +24,7 @@ public class AccountModel {
     public int LoginAccount(Account a) {
 
         try {
-            String sql = "select * from users where userName = ?";
+            String sql = "select * from user where username = ?";
             PreparedStatement pr = (PreparedStatement) JDBCConnection.getJDBCConnection(sql);
             pr.setString(1, a.getUsername());
             

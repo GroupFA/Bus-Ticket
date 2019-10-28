@@ -7,6 +7,7 @@ package Model;
 
 import entities.Account;
 import entities.Registration;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,11 +23,15 @@ public class RegistrationModel {
     
     
     try{
-            String sql = "select * from users";
+            String sql = "select * from user";
             PreparedStatement pr = (PreparedStatement) JDBCConnection.getJDBCConnection(sql);
             ResultSet rs = pr.executeQuery();
             while(rs.next()){
-                Registration temp = new Registration(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),rs.getString(6),rs.getString(7),rs.getInt(8));
+                Registration temp = new Registration(
+                		rs.getInt(1), rs.getString(2),
+                		rs.getString(3), rs.getString(4), 
+                		rs.getString(5),rs.getString(6),
+                		rs.getString(7),rs.getString(8),rs.getString(9));
                 list.add(temp);
             }
             pr.close();
@@ -38,18 +43,19 @@ public class RegistrationModel {
         return list;
     
     }
-     public int insertProduct(Registration p){
+     public int insertUsers(Registration p){
     int kq=0;
     try{
-        String sql= "insert into users(`userName`,`password`,`phoneNum`,`address`,`gender`,`fullName`,`Email`) values(?,?,?,?,?,?,?)";
+        String sql= "INSERT INTO `bus`.`user` (`username`, `password`, `fullName`, `gender`, `address`, `phoneNum`, `role`, `email`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
         PreparedStatement pr = (PreparedStatement) JDBCConnection.getJDBCConnection(sql);
-        pr.setString(1, p.getUserName());
-        pr.setString(2, p.getPassWord());
-        pr.setString(3,p.getPhoneNum());
-        pr.setString(4,p.getAddress());
-        pr.setString(5,p.getGender());
-        pr.setString(6,p.getFullName());
-        pr.setString(7,p.getEmail());
+        pr.setString(1,p.getUsername());
+        pr.setString(2, p.getPassword());
+        pr.setString(3,p.getFullName());
+        pr.setString(4,p.getGender());
+        pr.setString(5,p.getAddress());
+        pr.setString(6,p.getPhoneNum());
+        pr.setString(7,"Customer");
+        pr.setString(8,p.getEmail());
       
         pr.executeUpdate();
     }catch (SQLException e) {
