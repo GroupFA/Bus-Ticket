@@ -5,16 +5,11 @@
  */
 package controller;
 
-import Model.AccountModel;
-import Model.JDBCConnection;
-
-import entities.Registration;
+import entities.Users;
+import model.AccountModel;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,9 +32,9 @@ public class AccountServlet extends HttpServlet {
 		String page = "";
 		String message = "";
 		AccountModel acmodel = new AccountModel();
-		Registration re = new Registration(username, password);
+		Users re = new Users(username, password);
 //		Account nd = acmodel.LoginAccount(username, password);
-		Registration nd = acmodel.LoginAccount(re);
+		Users nd = acmodel.LoginAccount(re);
 //		System.out.print(nd.getUsername() + nd.getPassword());
 		if (nd != null) {
 				if (nd.getRole().equals("Admin")) {

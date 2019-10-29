@@ -5,9 +5,9 @@
  */
 package controller;
 
-import Model.AccountModel;
-import Model.RegistrationModel;
-import entities.Registration;
+import entities.Users;
+import model.AccountModel;
+import model.RegisterModel;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +29,7 @@ import javax.servlet.http.Part;
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2,
         maxFileSize = 1024 * 1024 * 10,
         maxRequestSize = 1024 * 1024 * 50)
-public class RegistrationServlet extends HttpServlet {
+public class RegisterServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,15 +45,15 @@ public class RegistrationServlet extends HttpServlet {
         String page = "";
         String message = "";
 HttpSession session = request.getSession();
-        Registration users = new Registration(usersname, password, fullName, gender,address,phoneNum,email, message, 0);
+        Users users = new Users(usersname, password, fullName, gender,address,phoneNum,email, message, 0);
 
-        RegistrationModel productsModel = new RegistrationModel();
+        RegisterModel productsModel = new RegisterModel();
         if (yeucau.equals("insert")) {
             int kq = productsModel.insertUsers(users);
 
             if (kq != -1) {
                 if (kq != 1) {
-                    session.setAttribute("index.jsp", new RegistrationModel().getList());
+                    session.setAttribute("index.jsp", new RegisterModel().getList());
                     page = "index.jsp";
 
                 } else {

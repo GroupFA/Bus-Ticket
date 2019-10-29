@@ -9,19 +9,18 @@ package entities;
  *
  * @author Admin
  */
-public class Registration {
+public class Users {
 	
 	private String 
     
 	   username,password,fullName, gender, address,phoneNum,role,email;
-	private int
-	IdUser;
-	public Registration(String username, String password) {
+	private int IdUser;
+	public Users(String username, String password) {
 		
 		this.username = username;
 		this.password = password;
 	}
-	public Registration() {
+	public Users() {
 		
 		// TODO Auto-generated constructor stub
 	}
@@ -79,7 +78,7 @@ public class Registration {
 	public void setIdUser(int idUser) {
 		IdUser = idUser;
 	}
-	public Registration(String username, String password, String fullName, String gender, String address,
+	public Users(String username, String password, String fullName, String gender, String address,
 			String phoneNum, String role, String email, int idUser) {
 		
 		this.username = username;

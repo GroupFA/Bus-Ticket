@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package model;
 
 
-import entities.Registration;
+import entities.Users;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,9 +17,9 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-public class RegistrationModel {
+public class RegisterModel {
     public ArrayList getList(){
-    ArrayList<Registration> list = new ArrayList<>();
+    ArrayList<Users> list = new ArrayList<>();
     
     
     try{
@@ -27,7 +27,7 @@ public class RegistrationModel {
             PreparedStatement pr = JDBCConnection.getJDBCConnection().prepareStatement(sql);
             ResultSet rs = pr.executeQuery();
             while(rs.next()){
-                Registration temp = new Registration();
+                Users temp = new Users();
                 list.add(temp);
             }
             pr.close();
@@ -39,7 +39,7 @@ public class RegistrationModel {
         return list;
     
     }
-     public int insertUsers(Registration p){
+     public int insertUsers(Users p){
     int kq=0;
     try{
         String sql= "INSERT INTO `bus`.`user` (`username`, `password`, `fullName`, `gender`, `address`, `phoneNum`, `role`, `email`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";

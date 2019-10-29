@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package model;
 
 
 
-import entities.Registration;
+
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+
+
+import entities.Users;
 
 /**
  *
@@ -22,12 +24,13 @@ public class AccountModel {
 	public AccountModel() {
 	}
 
-	public Registration LoginAccount(Registration re) {
+	public Users LoginAccount(Users re) {
 //		System.out.println("123");
-			Registration ac = new Registration();
+			Users ac = new Users();
 		try {
 			String sql = "select * from user where username = ?";
 			PreparedStatement pr = JDBCConnection.getJDBCConnection().prepareStatement(sql);
+			//PreparedStatement pr = JDBCConnection.getJDBCConnection().prepareStatement(sql);
 			pr.setString(1, re.getUsername());
 			
 			ResultSet rs = pr.executeQuery();
