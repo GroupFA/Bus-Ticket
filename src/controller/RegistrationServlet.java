@@ -45,7 +45,7 @@ public class RegistrationServlet extends HttpServlet {
         String page = "";
         String message = "";
 HttpSession session = request.getSession();
-        Registration users = new Registration(usersname, password, fullName, gender,address,phoneNum,email);
+        Registration users = new Registration(usersname, password, fullName, gender,address,phoneNum,email, message, 0);
 
         RegistrationModel productsModel = new RegistrationModel();
         if (yeucau.equals("insert")) {

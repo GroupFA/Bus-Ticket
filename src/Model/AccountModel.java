@@ -5,8 +5,9 @@
  */
 package Model;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
-import entities.Account;
+
+
+import entities.Registration;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,40 +19,40 @@ import java.sql.SQLException;
  */
 public class AccountModel {
 
-    public AccountModel() {
-    }
+	public AccountModel() {
+	}
 
-    public int LoginAccount(Account a) {
+	public Registration LoginAccount(Registration re) {
+//		System.out.println("123");
+			Registration ac = new Registration();
+		try {
+			String sql = "select * from user where username = ?";
+			PreparedStatement pr = JDBCConnection.getJDBCConnection().prepareStatement(sql);
+			pr.setString(1, re.getUsername());
+			
+			ResultSet rs = pr.executeQuery();
 
-        try {
-            String sql = "select * from user where username = ?";
-            PreparedStatement pr = (PreparedStatement) JDBCConnection.getJDBCConnection(sql);
-            pr.setString(1, a.getUsername());
-            
-            ResultSet rs = pr.executeQuery();
+			if (rs.next()) {
+						
+					if(rs.getString(2).equals(re.getUsername()) && rs.getString(3).equals(re.getPassword())) {
+						ac.setIdUser(rs.getInt(1));
+	                    ac.setUsername(rs.getString(2));
+	                    ac.setPassword(rs.getString(3));
+	                    ac.setFullName(rs.getString(4));
+	                    ac.setGender(rs.getString(5));
+	                    ac.setAddress(rs.getString(6));
+	                    ac.setPhoneNum(rs.getString(7));
+	                    ac.setRole(rs.getString(8));
+	                    ac.setEmail(rs.getString(9));
+	                    return ac;
+					}
+					
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;// loginthat bai ???
+		
+	}
 
-            if (rs.next()) {
-                if (rs.getString(2).equals(a.getUsername()) && rs.getString(3).equals(a.getPassword())) {
-                    System.out.println("thanh cong ");
-                    return 2;
-
-                } else {
-                    System.out.println("sai password");
-                    return 3;
-
-                }
-
-            } else {
-                System.out.println("username khong ton tai");
-                return 4;
-
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
- return 0;//loginthat bai
-    }
-   
-   
-   
 }

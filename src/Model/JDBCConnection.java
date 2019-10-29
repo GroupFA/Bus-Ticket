@@ -15,15 +15,22 @@ import java.sql.PreparedStatement;
  * @author Admin
  */
 public class JDBCConnection {
-     public static PreparedStatement getJDBCConnection(String sql){
-            PreparedStatement cone = null;
+     public static Connection getJDBCConnection(){
+    	 Connection cone = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conec = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
-            cone = (PreparedStatement) conec.prepareStatement(sql);
+            cone = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
         }
         catch(Exception e){
         }
         return cone;
     }
+//     public static void main(String[] args) {
+//    	 Connection cone = getJDBCConnection();
+//		if(cone!=null) {
+//			System.out.println("true");
+//		}else {
+//			System.out.println("fail");
+//		}
+//	}
 }

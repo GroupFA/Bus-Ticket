@@ -5,7 +5,7 @@
  */
 package Model;
 
-import entities.Account;
+
 import entities.Registration;
 
 import java.sql.PreparedStatement;
@@ -24,14 +24,10 @@ public class RegistrationModel {
     
     try{
             String sql = "select * from user";
-            PreparedStatement pr = (PreparedStatement) JDBCConnection.getJDBCConnection(sql);
+            PreparedStatement pr = JDBCConnection.getJDBCConnection().prepareStatement(sql);
             ResultSet rs = pr.executeQuery();
             while(rs.next()){
-                Registration temp = new Registration(
-                		rs.getInt(1), rs.getString(2),
-                		rs.getString(3), rs.getString(4), 
-                		rs.getString(5),rs.getString(6),
-                		rs.getString(7),rs.getString(8),rs.getString(9));
+                Registration temp = new Registration();
                 list.add(temp);
             }
             pr.close();
@@ -47,7 +43,7 @@ public class RegistrationModel {
     int kq=0;
     try{
         String sql= "INSERT INTO `bus`.`user` (`username`, `password`, `fullName`, `gender`, `address`, `phoneNum`, `role`, `email`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-        PreparedStatement pr = (PreparedStatement) JDBCConnection.getJDBCConnection(sql);
+        PreparedStatement pr = JDBCConnection.getJDBCConnection().prepareStatement(sql);
         pr.setString(1,p.getUsername());
         pr.setString(2, p.getPassword());
         pr.setString(3,p.getFullName());
