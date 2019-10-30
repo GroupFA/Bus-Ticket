@@ -25,7 +25,7 @@ import javax.servlet.http.Part;
  *
  * @author Admin
  */
-@WebServlet(name = "RegistrationServlet", urlPatterns = {"/RegistrationServlet"})
+@WebServlet(name = "RegisterServlet", urlPatterns = {"/RegisterServlet"})
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2,
         maxFileSize = 1024 * 1024 * 10,
         maxRequestSize = 1024 * 1024 * 50)
@@ -54,7 +54,7 @@ HttpSession session = request.getSession();
             if (kq != -1) {
                 if (kq != 1) {
                     session.setAttribute("index.jsp", new RegisterModel().getList());
-                    page = "index.jsp";
+                    page = "/WEB-INF/view/Login.jsp";
 
                 } else {
                     message = "insert that bai";
@@ -83,17 +83,13 @@ HttpSession session = request.getSession();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+    		request.getRequestDispatcher("/WEB-INF/view/Register.jsp").forward(request, response);	
+
+    	
+
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

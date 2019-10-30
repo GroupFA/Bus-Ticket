@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Admin
  */
-@WebServlet(name = "loginServlet", urlPatterns = { "/loginServlet" })
+@WebServlet(name = "AccountServlet", urlPatterns = { "/AccountServlet" })
 public class AccountServlet extends HttpServlet {
 
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -38,11 +38,11 @@ public class AccountServlet extends HttpServlet {
 //		System.out.print(nd.getUsername() + nd.getPassword());
 		if (nd != null) {
 				if (nd.getRole().equals("Admin")) {
-					page = "Admin.jsp";
+					page = "/WEB-INF/view/viewAdmin/indexAdmin.jsp";
 				} else if (nd.getRole().equals("Seller")) {
 					page = "seller.jsp";
 				} else if (nd.getRole().equals("Customer")) {
-					page = "customer.jsp";
+					page = "/WEB-INF/view/viewCustomer/indexCustomer.jsp";
 				}
 			} else {
 				message = "sai password";
@@ -69,7 +69,7 @@ public class AccountServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		processRequest(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/Login.jsp").forward(request, response);
 	}
 
 	/**

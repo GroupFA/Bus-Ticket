@@ -91,5 +91,18 @@ public class Users {
 		this.email = email;
 		IdUser = idUser;
 	}
+	public Users(String username, String password, String fullName, String gender, String address,
+			String phoneNum, String role, String email) {
+		
+		this.username = username;
+		this.password = password;
+		this.fullName = fullName;
+		this.gender = gender;
+		this.address = address;
+		this.phoneNum = phoneNum;
+		this.role = role;
+		this.email = email;
+	
+	}
 	
 }

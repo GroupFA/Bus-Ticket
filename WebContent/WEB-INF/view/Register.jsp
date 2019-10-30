@@ -40,7 +40,7 @@
                 </div>
                 <div class="card-body">
 
-                    <form enctype="multipart/form-data" action="RegistrationServlet?yeucau=insert"method="post">
+                    <form enctype="multipart/form-data" action="RegisterServlet?yeucau=insert"method="post">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -110,7 +110,10 @@
                             </div>
                        
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 login100-form-btn " type="submit">Submit</button>
+                        <a href="${pageContext.request.contextPath}/AccountServlet">
+                         <button class="btn btn--radius-2 login100-form-btn " type="submit">Submit</button>
+                        </a>
+                           
                         </div>
                     </form>
                 </div>
