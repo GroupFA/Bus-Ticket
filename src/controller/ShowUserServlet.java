@@ -16,22 +16,26 @@ import model.AccountModel;
 /**
  * Servlet implementation class ShowUserServlet
  */
-@WebServlet("/ShowUserServlet")
+
+@WebServlet("/showAllUser")
+
 public class ShowUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("utf-8");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		AccountModel ac =new AccountModel();
 		
 		ArrayList<Users> list = ac.getListUser();
 		
-		System.out.println(list);
+		System.out.println(list+"sdfghjk");
 		
 		request.setAttribute("user", list);
-		request.getRequestDispatcher("").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/viewAdmin/indexAdmin.jsp").forward(request, response);
 	}
 
 	

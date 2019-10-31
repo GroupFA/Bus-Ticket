@@ -38,7 +38,8 @@ public class AccountServlet extends HttpServlet {
 //		System.out.print(nd.getUsername() + nd.getPassword());
 		if (nd != null) {
 				if (nd.getRole().equals("Admin")) {
-					page = "/WEB-INF/view/viewAdmin/indexAdmin.jsp";
+					response.sendRedirect(request.getContextPath()+"/showAllUser");
+					return;
 				} else if (nd.getRole().equals("Seller")) {
 					page = "seller.jsp";
 				} else if (nd.getRole().equals("Customer")) {
@@ -49,7 +50,7 @@ public class AccountServlet extends HttpServlet {
 				page = "ctctrcr.jsp";
 
 			}
-		
+//		
 			request.setAttribute("thong bao", message);
 			request.getRequestDispatcher(page).forward(request, response);
 		}

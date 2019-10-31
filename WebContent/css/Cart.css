@@ -63,7 +63,7 @@
 .btn-primary {
     color: #fff;
     background-color: #ef5222;
-    border-color: #ed4917;
+    /* border-color: #ed4917; */
 }
 .bg-success {
     background-color: #1f8456;
@@ -255,12 +255,14 @@ td {
     border: 0;
 }
 .table-search{
+    margin-left: 80px;
     margin-top: -12px;
 }
 section#body-content {
     margin-top: 50px;
 }
 .search{
+    margin-bottom: 50px;
     margin-left: 90px;
     margin-top: 50px;
 }
@@ -279,3 +281,21 @@ section#body-content {
 #step {
     width: 80%;
 }
+.btn-update {
+    margin-top: 20px;
+    float: right;
+}
+th{
+    width: 50px;
+}
+.wrapper {
+    max-width: 150px;
+    margin: 0px auto;
+  }
+    
+#demo-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
