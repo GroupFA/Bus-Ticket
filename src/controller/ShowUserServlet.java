@@ -27,14 +27,17 @@ public class ShowUserServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-
 		AccountModel ac =new AccountModel();
+		String keySearch = request.getParameter("keySearch");
+		ArrayList<Users> list = new ArrayList<>();
+		if(keySearch !=null) {
+			list = ac.searchUser(keySearch);
+		} else {
+			 list = ac.getListUser();
+		}
 		
-		ArrayList<Users> list = ac.getListUser();
-		
-		System.out.println(list+"sdfghjk");
-		
-		request.setAttribute("user", list);
+			request.setAttribute("user", list);
+			
 		request.getRequestDispatcher("/WEB-INF/view/viewAdmin/indexAdmin.jsp").forward(request, response);
 	}
 
