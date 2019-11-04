@@ -86,7 +86,6 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="user" items="${user}">
 						<tr>
 
 							<td>${user.getUsername()}</td>
@@ -97,10 +96,8 @@
 							<td>${user.getPhoneNum()}</td>
 							<td>${user.getRole()}</td>
 							<td>${user.getEmail()}</td>
-							<td><a
-								href="${pageContext.request.contextPath}/UpdateUserServlet?idUser=${user.getIdUser()}">Update</a></td>
+							
 						</tr>
-					</c:forEach>
 				</tbody>
 
 			</table>

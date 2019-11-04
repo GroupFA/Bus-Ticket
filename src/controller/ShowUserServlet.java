@@ -31,8 +31,7 @@ public class ShowUserServlet extends HttpServlet {
 		AccountModel ac =new AccountModel();
 		
 		ArrayList<Users> list = ac.getListUser();
-		
-		System.out.println(list+"sdfghjk");
+	
 		
 		request.setAttribute("user", list);
 		request.getRequestDispatcher("/WEB-INF/view/viewAdmin/indexAdmin.jsp").forward(request, response);
