@@ -42,8 +42,8 @@ public class UpdateUserServlet extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		int idUser = Integer.parseInt(request.getParameter("idUser"));
-		System.out.println("ghjkl"+idUser);
-
+		
+		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String fullName = request.getParameter("fullname");
 		String email = request.getParameter("email");
@@ -53,11 +53,10 @@ public class UpdateUserServlet extends HttpServlet {
 		String valueRole [] = request.getParameterValues("role");
 		
 		AccountModel ac = new AccountModel();
-		boolean result =ac.updateUser( password, fullName, value, address, phoneNum, valueRole, email, idUser);
+		boolean result =ac.updateUser(username, password, fullName, value, address, phoneNum, valueRole, email, idUser);
 		System.out.println(result+"dfghjk");
 		response.sendRedirect(request.getContextPath()+"/showAllUser");
-//		doGet(request, response);
-//		request.getRequestDispatcher("/WEB-INF/view/viewAdmin/indexAdmin.jsp").forward(request, response);
+
 	}
 
 }

@@ -42,8 +42,9 @@
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
-						<li><a href="${pageContext.request.contextPath}/InsertUserServlet"><i class="fa fa-truck" aria-hidden="true"></i>Tạo
-								người dùng</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/InsertUserServlet"><i
+								class="fa fa-truck" aria-hidden="true"></i>Tạo người dùng</a></li>
 						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Đặt
 								vai trò</a></li>
 						<li class="pull-right diff"><a href="#"><span
@@ -63,11 +64,10 @@
 							<tr>
 								<td><input type="text" class="form-control"
 									placeholder="Tìm kiếm " autocomplete="off" name="keySearch"></td>
-								<td><a href="${pageContext.request.contextPath}/showAllUser">
-								<input type="submit" class="btn-search"
-									value="Tìm kiếm người dùng">
-								</a>
-								</td>
+								<td><a
+									href="${pageContext.request.contextPath}/showAllUser"> <input
+										type="submit" class="btn-search" value="Tìm kiếm người dùng">
+								</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -96,7 +96,7 @@
 							<td>${user.getPassword()}</td>
 							<td>${user.getFullName()}</td>
 							<td>${user.getGender()}</td>
-							<td class="wrapper" >${user.getAddress()}</td>
+							<td class="wrapper">${user.getAddress()}</td>
 							<td>${user.getPhoneNum()}</td>
 							<td>${user.getRole()}</td>
 							<td>${user.getEmail()}</td>
@@ -104,9 +104,9 @@
 								href="${pageContext.request.contextPath}/UpdateUserServlet?idUser=${user.getIdUser()}">Update</a></td>
 						</tr>
 					</c:forEach>
-						
+
 				</tbody>
-				
+
 
 			</table>
 		</div>

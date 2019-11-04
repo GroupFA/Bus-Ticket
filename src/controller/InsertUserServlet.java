@@ -15,34 +15,38 @@ import model.AccountModel;
 @WebServlet("/InsertUserServlet")
 public class InsertUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public InsertUserServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public InsertUserServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-	
+
 		request.getRequestDispatcher("/WEB-INF/view/viewAdmin/InsertUser.jsp").forward(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
-		
+
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String fullName = request.getParameter("fullname");
@@ -50,16 +54,15 @@ public class InsertUserServlet extends HttpServlet {
 		String value[] = request.getParameterValues("gender");
 		String address = request.getParameter("address");
 		String phoneNum = request.getParameter("phoneNum");
-		String valueRole [] = request.getParameterValues("role");
-		
-		System.out.println(fullName +"gggg");
-	
+		String valueRole[] = request.getParameterValues("role");
+
+		System.out.println(fullName + "gggg");
+
 		AccountModel ac = new AccountModel();
-		boolean result =ac.insertUser(username, password, fullName, value, address, phoneNum, valueRole, email);
-		System.out.println(result+"hellloleloeoeleleoel");
-	response.sendRedirect(request.getContextPath()+"/showAllUser");
-//		doGet(request, response);
-//		request.getRequestDispatcher("/WEB-INF/view/viewAdmin/InsertUser.jsp").forward(request, response);
+		boolean result = ac.insertUser(username, password, fullName, value, address, phoneNum, valueRole, email);
+		System.out.println(result + "hellloleloeoeleleoel");
+		response.sendRedirect(request.getContextPath() + "/showAllUser");
+
 	}
 
 }

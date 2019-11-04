@@ -119,17 +119,17 @@ public class AccountModel {
 		return users;
 	}
 
-	public static boolean updateUser( String password, String fullName, String value[], String address,
+	public static boolean updateUser( String username, String password, String fullName, String value[], String address,
 			String phoneNum, String valueRole[], String email, int idUser) {
 		try {
 
-			String sql = "update user set password = ?, fullName = ?, gender = ?, address=?, phoneNum = ?, role = ?, email = ? where idUser = ?";
+			String sql = "update user set password = ?, fullName = ?, gender = ?, address=?, phoneNum = ?, role = ?, email = ?, username = ? where idUser = ?";
 
 			String gender = null;
 			String role = null;
 			PreparedStatement pr = JDBCConnection.getJDBCConnection().prepareStatement(sql);
-			pr.setInt(8, idUser);
-			
+			pr.setInt(9, idUser);
+			pr.setString(8,  username);
 			pr.setString(1, password);
 			pr.setString(2, fullName);
 			pr.setString(4, address);
@@ -189,42 +189,12 @@ public class AccountModel {
 		return false;
 
 	}
-//	public static ArrayList<Users> searchUser() {
-//		ArrayList<Users> list = new ArrayList<>();
-//		try {
-//			String sql = "SELECT * FROM `user`";
-//			Statement statement = JDBCConnection.getJDBCConnection().createStatement();
-//			ResultSet rs = statement.executeQuery(sql);
-//
-//			while (rs.next()) {// Di chuyển con trỏ xuống bản ghi kế tiếp.
-//				String username = rs.getString(2);
-//				String password = rs.getString(3);
-//				String fullName = rs.getString(4);
-//				String gender = rs.getString(5);
-//				String address = rs.getString(6);
-//				String phoneNum = rs.getString(7);
-//				String role = rs.getString(8);
-//				String email = rs.getString(9);
-//				int idUser = rs.getInt(1);
-//				Users users = new Users(username, password, fullName, gender, address, phoneNum, role, email, idUser);
-//				list.add(users);
-//				System.out.println(list + "aaaaaaa");
-//
-//			}
-//
-//		} catch (Exception e) {
-//			System.out.println(e + "hhhhhh");
-//		}
-//
-//		return list;
-//
-//	}
 
 	public static ArrayList<Users> searchUser(String keySearch){
 		ArrayList<Users> listSearch = new ArrayList<>();
 		try {
 		
-			String sql = " SELECT * FROM  user WHERE username LIKE '%" + keySearch + "%' or  fullName LIKE '%" + keySearch + "%' or address LIKE '%" + keySearch + "%' or role LIKE '%" + keySearch + "%' or email LIKE '%" + keySearch + "%'";
+			String sql = " SELECT * FROM  user WHERE username LIKE '%" + keySearch + "%' or gender LIKE '%" + keySearch + "%' or fullName LIKE '%" + keySearch + "%' or address LIKE '%" + keySearch + "%' or role LIKE '%" + keySearch + "%' or email LIKE '%" + keySearch + "%'";
 			PreparedStatement pr = JDBCConnection.getJDBCConnection().prepareStatement(sql);
 		
 			ResultSet rs = pr.executeQuery();

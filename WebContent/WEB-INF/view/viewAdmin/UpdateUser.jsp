@@ -66,8 +66,9 @@
 									<div class="form-group clearfix">
 										<label for="">Username <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
-											<input type="text" class="form-control" name="username" readonly="readonly"
-												required="" ng-maxlength="80" value="${user.getUsername()}">
+											<input type="text" class="form-control" name="username"
+												readonly="readonly" required="" ng-maxlength="80"
+												value="${user.getUsername()}">
 										</div>
 									</div>
 								</div>
@@ -130,13 +131,14 @@
 									<div class="form-group clearfix">
 										<label for="">Role <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
-											<select name="role" id="" class="form-control" value="${user.getRole()}" >
-												
-												<option name ="role" value="Admin">Admin</option>
-												<option name ="role" value="Customer">Customer</option>
-												<option name ="role" value="Seller">Seller</option>
+											<select name="role" id="" class="form-control"
+												value="${user.getRole()}">
+
+												<option name="role" value="Admin">Admin</option>
+												<option name="role" value="Customer">Customer</option>
+												<option name="role" value="Seller">Seller</option>
 											</select>
-											 <%-- <input type="text" class="form-control" name="role"
+											<%-- <input type="text" class="form-control" name="role"
 												required="" ng-maxlength="80" value="${user.getRole()}"> --%>
 										</div>
 									</div>
@@ -145,8 +147,9 @@
 									<div class="form-group clearfix">
 										<label for="">ID User <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
-											<input type="text" class="form-control" name="idUser" readonly="readonly"
-												required="" ng-maxlength="80" value="${user.getIdUser()}">
+											<input type="text" class="form-control" name="idUser"
+												readonly="readonly" required="" ng-maxlength="80"
+												value="${user.getIdUser()}">
 										</div>
 									</div>
 								</div>
