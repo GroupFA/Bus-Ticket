@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="model.AccountModel"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,25 +39,27 @@
 </head>
 
 <body>
+
+
 	<div id="sb-site">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
-				<div class="container">
-					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
-						<li><a href="#"><i class="fa fa-truck" aria-hidden="true"></i>Lịch
-								trình xe chạy</a></li>
-						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Mua
-								vé</a></li>
-						<li class="pull-right diff"><a
-							href="${pageContext.request.contextPath}/AccountServlet"><span
-								class="hidden-xs">Hi, Custommer </span></a></li>
-						<li class="pull-right"><a target="_blank"
-							href="${pageContext.request.contextPath}/RegisterServlet">
-								Cap nhat thong tin </a></li>
-					</ul>
-				</div>
+				
+					<div class="container">
+						<ul class="clearfix">
+							<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
+									Trang chủ</a></li>
+							<li><a href="#"><i class="fa fa-truck"
+									aria-hidden="true"></i>Lịch trình xe chạy</a></li>
+							<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>${userlogin.getFullName()}</a></li>
+							<li class="pull-right diff"><a
+								href="${pageContext.request.contextPath}/AccountServlet"><span
+									class="hidden-xs">Hi, Custommer </span></a></li>
+							<li class="pull-right"><a href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cap nhat thong tin</a>
+									 </a></li>
+						</ul>
+					</div>
+	
 			</div>
 		</div>
 
@@ -248,6 +253,7 @@
 		</div>
 	</section>
 	</div>
+
 </body>
 
 </html>

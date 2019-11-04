@@ -16,10 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Admin
- */
+
 @WebServlet(name = "AccountServlet", urlPatterns = { "/AccountServlet" })
 public class AccountServlet extends HttpServlet {
 
@@ -43,6 +40,7 @@ public class AccountServlet extends HttpServlet {
 				} else if (nd.getRole().equals("Seller")) {
 					page = "seller.jsp";
 				} else if (nd.getRole().equals("Customer")) {
+					request.getSession().setAttribute("userlogin", nd);
 					page = "/WEB-INF/view/viewCustomer/indexCustomer.jsp";
 				}
 			} else {
