@@ -39,13 +39,14 @@ public class AccountServlet extends HttpServlet {
 					return;
 				} else if (nd.getRole().equals("Seller")) {
 					page = "seller.jsp";
-				} else if (nd.getRole().equals("Customer")) {
-
+				}
+				else if (nd.getRole().equals("Customer")) {
+					request.getSession().setAttribute("userlogin", nd);
+					page = "/WEB-INF/view/viewCustomer/indexCustomer.jsp";
 					response.sendRedirect(request.getContextPath()+"/ShowAllBus");
 					return;
-					//page = "/WEB-INF/view/viewCustomer/indexCustomer.jsp";
-
 				}
+				
 			} else {
 				message = "sai password";
 				page = "ctctrcr.jsp";

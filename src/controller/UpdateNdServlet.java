@@ -53,10 +53,10 @@ public class UpdateNdServlet extends HttpServlet {
 		String value[] = request.getParameterValues("gender");
 		String address = request.getParameter("address");
 		String phoneNum = request.getParameter("phoneNum");
-		String role = request.getParameter("role");
+		String valueRole [] = request.getParameterValues("role");
 		
 		AccountModel ac = new AccountModel();
-		boolean result =ac.updateUser(username, password, fullName, value, address, phoneNum, role, email, idUser);
+		boolean result =ac.updateUser(username, password, fullName, value, address, phoneNum, valueRole, email, idUser);
 //		response.sendRedirect(request.getContextPath()+"/hienThongtinnguoidung.jsp");
 		response.sendRedirect(request.getContextPath() +"/ShowNdUpdateServlet?idUser="+idUser);
 	}
