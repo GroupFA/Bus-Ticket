@@ -40,31 +40,22 @@ public class AccountServlet extends HttpServlet {
 				} else if (nd.getRole().equals("Seller")) {
 					page = "seller.jsp";
 				} else if (nd.getRole().equals("Customer")) {
-					request.getSession().setAttribute("userlogin", nd);
-					page = "/WEB-INF/view/viewCustomer/indexCustomer.jsp";
+
+					response.sendRedirect(request.getContextPath()+"/ShowAllBus");
+					return;
+					//page = "/WEB-INF/view/viewCustomer/indexCustomer.jsp";
+
 				}
 			} else {
 				message = "sai password";
 				page = "ctctrcr.jsp";
 
 			}
-//		
+		
 			request.setAttribute("thong bao", message);
 			request.getRequestDispatcher(page).forward(request, response);
 		}
 
-	
-
-	// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
-	// + sign on the left to edit the code.">
-	/**
-	 * Handles the HTTP <code>GET</code> method.
-	 *
-	 * @param request  servlet request
-	 * @param response servlet response
-	 * @throws ServletException if a servlet-specific error occurs
-	 * @throws IOException      if an I/O error occurs
-	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -61,22 +61,5 @@ public class RegisterModel {
     
     }
      
-//    public Reputation getidproducts(int idproduct){
-//     
-//      Reputation products = new Reputation();
-//     try{
-//     String sql = "select * from products where id = '"+idproduct+"' ";
-//            PreparedStatement pr = (PreparedStatement) JDBCConnection.getJDBCConnection(sql);
-//           
-//            ResultSet rs = pr.executeQuery();
-//            if(rs.next()){
-//               products = new Reputation(rs.getString("userName"),rs.getString("password"),rs.getInt("phoneNum"),rs.getString("address"),rs.getString("gender"),rs.getString("fullName"),rs.getString("Email"),rs.getInt("idUsers"));
-//                        
-//            }
-//     }catch(SQLException e){
-//     e.printStackTrace();
-//     }
-//        return products;
-//     
-//     }
+
 }

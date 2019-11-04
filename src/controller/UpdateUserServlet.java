@@ -25,9 +25,6 @@ public class UpdateUserServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
@@ -40,12 +37,12 @@ public class UpdateUserServlet extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/view/viewAdmin/UpdateUser.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("utf-8");
 		int idUser = Integer.parseInt(request.getParameter("idUser"));
-		System.out.println("ghjkl"+idUser);
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String fullName = request.getParameter("fullname");
@@ -53,14 +50,13 @@ public class UpdateUserServlet extends HttpServlet {
 		String value[] = request.getParameterValues("gender");
 		String address = request.getParameter("address");
 		String phoneNum = request.getParameter("phoneNum");
-		String role = request.getParameter("role");
+		String valueRole [] = request.getParameterValues("role");
 		
 		AccountModel ac = new AccountModel();
-		boolean result =ac.updateUser(username, password, fullName, value, address, phoneNum, role, email, idUser);
+		boolean result =ac.updateUser(username, password, fullName, value, address, phoneNum, valueRole, email, idUser);
 		System.out.println(result+"dfghjk");
 		response.sendRedirect(request.getContextPath()+"/showAllUser");
-//		doGet(request, response);
-//		request.getRequestDispatcher("/WEB-INF/view/viewAdmin/indexAdmin.jsp").forward(request, response);
+
 	}
 
 }
