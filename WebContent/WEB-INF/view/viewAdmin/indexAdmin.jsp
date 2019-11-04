@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,8 +42,9 @@
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
-						<li><a href="#"><i class="fa fa-truck" aria-hidden="true"></i>Tạo
-								người dùng</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/InsertUserServlet"><i
+								class="fa fa-truck" aria-hidden="true"></i>Tạo người dùng</a></li>
 						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Đặt
 								vai trò</a></li>
 						<li class="pull-right diff"><a href="#"><span
@@ -56,14 +58,16 @@
 		<!-- ngView:  -->
 		<div class="container">
 			<div class="search">
-				<form>
+				<form action="showAllUser" method="get">
 					<table width="100%" cellspacing="0" class="table-search">
 						<tbody>
 							<tr>
 								<td><input type="text" class="form-control"
-									placeholder="Tìm kiếm" autocomplete="off"></td>
-								<td><input type="submit" class="btn-search"
-									value="Tìm kiếm người dùng"></td>
+									placeholder="Tìm kiếm " autocomplete="off" name="keySearch"></td>
+								<td><a
+									href="${pageContext.request.contextPath}/showAllUser"> <input
+										type="submit" class="btn-search" value="Tìm kiếm người dùng">
+								</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -77,8 +81,7 @@
 						<th style="text-align: left; padding-right: 35;">Password</th>
 						<th style="text-align: left; padding-right: 35;">Fullname</th>
 						<th style="text-align: left; padding-right: 35;">gender</th>
-						<th class="wrapper" id="demo-1"
-							style="text-align: left; padding-right: 35;">address</th>
+						<th class="wrapper" style="text-align: left; padding-right: 35;">address</th>
 						<th style="text-align: left; padding-right: 35;">phoneNumber</th>
 						<th style="text-align: left; padding-right: 35;">role</th>
 						<th style="text-align: left; padding-right: 35;">Email</th>
@@ -93,7 +96,7 @@
 							<td>${user.getPassword()}</td>
 							<td>${user.getFullName()}</td>
 							<td>${user.getGender()}</td>
-							<td class="wrapper" id="demo-1">${user.getAddress()}</td>
+							<td class="wrapper">${user.getAddress()}</td>
 							<td>${user.getPhoneNum()}</td>
 							<td>${user.getRole()}</td>
 							<td>${user.getEmail()}</td>
@@ -101,7 +104,9 @@
 								href="${pageContext.request.contextPath}/UpdateUserServlet?idUser=${user.getIdUser()}">Update</a></td>
 						</tr>
 					</c:forEach>
+
 				</tbody>
+
 
 			</table>
 		</div>

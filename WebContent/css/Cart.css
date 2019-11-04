@@ -292,10 +292,3 @@ th{
     max-width: 150px;
     margin: 0px auto;
   }
-    
-#demo-1 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-  }
