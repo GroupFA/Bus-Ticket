@@ -74,12 +74,12 @@ public class BusModel {
 
 		return bus;
 	}
-	public static boolean booking( String departure, String destination,String kilomet,
-			String time, String price,String date, int idBus, int idUser) {
+	public static boolean booking( String departure, String destination,
+			String time, String price,String date, int idBus, int idUser,String phone) {
 
 		try {
 
-			String sql = "INSERT INTO `ticket`( `departure`, `destination`,`kilomet`, `time`,`price`, `idBus`,`idUser`,`date`) VALUES (?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO `ticket`( `departure`,`destination`,`Phone`,`time`,`price`, `idBus`,`idUser`,`date`) VALUES (?,?,?,?,?,?,?,?)";
 
 
 			
@@ -87,7 +87,7 @@ public class BusModel {
 			
 			pr.setString(1, departure);
 			pr.setString(2, destination);
-			pr.setString(3, kilomet);
+			pr.setString(3, phone);
 			pr.setString(4, time);
 			pr.setString(5,  price);
 			pr.setInt(6,  idBus);

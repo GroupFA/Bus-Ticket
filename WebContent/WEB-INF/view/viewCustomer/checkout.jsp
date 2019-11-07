@@ -54,21 +54,29 @@
               <p class="text-center text-uppercase text-primary">
                 <strong>Thông tin đặt vé</strong>
               </p>
-              <form class="form-horizontal ng-pristine ng-valid" name="form" novalidate="">
+              <form action="CheckOutServlet"
+						method="post">
                 <div class="form-group">
                   <div class="col-md-12">
                     <table class="table">
                       <tbody>
                         <tr>
                           <td class="col-xs-3">Tuyến:</td>
-                          <td class="col-xs-9" colspan="3" ng-bind-html="step2Info.selectRoute.Name">Bac Lieu ⇒ Sai
-                            Gon</td>
+                         <input class="form-control input-sm" id="departure"
+												name="departure" type="text" value="${bus.getDeparture()}">
+                        </tr>
+                        <tr>
+                          <td class="col-xs-3">Tuyến:</td>
+                          <input class="form-control input-sm" id="destination"
+												name="destination" type="text" value="${bus.getDestination()}">
                         </tr>
                         <tr>
                           <td>Ngày đi:</td>
                           <td>
-                            <span ng-bind-html="step2Info.departureTime.Time">08:00</span>
-                            <span ng-bind-html="step1Info.departureDate|svcDate">26-10-2019</span>
+                              <input class="form-control input-sm" id="destination"
+												name="time" type="text" value="${bus.getTime()}">
+                           <input class="form-control input-sm" id="destination"
+												name="bday" type="text" value="${date}">
                           </td>
                           <td>Ghế/giường:</td>
                           <td>
@@ -85,22 +93,28 @@
                         </tr>
                         <tr class="sperator">
                           <td>Họ tên:</td>
-                          <td ng-bind-html="step3Info.CustName">rt</td>
+                             <input class="form-control input-sm" id="destination"
+												name="fullname" type="text" value="${user.getFullName()}">
                         </tr>
                         <tr>
                           <td>Email:</td>
-                          <td ng-bind-html="step3Info.CustEmail">hoa@gmail.com</td>
+                             <input class="form-control input-sm" id="destination"
+												name="email" type="text" value="${user.getEmail()}">
+												 
+                             <input class="form-control input-sm" id="destination"
+												name="idBus" type="text" value="${bus.getIdBus()}">
+                         
                           <td>SĐT:</td>
                           <td>
-                            <span ng-bind-html="step3Info.CustMobile">0123456789</span>
-                            <span ng-bind-html="step3Info.CustMobile2"></span>
+                            <input class="form-control input-sm" id="destination"
+												name="phone" type="text" value="${user.getPhoneNum()}">
                           </td>
                         </tr>
                         <tr>
                           <td>Tổng tiền:</td>
                           <td colspan="3">
-                            <strong class="text-primary"
-                              ng-bind-html="step2Info.total|svcMoney">170.000<sup>₫</sup></strong>
+                             <input class="form-control input-sm" id="destination"
+												name="price" type="text" value="${price}">
                           </td>
                         </tr>
                       </tbody>
@@ -117,7 +131,7 @@
                 <div class="form-group">
                   <div class="col-lg-12 col-md-12 col-sm-2 col-xs-12 col-ms-12">
                     <a class="btn btn-primary btn-block btn-flat">
-                      <i class="fa fa-arrow-left icon-flat bg-btn-actived"></i> Thanh toán
+                      <button type="submit" class="btn btn-success btn-flat">Thanh Toan</button>
                     </a>
                   </div>
                 </div>
