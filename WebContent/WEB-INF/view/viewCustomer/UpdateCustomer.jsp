@@ -137,7 +137,7 @@
 											<td><input class="form-control input-sm" id="Email"
 												name="email" type="text"> <span
 												class="field-validation-valid" data-valmsg-for="Email"
-												data-valmsg-replace="true"></span></td>
+												data-valmsg-replace="true">${user.getEmail()}</span></td>
 										</tr>
 										<tr>
 										<tr>
