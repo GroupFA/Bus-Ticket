@@ -22,7 +22,6 @@ public class JDBCConnection {
 		}
 		return cone;
 	}
-
   public static void main(String[] args) {
 	 Connection cone = getJDBCConnection();
 	if(cone!=null) {
@@ -31,5 +30,4 @@ public class JDBCConnection {
 		System.out.println("fail");
 	}
 }
-
 }

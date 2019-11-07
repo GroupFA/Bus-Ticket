@@ -37,7 +37,6 @@
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
 
-
 				<div class="container">
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
@@ -48,12 +47,10 @@
 						<li class="pull-right"><a
 							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
 								nhật thông tin</a></li>
-
 					</ul>
 				</div>
 			</div>
 		</div>
-
 		<div>
 			<section id="body-content">
 				<div id="user-infomations" class="container">
@@ -159,12 +156,10 @@
 								</table>
 							</div>
 						</div>
-
 					</form>
 				</div>
 			</section>
 		</div>
-
 </body>
 
 </html>

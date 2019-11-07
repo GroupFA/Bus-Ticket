@@ -42,12 +42,9 @@
 </head>
 
 <body>
-
-
 	<div id="sb-site">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
-
 
 				<div class="container">
 					<ul class="clearfix">
@@ -61,7 +58,6 @@
 								nhật thông tin</a></li>
 					</ul>
 				</div>
-
 			</div>
 		</div>
 
@@ -121,7 +117,6 @@
 	<section class="page-section cta">
 		<div class="container">
 			<div class="row">
-
 				<div class="col-xl-12 mx-auto">
 					<div class="cta-inner text-center rounded">
 						<section id="body-content">
@@ -185,14 +180,11 @@
 								</div>
 							</div>
 						</section>
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-
 </body>
 
 </html>

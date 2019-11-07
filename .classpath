@@ -8,7 +8,7 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Personal Computer/Desktop/Fsoft_FA/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48-bin.jar" sourcepath="C:/Users/Personal Computer/Desktop/Fsoft_FA/mysql-connector-java-5.1.48"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

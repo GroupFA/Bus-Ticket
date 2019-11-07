@@ -2,10 +2,6 @@ package entities;
 
 public class Bus {
 	
-<<<<<<< HEAD
-	String departure, destination, category, kilomet, time, trip, price;
-	int idBus;
-=======
 	String departure, destination, category, kilomet, time, trip, price,date;
 	int idBus;
 	public Bus(String departure, String destination, String category, String kilomet, String time, String trip,
@@ -39,7 +35,6 @@ public class Bus {
 	public void setDate(String date) {
 		this.date = date;
 	}
-
 	
 	public int getIdBus() {
 		return idBus;
@@ -90,7 +85,8 @@ public class Bus {
 		this.price = price;
 	}
 
-
+	
+	
 
 	
 	

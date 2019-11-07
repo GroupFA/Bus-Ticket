@@ -1,10 +1,8 @@
 package model;
 
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -15,16 +13,13 @@ public class BusModel {
 	public static ArrayList<Bus> getListBus() {
 		
 		ArrayList<Bus> listBus =new ArrayList<>();
-
 		try {
 			String sql="SELECT * FROM `bus`";
 			Statement statement = JDBCConnection.getJDBCConnection().createStatement();
 			ResultSet rs = statement.executeQuery(sql);
-
 			System.out.println(rs.next());
 			while (rs.next()) {
 				
-
 				String departure = rs.getString(2);
 				String destination = rs.getString(3);
 				String category = rs.getString(4);
@@ -34,13 +29,11 @@ public class BusModel {
 				String price = rs.getString(8);
 				
 				int idBus = rs.getInt(1);
-
 				Bus bus =new Bus( departure, destination, category, kilomet, time, trip, price,idBus);
 				
 				System.out.println(listBus.size()+ bus.toString());
 				listBus.add(bus);
 				
-
 
 			}
 
@@ -50,7 +43,6 @@ public class BusModel {
 		return listBus;
 		
 	}
-
 
 	public static Bus getIdBus(int idBus) {
 		Bus bus = null;

@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -38,20 +37,16 @@
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
 
-
-
 				<div class="container">
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
-
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
 						<li class="pull-right"><a
 							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
 								nhật thông tin</a></li>
-
 					</ul>
 				</div>
 			</div>
@@ -162,7 +157,6 @@
 				</section>
 			</div>
 		</div>
->>>>>>> updateProject
 	</div>
 </body>
 

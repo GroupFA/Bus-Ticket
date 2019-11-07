@@ -34,13 +34,10 @@ public class ShowAllBusServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
-
-		BusModel bus = new BusModel();
-		ArrayList<Bus> listBus = bus.getListBus();
+		ArrayList<Bus> listBus = BusModel.getListBus();
 		
 		
 		request.setAttribute("idBus", listBus);
-
 
 		request.getRequestDispatcher("/WEB-INF/view/viewCustomer/indexCustomer.jsp").forward(request, response);
 		

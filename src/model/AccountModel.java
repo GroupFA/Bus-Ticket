@@ -150,7 +150,6 @@ public class AccountModel {
 			pr.executeUpdate();
 
 
-
 		} catch (Exception e) {
 
 			e.printStackTrace();
@@ -160,11 +159,6 @@ public class AccountModel {
 
 
 	}
-
-
-
-
-	
 
 	public static boolean insertUser(String username, String password, String fullName, String value[], String address,
 			String phoneNum, String valueRole[], String email) {
@@ -198,7 +192,6 @@ public class AccountModel {
 			e.printStackTrace();
 		}
 		return false;
-
 
 	}
 
