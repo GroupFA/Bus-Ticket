@@ -1,4 +1,4 @@
-#top-nav {
+	#top-nav {
     background: #ef5222;
 }
 #top-nav ul {
@@ -166,12 +166,7 @@ table { border-collapse:collapse }
     vertical-align: bottom;
     border-bottom: 0px solid #ddd;
 }
-.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
-    padding: 8px;
-    line-height: 1.428571429;
-    vertical-align: top;
-   /*  border-top: 0px solid #ddd; */
-}
+
 .bg-light-green {
     background: rgba(21,135,76,.59);
 }
@@ -259,13 +254,12 @@ td {
     margin-top: -12px;
 }
 .search{
-    margin-bottom: 50px;
-    margin-left: 90px;
+    margin-left: 150px;
     margin-top: 50px;
 }
 .table-dsach {
     margin-top: 20px;
-    margin-left: 40px;
+    margin-left: -20px;
     padding: 8px;
     line-height: 1.428571429;
     vertical-align: top;
@@ -457,7 +451,6 @@ input[type=tex] {
     top: 1px;
     left: 50%;
     transform: translate(-50%, 0%);
-    background: rgba(255, 255, 255, 0.4);
     border-radius: 3px;
   }
   .seat label:hover {
@@ -560,11 +553,11 @@ div#Star-sai-gon {
 }
 
 body {
-    background-color: white !important;
-    background: whitesmoke !important;
+    background-color: white !important;    background: whitesmoke !important;
 }
 .text-uppercase {
     text-align: left;
+    margin-top: -40px;
     /* text-transform: uppercase; */
 }
 select.form-control {
@@ -578,4 +571,13 @@ section#body-content {
 }
 div#user-infomations {
     margin-top: 50px;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+   border-top: 0px solid #ddd;
+}
+.panel {
+    background-color: #f4f4f4 !important;
 }

@@ -64,13 +64,13 @@
                       <div class="form-group">
                         <label for="">Tuyến xe</label>
                         <div class="controls">
-                          <p class="form-control">
+                          <p class="">
                             <input class="form-control input-sm" id="departure"
 												name="departure" type="text" value="${bus.getDeparture()}">
                           </p>
                         </div>
                          <div class="controls">
-                          <p class="form-control">
+                          <p class="">
                             <input class="form-control input-sm" id="destination"
 												name="destination" type="text" value="${bus.getDestination()}">
                           </p>
