@@ -2,8 +2,44 @@ package entities;
 
 public class Bus {
 	
+<<<<<<< HEAD
 	String departure, destination, category, kilomet, time, trip, price;
 	int idBus;
+=======
+	String departure, destination, category, kilomet, time, trip, price,date;
+	int idBus;
+	public Bus(String departure, String destination, String category, String kilomet, String time, String trip,
+			String price, int idBus) {
+	
+		this.departure = departure;
+		this.destination = destination;
+		this.category = category;
+		this.kilomet = kilomet;
+		this.time = time;
+		this.trip = trip;
+		this.price = price;
+		this.idBus = idBus;
+	}
+	public Bus(String departure, String destination, String category, String kilomet, String time, String trip,
+			String price, String date, int idBus) {
+
+		this.departure = departure;
+		this.destination = destination;
+		this.category = category;
+		this.kilomet = kilomet;
+		this.time = time;
+		this.trip = trip;
+		this.price = price;
+		this.date = date;
+		this.idBus = idBus;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+
 	
 	public int getIdBus() {
 		return idBus;
@@ -54,19 +90,7 @@ public class Bus {
 		this.price = price;
 	}
 
-	public Bus(int idBus, String departure, String destination, String category, String kilomet, String time,
-			String trip, String price) {
-		super();
-		this.idBus = idBus;
-		this.departure = departure;
-		this.destination = destination;
-		this.category = category;
-		this.kilomet = kilomet;
-		this.time = time;
-		this.trip = trip;
-		this.price = price;
-	}
-	
+
 
 	
 	

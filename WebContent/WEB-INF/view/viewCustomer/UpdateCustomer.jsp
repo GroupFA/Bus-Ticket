@@ -36,159 +36,135 @@
 	<div id="sb-site">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
+
+
 				<div class="container">
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
-						<li><a href="#"><i class="fa fa-truck" aria-hidden="true"></i>Lịch
-								trình xe chạy</a></li>
-						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Mua
-								vé</a></li>
-						<li class="pull-right diff"><a href="#"><span
-								class="hidden-xs">Đăng nhập</span></a></li>
-						<li class="pull-right"><a target="_blank" href="#"><i
-								class="fa fa-facebook-square"></i> Đăng ký</a></li>
+						<li class="pull-right diff"><a
+							href="${pageContext.request.contextPath}/AccountServlet"><span
+								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
+						<li class="pull-right"><a
+							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
+								nhật thông tin</a></li>
+
 					</ul>
 				</div>
 			</div>
 		</div>
-		<!-- ngView:  -->
+
 		<div>
 			<section id="body-content">
-				<div id="step" class="container">
-					<p class="text-center text-primary text-uppercase">
-						<strong>Update thông tin người dùng</strong>
-					</p>
-					<form action="UpdateNdServlet" method="post">
-						<fieldset>
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-									<div class="form-group clearfix">
-										<label for="">Username <span class="text-primary">*</span></label>
-										<div class="controls no-icon">
-											<input type="text"
-												class="form-control" name="username" required=""
-												ng-maxlength="80" value="${user.getUsername()}">
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-									<div class="form-group clearfix">
-										<label for="">Di động <span class="text-primary">*</span></label>
-										<div class="controls no-icon">
-											<input  type="text"
-												class="form-control" name="phoneNum"
-												placeholder="Số di động" required="" ng-maxlength="30"
-												vietnam-phone="" value="${user.getPhoneNum()}">
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-									<div class="form-group clearfix">
-										<label for="">Fullname <span class="text-primary">*</span></label>
-										<div class="controls no-icon">
-											<input type="text"
-												class="form-control" name="fullname" required=""
-												ng-maxlength="80" value="${user.getFullName()}">
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-									<div class="form-group clearfix">
-										<label for="">address <span class="text-primary">*</span></label>
-										<div class="controls no-icon">
-											<input  type="text"
-												class="form-control" name="address" required=""
-												ng-maxlength="80" value="${user.getAddress()}">
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-									<div class="form-group clearfix">
-										<label for="">password <span class="text-primary">*</span></label>
-										<div class="controls no-icon">
-											<input  type="text"
-												class="form-control" name="password" required=""
-												ng-maxlength="80" value="${user.getPassword()}">
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-									<div class="form-group clearfix">
-										<label for="">Email <span class="text-primary">*</span></label>
-										<div class="controls no-icon">
-											<input class="form-control"
-												type="email" name="email" placeholder="Địa chỉ email"
-												required="" value="${user.getEmail()}">
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
+				<div id="user-infomations" class="container">
+					<form action="UpdateNdServlet" class="form-horizontal"
+						method="post">
+						<input name="__RequestVerificationToken" type="hidden"
+							value="7FbmdXF5ZJggXa89psEoGMafXyYcTv94H28ge51LsqxRUw0P-SpnBL1FVzHjRn1D2Sh45bJp2Kl20q3-EMZnQXG2QYo1">
+						<div class="row">
+							<div class=" col-lg-6 col-md-6 col-sm-12 col-sm-12 col-xs-12">
+								<h3 class="text-uppercase bg-success">Thông tin cá nhân</h3>
+								<table class="table form-info">
+									<tbody>
+										<tr>
+											<td>UserName:<span style="color: red;">(*)</span></td>
+											<td><input class="form-control input-sm" id="FullName"
+												name="username" type="text" value="${user.getUsername()}">
+												<span class="field-validation-valid"
+												data-valmsg-for="FullName" data-valmsg-replace="true"></span>
+											</td>
+										</tr>
 
-
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-									<div class="form-group clearfix">
-										<label for="">Role <span class="text-primary">*</span></label>
-										<div class="controls no-icon">
-											<input type="text" class="form-control" name="role"
-												required="" ng-maxlength="80" value="${user.getRole()}">
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-									<div class="form-group clearfix">
-										<label for="">ID User <span class="text-primary">*</span></label>
-										<div class="controls no-icon">
-											<input type="text" class="form-control" name="idUser"
-												required="" ng-maxlength="80" value="${user.getIdUser()}">
-										</div>
-									</div>
-								</div>
-
+										<tr>
+											<td>FullName:<span style="color: red;">(*)</span></td>
+											<td><input class="form-control input-sm" id="FullName"
+												name="fullname" type="text" value="${user.getFullName()}">
+												<span class="field-validation-valid"
+												data-valmsg-for="FullName" data-valmsg-replace="true"></span>
+											</td>
+										</tr>
+										<tr>
+											<td>Password:<span style="color: red;">(*)</span></td>
+											<td><input class="form-control input-sm" id="FullName"
+												name="password" type="text" value="${user.getPassword()}">
+												<span class="field-validation-valid"
+												data-valmsg-for="FullName" data-valmsg-replace="true"></span>
+											</td>
+										</tr>
+										<tr>
+											<td>Role:<span style="color: red;">(*)</span></td>
+											<td><input class="form-control input-sm"
+												readonly="readlonly" id="FullName" name="role" type="text"
+												value="${user.getRole()}"> <span
+												class="field-validation-valid" data-valmsg-for="FullName"
+												data-valmsg-replace="true"></span></td>
+										</tr>
+										<tr>
+											<td>Gender:<span style="color: red;">(*)</span></td>
+											<td>
+												<div class="input-group" value="${user.getGender()}">
+													<div class="p-t-10">
+														<label class="radio-container m-r-45">Male <input
+															type="radio" checked="checked" name="gender" value="Nam">
+															<span class="checkmark"></span>
+														</label> <label class="radio-container">Female <input
+															type="radio" name="gender" value="Nữ"> <span
+															class="checkmark"></span>
+														</label>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-									<div class="form-group clearfix">
-										<label for="">Gender <span class="text-primary">*</span></label>
-										<div class="input-group" value="${user.getGender()}">
-											<div class="p-t-10">
-												<label class="radio-container m-r-45">Male <input
-													type="radio" checked="checked" name="gender" value="Nam">
-													<span class="checkmark"></span>
-												</label> <label class="radio-container">Female <input
-													type="radio" name="gender" value="Nữ"> <span
-													class="checkmark"></span>
-												</label>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-									<a class="btn btn-primary btn-flat"><i
-										class="fa fa-arrow-left icon-flat bg-btn-actived"></i> Quay
-										lại</a> <a>
-										<button
-											class="btn btn-success  btn-flat">
-											<i class="fa fa-arrow-right icon-flat bg-success"></i>Tiếp
-											tục
-										</button>
-									</a>
-								</div>
-
-<%-- <a href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cap nhat thong tin</a> --%>
+							<div class=" col-lg-6 col-md-6 col-sm-12 col-sm-12 col-xs-12">
+								<h3 class="text-uppercase bg-success">Thông tin địa chỉ</h3>
+								<table class="table form-info">
+									<tbody>
+										<tr>
+											<td>Điện thoại <span style="color: red;">(*)</span></td>
+											<td><input class="form-control input-sm" id="Phone"
+												name="phoneNum" type="text" value="${user.getPhoneNum()}"><span
+												class="field-validation-valid" data-valmsg-for="Phone"
+												data-valmsg-replace="true"></span></td>
+										</tr>
+										<tr>
+											<td>Địa chỉ</td>
+											<td><input class="form-control input-sm" id="Address"
+												name="address" type="text" value="${user.getAddress()}">
+											</td>
+										</tr>
+										<tr>
+											<td>Email <span style="color: red;">(*)</span></td>
+											<td><input class="form-control input-sm" id="Email"
+												name="email" type="text"> <span
+												class="field-validation-valid" data-valmsg-for="Email"
+												data-valmsg-replace="true"></span></td>
+										</tr>
+										<tr>
+										<tr>
+											<td>ID User:</td>
+											<td><input readonly="readlonly"
+												class="form-control input-sm" id="Address" name="idUser"
+												type="text" value="${user.getIdUser()}"></td>
+										</tr>
+										<tr>
+											<td colspan="2" class="text-right">
+												<button type="submit" class="btn btn-primary">Cập
+													nhật</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
+						</div>
 
-						</fieldset>
 					</form>
 				</div>
 			</section>
 		</div>
-	</div>
+
 </body>
 
 </html>

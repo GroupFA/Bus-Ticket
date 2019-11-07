@@ -23,4 +23,13 @@ public class JDBCConnection {
 		return cone;
 	}
 
+  public static void main(String[] args) {
+	 Connection cone = getJDBCConnection();
+	if(cone!=null) {
+		System.out.println("true");
+	}else {
+		System.out.println("fail");
+	}
+}
+
 }

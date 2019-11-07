@@ -41,6 +41,7 @@ public class AccountServlet extends HttpServlet {
 					page = "seller.jsp";
 				}
 				else if (nd.getRole().equals("Customer")) {
+
 					request.getSession().setAttribute("userlogin", nd);
 					page = "/WEB-INF/view/viewCustomer/indexCustomer.jsp";
 					response.sendRedirect(request.getContextPath()+"/ShowAllBus");

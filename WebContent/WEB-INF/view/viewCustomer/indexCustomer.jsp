@@ -12,7 +12,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="Cart.css">
+<link rel="stylesheet"
+	href="bootstrap/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
@@ -46,22 +47,21 @@
 	<div id="sb-site">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
-				
-					<div class="container">
-						<ul class="clearfix">
-							<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-									Trang chủ</a></li>
-							<li><a href="#"><i class="fa fa-truck"
-									aria-hidden="true"></i>Lịch trình xe chạy</a></li>
-							<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>${userlogin.getFullName()}</a></li>
-							<li class="pull-right diff"><a
-								href="${pageContext.request.contextPath}/AccountServlet"><span
-									class="hidden-xs">Hi, Custommer </span></a></li>
-							<li class="pull-right"><a href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cap nhat thong tin</a>
-									 </a></li>
-						</ul>
-					</div>
-	
+
+
+				<div class="container">
+					<ul class="clearfix">
+						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
+								Trang chủ</a></li>
+						<li class="pull-right diff"><a
+							href="${pageContext.request.contextPath}/AccountServlet"><span
+								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
+						<li class="pull-right"><a
+							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
+								nhật thông tin</a></li>
+					</ul>
+				</div>
+
 			</div>
 		</div>
 
@@ -99,14 +99,18 @@
 				<table width="100%" cellspacing="0" class="table-search">
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control"
-								placeholder="Điểm đi" autocomplete="off"></td>
-							<td><input type="text" class="form-control"
-								placeholder="Điểm đến" autocomplete="off"></td>
-							<td><input type="text" class="form-control"
-								placeholder="Ngày xuất bến"></td>
-							<td><input type="text" class="form-control"
-								placeholder="Giờ đi"></td>
+							<td><select class="form-control">
+									<option value="Điểm đi" selected>Điểm đi</option>
+									<option>Sài gòn</option>
+							</select></td>
+							<td><select class="form-control">
+									<option value="Điểm đến" selected>Điểm đến</option>
+									<option>Cà Mau</option>
+							</select></td>
+							<td><input class="form-control" type="date" name="bday">
+							</td>
+
+
 							<td><input type="submit" class="btn-search" value="Tìm vé"></td>
 						</tr>
 					</tbody>
@@ -114,67 +118,80 @@
 			</form>
 		</div>
 	</div>
-	<section id="body-content">
+	<section class="page-section cta">
 		<div class="container">
 			<div class="row">
-				<h3 class="text-primary text-uppercase">Các tuyến đường phổ
-					biến</h3>
-				<div class="section-list" id="Star-sai-gon">
-					<h3 class="text-uppercase text-success">
-						<span class="sprite ico-drive"></span> Sài Gòn <i
-							class="fa fa-exchange"></i>
-					</h3>
-					<div class="table-responsive">
-						<table class="table ">
-							<thead>
-								<tr class="text-white bg-light-green">
-									<th>STT</th>
-									<th data-toggle="true">Bến đi</th>
-									<th>Bến đến</th>
-									<th data-hide="phone">Loại xe</th>
-									<th data-hide="phone">Quãng đường</th>
-									<th data-hide="phone">Thời gian</th>
-									<th data-hide="phone">Số chuyến</th>
-									<th data-hide="phone">Giá vé</th>
-									<th data-hide="phone">Giờ chạy</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody action ="ShowAllBus" method ="get">
-							<c:forEach var="bus" items="${bus}">
-								<tr class="route-row1375">
-									<td>${bus.getIdBus()}</td>
-									<td>${bus.getDeparture()}</td>
-									<td>${bus.getDestination()}</td>
-									<td>${bus.getCategory()}</td>
-									<td>${bus.getKilomet()} km</td>
-									<td>${bus.getTime()}</td>
-									<td>${bus.getTrip()} chuyến/ngày</td>
-									<td>
-										<p>
-											<strong class="text-primary"> ${bus.getPrice()}<sup>đ/vé</sup>
-											</strong>
-										</p>
-									</td>
-									<td><a class="br-btn-flat br-watch-schedule"
-										href=""> <i
-											class="fa fa-clock-o icon-flat text-success"></i>
-									</a></td>
-									<td><a
-										href="">
-										 <i	class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
-											vé
-									</a></td>
-								</tr>																
-							</c:forEach>
-							</tbody>
-						</table>
+
+				<div class="col-xl-12 mx-auto">
+					<div class="cta-inner text-center rounded">
+						<section id="body-content">
+							<div class="container">
+								<div class="row">
+									<h3 class="text-primary text-uppercase">Các tuyến đường
+										phổ biến</h3>
+									<div class="section-list" id="Star-sai-gon">
+										<h3 class="text-uppercase text-success">
+											<span class="sprite ico-drive"></span> Sài Gòn <i
+												class="fa fa-exchange"></i>
+										</h3>
+										<div class="table-responsive">
+											<table class="table ">
+												<thead>
+													<tr class="bg-light-green">
+														<th>STT</th>
+														<th data-toggle="true">Bến đi</th>
+														<th>Bến đến</th>
+														<th data-hide="phone">Loại xe</th>
+														<th data-hide="phone">Quãng đường</th>
+														<th data-hide="phone">Thời gian</th>
+														<th data-hide="phone">Số chuyến</th>
+														<th data-hide="phone">Giá vé</th>
+														<th data-hide="phone">Giờ chạy</th>
+														<th></th>
+													</tr>
+												</thead>
+												<tbody action="ShowAllBus" method="get">
+													<c:forEach var="idBus" items="${idBus}">
+														<tr class="route-row1375">
+															<td>${idBus.getIdBus()}</td>
+															<td>${idBus.getDeparture()}</td>
+															<td>${idBus.getDestination()}</td>
+															<td>${idBus.getCategory()}</td>
+															<td>${idBus.getKilomet()}km</td>
+															<td>${idBus.getTime()}</td>
+															<td>${idBus.getTrip()}chuyến/ngày</td>
+															<td>
+																<p>
+																	<strong class="text-primary">
+																		${idBus.getPrice()}<sup>đ/vé</sup>
+																	</strong>
+																</p>
+															</td>
+															<td><a class="br-btn-flat br-watch-schedule" href="">
+																	<i class="fa fa-clock-o icon-flat text-success"></i>
+															</a></td>
+															<td><a href="${pageContext.request.contextPath}/BookingServlet?idBus=${idBus.getIdBus()}&&idUser=${userlogin.getIdUser()}"
+															class="btn br-btn-default btn-flat futa-book-ticket">
+																<i
+																class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
+																vé
+														</a></td>
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	</div>
+
 
 </body>
 

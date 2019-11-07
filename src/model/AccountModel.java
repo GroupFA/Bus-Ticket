@@ -75,12 +75,12 @@ public class AccountModel {
 				int idUser = rs.getInt(1);
 				Users users = new Users(username, password, fullName, gender, address, phoneNum, role, email, idUser);
 				list.add(users);
-				System.out.println(list + "aaaaaaa");
+			
 
 			}
 
 		} catch (Exception e) {
-			System.out.println(e + "hhhhhh");
+	
 		}
 
 		return list;
@@ -150,6 +150,7 @@ public class AccountModel {
 			pr.executeUpdate();
 
 
+
 		} catch (Exception e) {
 
 			e.printStackTrace();
@@ -159,6 +160,11 @@ public class AccountModel {
 
 
 	}
+
+
+
+
+	
 
 	public static boolean insertUser(String username, String password, String fullName, String value[], String address,
 			String phoneNum, String valueRole[], String email) {
@@ -192,6 +198,7 @@ public class AccountModel {
 			e.printStackTrace();
 		}
 		return false;
+
 
 	}
 
