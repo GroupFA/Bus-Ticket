@@ -64,7 +64,6 @@ public class BookingServlet extends HttpServlet {
 		int idBus = Integer.parseInt(request.getParameter("idBus"));
 		String departure = request.getParameter("departure");
 		String destination = request.getParameter("destination");
-		String kilomet = request.getParameter("kilomet");
 		String time = request.getParameter("time");
 		String price = request.getParameter("price");
 		String date = request.getParameter("bday");
@@ -73,8 +72,8 @@ public class BookingServlet extends HttpServlet {
 	Users idUser = (Users) session.getAttribute("userlogin");
 	session.setAttribute("date",date);
 	session.setAttribute("price", price);
-//		BusModel busModel = new BusModel();
-//		boolean result =busModel.booking(departure, destination, kilomet, time, price,date, idBus,idUser.getIdUser());
+		BusModel busModel = new BusModel();
+		boolean result =busModel.booking(departure, destination,time, price,date, idBus,idUser.getIdUser());
 		response.sendRedirect(request.getContextPath() +"/CheckOutServlet?idBus="+idBus +"&idUser="+ idUser.getIdUser());
 	}
 

@@ -19,7 +19,7 @@
 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <!------ Include the above in your HEAD tag ---------->
   <title>Document</title>
-  <link rel="stylesheet" href="Cart.css">
+  <link rel="stylesheet" href="css/Cart.css">
 </head>
 
 <body>

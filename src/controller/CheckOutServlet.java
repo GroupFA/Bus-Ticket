@@ -51,19 +51,19 @@ public class CheckOutServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int idBus = Integer.parseInt(request.getParameter("idBus"));
-		String departure = request.getParameter("departure");
-		String destination = request.getParameter("destination");
-		String time = request.getParameter("time");
-		String price = request.getParameter("price");
-		String date = request.getParameter("bday");
-		String phone = request.getParameter("phone");
-		HttpSession session = request.getSession();
-		
-	Users idUser = (Users) session.getAttribute("userlogin");
-	session.setAttribute("date",date);
-       BusModel busModel = new BusModel();
-       boolean result =busModel.booking(departure, destination, time, price,date, idBus,idUser.getIdUser(),phone);
+//		int idBus = Integer.parseInt(request.getParameter("idBus"));
+//		String departure = request.getParameter("departure");
+//		String destination = request.getParameter("destination");
+//		String time = request.getParameter("time");
+//		String price = request.getParameter("price");
+//		String date = request.getParameter("bday");
+//		String phone = request.getParameter("phone");
+//		HttpSession session = request.getSession();
+//		
+//	Users idUser = (Users) session.getAttribute("userlogin");
+//	session.setAttribute("date",date);
+//       BusModel busModel = new BusModel();
+//       boolean result =busModel.booking(departure, destination, time, price,date, idBus,idUser.getIdUser(),phone);
 		
 	}
 
