@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="model.AccountModel"%>
+<%@page import="java.util.ArrayList"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +12,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="Cart.css">
+<link rel="stylesheet"
+	href="bootstrap/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script
@@ -39,20 +45,17 @@
 	<div id="sb-site">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
+
 				<div class="container">
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
-						<li><a href="#"><i class="fa fa-truck" aria-hidden="true"></i>Lịch
-								trình xe chạy</a></li>
-						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Mua
-								vé</a></li>
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
-								class="hidden-xs">Hi, Custommer </span></a></li>
-						<li class="pull-right"><a target="_blank"
-							href="${pageContext.request.contextPath}/RegisterServlet">
-								Cap nhat thong tin </a></li>
+								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
+						<li class="pull-right"><a
+							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
+								nhật thông tin</a></li>
 					</ul>
 				</div>
 			</div>
@@ -92,14 +95,18 @@
 				<table width="100%" cellspacing="0" class="table-search">
 					<tbody>
 						<tr>
-							<td><input type="text" class="form-control"
-								placeholder="Điểm đi" autocomplete="off"></td>
-							<td><input type="text" class="form-control"
-								placeholder="Điểm đến" autocomplete="off"></td>
-							<td><input type="text" class="form-control"
-								placeholder="Ngày xuất bến"></td>
-							<td><input type="text" class="form-control"
-								placeholder="Giờ đi"></td>
+							<td><select class="form-control">
+									<option value="Điểm đi" selected>Điểm đi</option>
+									<option>Sài gòn</option>
+							</select></td>
+							<td><select class="form-control">
+									<option value="Điểm đến" selected>Điểm đến</option>
+									<option>Cà Mau</option>
+							</select></td>
+							<td><input class="form-control" type="date" name="bday">
+							</td>
+
+
 							<td><input type="submit" class="btn-search" value="Tìm vé"></td>
 						</tr>
 					</tbody>
@@ -107,147 +114,77 @@
 			</form>
 		</div>
 	</div>
-	<section id="body-content">
+	<section class="page-section cta">
 		<div class="container">
 			<div class="row">
-				<h3 class="text-primary text-uppercase">Các tuyến đường phổ
-					biến</h3>
-				<div class="section-list" id="Star-sai-gon">
-					<h3 class="text-uppercase text-success">
-						<span class="sprite ico-drive"></span> Sài Gòn <i
-							class="fa fa-exchange"></i>
-					</h3>
-					<div class="table-responsive">
-						<table class="table ">
-							<thead>
-								<tr class="text-white bg-light-green">
-									<th>STT</th>
-									<th data-toggle="true">Bến đi</th>
-									<th>Bến đến</th>
-									<th data-hide="phone">Loại xe</th>
-									<th data-hide="phone">Quãng đường</th>
-									<th data-hide="phone">Thời gian</th>
-									<th data-hide="phone">Số chuyến</th>
-									<th data-hide="phone">Giá vé</th>
-									<th data-hide="phone">Giờ chạy</th>
-									<th></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="route-row1375">
-									<td>1</td>
-									<td>Sài Gòn</td>
-									<td>Đà Lạt</td>
-									<td>Giường</td>
-									<td>320 km</td>
-									<td>08h00</td>
-									<td>37 chuyến/ngày</td>
-									<td>
-										<p>
-											<strong class="text-primary"> 240,000<sup>đ/vé</sup>
-											</strong>
-										</p>
-									</td>
-									<td><a class="br-btn-flat br-watch-schedule"
-										href="/vi-VN/tp-ho-chi-minh-di-da-lat-1375.html"> <i
-											class="fa fa-clock-o icon-flat text-success"></i>
-									</a></td>
-									<td><a
-										href="/vi-VN/mua-ve-xe-tp-ho-chi-minh-di-da-lat.html"
-										data-obj="{&quot;id&quot;:&quot;24-10-2019-All-BX An Suong ⇒ Da Lat&quot;,&quot;name&quot;:&quot;All-BX An Suong ⇒ Da Lat&quot;,&quot;list&quot;:&quot;TP.Hồ Chí Minh - Đà Lạt&quot;,&quot;brand&quot;:&quot;Phương Trang&quot;,&quot;category&quot;:&quot;BX An Suong ⇒ Da Lat&quot;,&quot;variant&quot;:&quot;Giường&quot;,&quot;position&quot;:1,&quot;price&quot;:240000}"
-										class="btn br-btn-default btn-flat futa-book-ticket"> <i
-											class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
-											vé
-									</a></td>
-								</tr>
-								<tr class="route-row1378">
-									<td>2</td>
-									<td>Sài Gòn</td>
-									<td>Buôn Ma Thuột</td>
-									<td>Giường</td>
-									<td>435 km</td>
-									<td>09h00</td>
-									<td>5 chuyến/ngày</td>
-									<td>
-										<p>
-											<strong class="text-primary"> 245,000<sup>đ/vé</sup>
-											</strong>
-										</p>
-									</td>
-									<td><a class="br-btn-flat br-watch-schedule"
-										href="/vi-VN/tp-ho-chi-minh-di-buon-ma-thuot-1378.html"> <i
-											class="fa fa-clock-o icon-flat text-success"></i>
-									</a></td>
-									<td><a
-										href="/vi-VN/mua-ve-xe-tp-ho-chi-minh-di-buon-ma-thuot.html"
-										data-obj="{&quot;id&quot;:&quot;24-10-2019-All-BX Mien Dong ⇒ Buon Ma Thuot&quot;,&quot;name&quot;:&quot;All-BX Mien Dong ⇒ Buon Ma Thuot&quot;,&quot;list&quot;:&quot;TP.Hồ Chí Minh - Buôn Ma Thuột&quot;,&quot;brand&quot;:&quot;Phương Trang&quot;,&quot;category&quot;:&quot;BX Mien Dong ⇒ Buon Ma Thuot&quot;,&quot;variant&quot;:&quot;Giường&quot;,&quot;position&quot;:2,&quot;price&quot;:245000}"
-										class="btn br-btn-default btn-flat futa-book-ticket"> <i
-											class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
-											vé
-									</a></td>
-								</tr>
-								<tr class="route-row485">
-									<td>3</td>
-									<td>Sài Gòn</td>
-									<td>Nha Trang</td>
-									<td>Giường</td>
-									<td>427 km</td>
-									<td>12h00</td>
-									<td>7 chuyến/ngày</td>
-									<td>
-										<p>
-											<strong class="text-primary"> 225,000<sup>đ/vé</sup>
-											</strong>
-										</p>
-									</td>
-									<td><a class="br-btn-flat br-watch-schedule"
-										href="/vi-VN/tp-ho-chi-minh-di-nha-trang-485.html"> <i
-											class="fa fa-clock-o icon-flat text-success"></i>
-									</a></td>
-									<td><a
-										href="/vi-VN/mua-ve-xe-tp-ho-chi-minh-di-nha-trang.html"
-										data-obj="{&quot;id&quot;:&quot;24-10-2019-All-BX Mien Dong ⇒ BX Nha Trang&quot;,&quot;name&quot;:&quot;All-BX Mien Dong ⇒ BX Nha Trang&quot;,&quot;list&quot;:&quot;TP.Hồ Chí Minh - Nha Trang&quot;,&quot;brand&quot;:&quot;Phương Trang&quot;,&quot;category&quot;:&quot;BX Mien Dong ⇒ BX Nha Trang&quot;,&quot;variant&quot;:&quot;Giường&quot;,&quot;position&quot;:3,&quot;price&quot;:225000}"
-										class="btn br-btn-default btn-flat futa-book-ticket"> <i
-											class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
-											vé
-									</a></td>
-								</tr>
-								<tr class="route-row827">
-									<td>4</td>
-									<td>Sài Gòn</td>
-									<td>Phan Thiết</td>
-									<td>Giường</td>
-									<td>203 km</td>
-									<td>06h00</td>
-									<td>3 chuyến/ngày</td>
-									<td>
-										<p>
-											<strong class="text-primary"> 140,000<sup>đ/vé</sup>
-											</strong>
-										</p>
-									</td>
-									<td><a class="br-btn-flat br-watch-schedule"
-										href="/vi-VN/tp-ho-chi-minh-di-phan-thiet-827.html"> <i
-											class="fa fa-clock-o icon-flat text-success"></i>
-									</a></td>
-									<td><a
-										href="/vi-VN/mua-ve-xe-tp-ho-chi-minh-di-phan-thiet.html"
-										data-obj="{&quot;id&quot;:&quot;24-10-2019-All-BX Mien Dong ⇒ BXB Phan Thiet&quot;,&quot;name&quot;:&quot;All-BX Mien Dong ⇒ BXB Phan Thiet&quot;,&quot;list&quot;:&quot;TP.Hồ Chí Minh - Phan Thiết&quot;,&quot;brand&quot;:&quot;Phương Trang&quot;,&quot;category&quot;:&quot;BX Mien Dong ⇒ BXB Phan Thiet&quot;,&quot;variant&quot;:&quot;Giường&quot;,&quot;position&quot;:4,&quot;price&quot;:140000}"
-										class="btn br-btn-default btn-flat futa-book-ticket"> <i
-											class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
-											vé
-									</a></td>
-								</tr>
-
-
-							</tbody>
-						</table>
+				<div class="col-xl-12 mx-auto">
+					<div class="cta-inner text-center rounded">
+						<section id="body-content">
+							<div class="container">
+								<div class="row">
+									<h3 class="text-primary text-uppercase">Các tuyến đường
+										phổ biến</h3>
+									<div class="section-list" id="Star-sai-gon">
+										<h3 class="text-uppercase text-success">
+											<span class="sprite ico-drive"></span> Sài Gòn <i
+												class="fa fa-exchange"></i>
+										</h3>
+										<div class="table-responsive">
+											<table class="table ">
+												<thead>
+													<tr class="bg-light-green">
+														<th>STT</th>
+														<th data-toggle="true">Bến đi</th>
+														<th>Bến đến</th>
+														<th data-hide="phone">Loại xe</th>
+														<th data-hide="phone">Quãng đường</th>
+														<th data-hide="phone">Thời gian</th>
+														<th data-hide="phone">Số chuyến</th>
+														<th data-hide="phone">Giá vé</th>
+														<th data-hide="phone">Giờ chạy</th>
+														<th></th>
+													</tr>
+												</thead>
+												<tbody action="ShowAllBus" method="get">
+													<c:forEach var="idBus" items="${idBus}">
+														<tr class="route-row1375">
+															<td>${idBus.getIdBus()}</td>
+															<td>${idBus.getDeparture()}</td>
+															<td>${idBus.getDestination()}</td>
+															<td>${idBus.getCategory()}</td>
+															<td>${idBus.getKilomet()}km</td>
+															<td>${idBus.getTime()}</td>
+															<td>${idBus.getTrip()}chuyến/ngày</td>
+															<td>
+																<p>
+																	<strong class="text-primary">
+																		${idBus.getPrice()}<sup>đ/vé</sup>
+																	</strong>
+																</p>
+															</td>
+															<td><a class="br-btn-flat br-watch-schedule" href="">
+																	<i class="fa fa-clock-o icon-flat text-success"></i>
+															</a></td>
+															<td><a href="${pageContext.request.contextPath}/BookingServlet?idBus=${idBus.getIdBus()}&&idUser=${userlogin.getIdUser()}"
+															class="btn br-btn-default btn-flat futa-book-ticket">
+																<i
+																class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
+																vé
+														</a></td>
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	</div>
 </body>
 
 </html>

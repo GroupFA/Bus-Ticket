@@ -45,7 +45,6 @@
 					style="background-image: url(images/bg-02.jpg);">
 					<span class="login100-form-title-1"> Sign In </span>
 				</div>
-				<div>></div>
 				<form class="login100-form validate-form" action="AccountServlet"
 					method="post">
 					<div class="wrap-input100 validate-input m-b-26"
@@ -72,17 +71,18 @@
 						</div>
 
 						<div>
-							<a href="${pageContext.request.contextPath}/RegisterServlet" class="txt1"> Register here </a>
+							<a href="${pageContext.request.contextPath}/RegisterServlet"
+								class="txt1"> Register here </a>
 						</div>
 					</div>
 
 					<div class="container-login100-form-btn">
-					<button class="login100-form-btn">Login</button>
-				
-						
+						<button class="login100-form-btn">Login</button>
+
+
 					</div>
 				</form>
-				
+
 			</div>
 		</div>
 	</div>

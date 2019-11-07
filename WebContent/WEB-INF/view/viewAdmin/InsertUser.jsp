@@ -57,9 +57,9 @@
 			<section id="body-content">
 				<div id="step" class="container">
 					<p class="text-center text-primary text-uppercase">
-						<strong>Update thông tin người dùng</strong>
+						<strong>Thêm người dùng</strong>
 					</p>
-					<form action="UpdateUserServlet" method="post">
+					<form action="InsertUserServlet" method="post">
 						<fieldset>
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
@@ -67,8 +67,7 @@
 										<label for="">Username <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
 											<input type="text" class="form-control" name="username"
-												readonly="readonly" required="" ng-maxlength="80"
-												value="${user.getUsername()}">
+												required="" ng-maxlength="80" value="">
 										</div>
 									</div>
 								</div>
@@ -78,7 +77,7 @@
 										<div class="controls no-icon">
 											<input type="text" class="form-control" name="phoneNum"
 												placeholder="Số di động" required="" ng-maxlength="30"
-												vietnam-phone="" value="${user.getPhoneNum()}">
+												vietnam-phone="" value="">
 										</div>
 									</div>
 								</div>
@@ -89,7 +88,7 @@
 										<label for="">Fullname <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
 											<input type="text" class="form-control" name="fullname"
-												required="" ng-maxlength="80" value="${user.getFullName()}">
+												required="" ng-maxlength="80" value="">
 										</div>
 									</div>
 								</div>
@@ -98,7 +97,7 @@
 										<label for="">address <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
 											<input type="text" class="form-control" name="address"
-												required="" ng-maxlength="80" value="${user.getAddress()}">
+												required="" ng-maxlength="80" value="">
 										</div>
 									</div>
 								</div>
@@ -109,7 +108,7 @@
 										<label for="">password <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
 											<input type="text" class="form-control" name="password"
-												required="" ng-maxlength="80" value="${user.getPassword()}">
+												required="" ng-maxlength="80" value="">
 										</div>
 									</div>
 								</div>
@@ -118,8 +117,7 @@
 										<label for="">Email <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
 											<input class="form-control" type="email" name="email"
-												placeholder="Địa chỉ email" required=""
-												value="${user.getEmail()}">
+												placeholder="Địa chỉ email" required="" value="">
 										</div>
 									</div>
 								</div>
@@ -131,8 +129,7 @@
 									<div class="form-group clearfix">
 										<label for="">Role <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
-											<select name="role" id="" class="form-control"
-												value="${user.getRole()}">
+											<select name="role" id="" class="form-control" value="">
 
 												<option name="role" value="Admin">Admin</option>
 												<option name="role" value="Customer">Customer</option>
@@ -148,8 +145,7 @@
 										<label for="">ID User <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
 											<input type="text" class="form-control" name="idUser"
-												readonly="readonly" required="" ng-maxlength="80"
-												value="${user.getIdUser()}">
+												readonly="readonly" required="" ng-maxlength="80" value="">
 										</div>
 									</div>
 								</div>
@@ -159,7 +155,7 @@
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
 										<label for="">Gender <span class="text-primary">*</span></label>
-										<div class="input-group" value="${user.getGender()}">
+										<div class="input-group" value="">
 											<div class="p-t-10">
 												<label class="radio-container m-r-45">Male <input
 													type="radio" checked="checked" name="gender" value="Nam">
@@ -177,8 +173,8 @@
 										class="fa fa-arrow-left icon-flat bg-btn-actived"></i> Quay
 										lại</a> <a>
 										<button type="submit" class="btn btn-success  btn-flat">
-											<i class="fa fa-arrow-right icon-flat bg-success"></i>Tiếp
-											tục
+											<i class="fa fa-arrow-right icon-flat bg-success"></i> Them
+
 										</button>
 									</a>
 								</div>
