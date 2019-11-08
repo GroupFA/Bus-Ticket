@@ -71,10 +71,11 @@ public class BookingServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 	Users idUser = (Users) session.getAttribute("userlogin");
-		
-		BusModel busModel = new BusModel();
-		boolean result =busModel.booking(departure, destination, kilomet, time, price,date, idBus,idUser.getIdUser());
-		response.sendRedirect(request.getContextPath() +"/CheckOutServlet?idBus="+idBus +"&"+ idUser.getIdUser());
+	session.setAttribute("date",date);
+	session.setAttribute("price", price);
+//		BusModel busModel = new BusModel();
+//		boolean result =busModel.booking(departure, destination, kilomet, time, price,date, idBus,idUser.getIdUser());
+		response.sendRedirect(request.getContextPath() +"/CheckOutServlet?idBus="+idBus +"&idUser="+ idUser.getIdUser());
 	}
 
 }
