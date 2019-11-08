@@ -17,7 +17,8 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
-
+<link rel="stylesheet"
+	href="bootstrap/assets/bootstrap/css/bootstrap.min.css">
 <!-- Optional theme -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
@@ -56,6 +57,8 @@
 			</div>
 		</div>
 		<!-- ngView:  -->
+
+
 		<div class="container">
 			<div class="search">
 				<form action="showAllUser" method="get">
@@ -65,52 +68,68 @@
 								<td><input type="text" class="form-control"
 									placeholder="Tìm kiếm " autocomplete="off" name="keySearch"></td>
 								<td><a
-									href="${pageContext.request.contextPath}/showAllUser"> <input
-										type="submit" class="btn-search" value="Tìm kiếm người dùng">
+									href="${pageContext.request.contextPath}/showAllUser">
+										<button type="submit" class="btn-search"
+											value="Tìm kiếm người dùng">Tìm kiếm</button>
 								</a></td>
 							</tr>
 						</tbody>
 					</table>
 				</form>
 			</div>
-			<table class="table-dsach">
-				<h3 class="text-primary text-uppercase">Danh sách người dùng</h3>
-				<thead>
-					<tr>
-						<th style="text-align: left; padding-right: 35;">Username</th>
-						<th style="text-align: left; padding-right: 35;">Password</th>
-						<th style="text-align: left; padding-right: 35;">Fullname</th>
-						<th style="text-align: left; padding-right: 35;">gender</th>
-						<th class="wrapper" style="text-align: left; padding-right: 35;">address</th>
-						<th style="text-align: left; padding-right: 35;">phoneNumber</th>
-						<th style="text-align: left; padding-right: 35;">role</th>
-						<th style="text-align: left; padding-right: 35;">Email</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="user" items="${user}">
-						<tr>
-
-							<td>${user.getUsername()}</td>
-							<td>${user.getPassword()}</td>
-							<td>${user.getFullName()}</td>
-							<td>${user.getGender()}</td>
-							<td class="wrapper">${user.getAddress()}</td>
-							<td>${user.getPhoneNum()}</td>
-							<td>${user.getRole()}</td>
-							<td>${user.getEmail()}</td>
-							<td><a
-								href="${pageContext.request.contextPath}/UpdateUserServlet?idUser=${user.getIdUser()}">Update</a></td>
-						</tr>
-					</c:forEach>
-
-				</tbody>
-
-
-			</table>
 		</div>
+		<section class="page-section cta">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-12 mx-auto">
+						<div class="cta-inner text-center rounded">
+							<section id="body-content">
+								<div class="container">
+									<div class="row">
 
+										<table class="table-dsach">
+											<h3 class="text-primary text-uppercase">Danh sách người
+												dùng</h3>
+											<thead>
+												<tr>
+													<th style="text-align: left; padding-right: 35;">Username</th>
+													<th style="text-align: left; padding-right: 35;">Password</th>
+													<th style="text-align: left; padding-right: 35;">Fullname</th>
+													<th style="text-align: left; padding-right: 35;">gender</th>
+													<th class="wrapper"
+														style="text-align: left; padding-right: 35;">address</th>
+													<th style="text-align: left; padding-right: 35;">phoneNumber</th>
+													<th style="text-align: left; padding-right: 35;">role</th>
+													<th style="text-align: left; padding-right: 35;">Email</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<c:forEach var="user" items="${user}">
+													<tr>
+
+														<td>${user.getUsername()}</td>
+														<td>${user.getPassword()}</td>
+														<td>${user.getFullName()}</td>
+														<td>${user.getGender()}</td>
+														<td class="wrapper">${user.getAddress()}</td>
+														<td>${user.getPhoneNum()}</td>
+														<td>${user.getRole()}</td>
+														<td>${user.getEmail()}</td>
+														<td><a
+															href="${pageContext.request.contextPath}/UpdateUserServlet?idUser=${user.getIdUser()}">Update</a></td>
+													</tr>
+												</c:forEach>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 	</div>
 </body>
 
