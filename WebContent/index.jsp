@@ -35,7 +35,23 @@
 <link rel="stylesheet" href="css/cart.js">
 <link rel="stylesheet" href="css/Cart.css">
 </head>
-
+<style>
+section#body-content {
+      margin-top: 45px;
+}
+.box-search table .btn-search {
+    /* padding: 13px 44px 30px; */
+    background: #e54443;
+    color: #fff;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 0;
+    margin-right:-20px;}
+.date{
+width:280px
+}
+</style>
 <body>
 	<div id="sb-site">
 		<div class="br-header">
@@ -91,15 +107,15 @@
 				<table width="100%" cellspacing="0" class="table-search">
 					<tbody>
 						<tr>
-							<td><select class="form-control">
+							<td><select class="form-control col-sm-12">
 									<option value="Điểm đi" selected>Điểm đi</option>
 									<option>Sài gòn</option>
 							</select></td>
-							<td><select class="form-control">
+							<td><select class="form-control col-sm-12">
 									<option value="Điểm đến" selected>Điểm đến</option>
 									<option>Cà Mau</option>
 							</select></td>
-							<td><input class="form-control" type="date" name="bday">
+							<td class="date"><input class="form-control col-sm-12" type="date" >
 							</td>
 
 
@@ -130,7 +146,7 @@
 											<table class="table ">
 												<thead>
 													<tr class="bg-light-green">
-														<th>STT</th>
+														<th>Mã tuyến</th>
 														<th data-toggle="true">Bến đi</th>
 														<th>Bến đến</th>
 														<th data-hide="phone">Loại xe</th>
