@@ -8,22 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import entities.Ticket;
-import entities.TicketFullname;
 import model.TicketModel;
 
 /**
- * Servlet implementation class ShowAllTicket
+ * Servlet implementation class ViewCartCustomer
  */
-@WebServlet("/ShowAllTicket")
-public class ShowAllTicket extends HttpServlet {
+@WebServlet("/ViewCartCustomer")
+public class ViewCartCustomer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowAllTicket() {
+    public ViewCartCustomer() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,13 +32,19 @@ public class ShowAllTicket extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		String idUser = request.getParameter("idUser");
+		HttpSession session =request.getSession();
+		int idUser = (int) session.getAttribute("idUser");
 		// TODO Auto-generated method stub
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println(idUser+"jjjjj");
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8"); 
 		TicketModel ticketModel = new TicketModel();
-		ArrayList<TicketFullname> list = ticketModel.getListTicket();
-		request.setAttribute("ticket", list);  
-		request.getRequestDispatcher("/WEB-INF/view/viewSeller/indexSeller.jsp").forward(request, response);
+		ArrayList<Ticket> list = ticketModel.getOneUserListTickets(idUser);
+		request.setAttribute("ticket", list); 
+		System.out.println(list + "alo");
+		 request.getRequestDispatcher("/WEB-INF/view/viewCustomer/viewCartCustomer.jsp").forward(request, response); 
 	}
 
 	/**

@@ -15,6 +15,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.jdbc.NdbLoadBalanceExceptionChecker;
 
 
 @WebServlet(name = "AccountServlet", urlPatterns = { "/AccountServlet" })
@@ -30,8 +33,11 @@ public class AccountServlet extends HttpServlet {
 		String message = "";
 		AccountModel acmodel = new AccountModel();
 		Users re = new Users(username, password);
-//		Account nd = acmodel.LoginAccount(username, password);
 		Users nd = acmodel.LoginAccount(re);
+		HttpSession session = request.getSession();
+		session.setAttribute("idUser", nd.getIdUser() );
+//		Account nd = acmodel.LoginAccount(username, password);
+	
 //		System.out.print(nd.getUsername() + nd.getPassword());
 		if (nd != null) {
 				if (nd.getRole().equals("Admin")) {

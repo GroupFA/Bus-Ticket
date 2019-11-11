@@ -88,9 +88,9 @@
 						<th>Destination</th>
 						<th>Time</th>
 						<th>Price</th>
-						<th>Name</th>
-				
+						<th>Name</th>			
 						<th>Phone</th>
+						<th>Trạng thái<th>
 						<th></th>
 					</tr>
 				</thead>
@@ -103,9 +103,9 @@
 							<td>${ticket.getDestination() }</td>
 							<td>${ticket.getTime() }</td>
 							<td>${ticket.getPrice() }.VND</td>
-							<td>John</td>
-					
+							<td>${ticket.getFullname() }</td>					
 							<td>${ticket.getPhone() }</td>
+							<td>${ticket.getStatus() }</td>
 							<td><a href="updateStatus?idTicket=${ticket.getIdTicket()}"
 								value="update">Hủy vé</a></td>
 						</tr>

@@ -55,6 +55,9 @@
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
+								
+								<li class="pull-right"><a
+							href="${pageContext.request.contextPath}/ViewCartCustomer?idUser=${userlogin.getIdUser()}">Lịch sử mua vé</a></li>
 						<li class="pull-right"><a
 							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
 								nhật thông tin</a></li>
@@ -181,16 +184,7 @@
 																	<i class="fa fa-clock-o icon-flat text-success"></i>
 															</a></td>
 															<td>
-																<%-- <a
-																href="${pageContext.request.contextPath}/BookingServlet?idBus=${idBus.getIdBus()}&idUser=${userlogin.getIdUser()}&date=${date}"
-																;
-																id="getday"
-																class="btn br-btn-default btn-flat futa-book-ticket">
-																	<i
-																	class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
-																	vé
-															</a></td>
- --%>
+																
 																<button type="submit" class="btn btn-success btn-flat">Tiếp
 																	tục</button>
 														</tr>

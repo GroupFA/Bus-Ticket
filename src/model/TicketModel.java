@@ -12,42 +12,40 @@ import com.sun.org.apache.xml.internal.serializer.utils.StringToIntTable;
 
 import entities.Seat;
 import entities.Ticket;
+import entities.TicketFullname;
 
 public class TicketModel {
 
-	public static ArrayList<Ticket> getListTicket() {
-		ArrayList<Ticket> list = new ArrayList<Ticket>();
+	public static ArrayList<TicketFullname> getListTicket() {
+		ArrayList<TicketFullname> list = new ArrayList<>();
 		try {
-			String sql = "SELECT * FROM ticket";
+			String sql = "select idTicket, idBus, departure, destination, user.fullName, phone, time, price,  idSeat, date, status from ticket, user where ticket.idUser = user.idUser;";
 			Statement statement = JDBCConnection.getJDBCConnection().createStatement();
 			ResultSet rs = statement.executeQuery(sql);
-			
 
 			while (rs.next()) {
-	
+				
 				int idTicket = rs.getInt("idTicket");
 				int idBus = rs.getInt("idBus");
-				String idSeat = rs.getString("idSeat");
-				int idUser = rs.getInt("idUser");
-				String price = rs.getString("price");
-				String date = rs.getString("date");
 				String departure = rs.getString("departure");
 				String destination = rs.getString("destination");
+				String fullname = rs.getString("fullName");
 				String phone = rs.getString("phone");
 				String time = rs.getString("time");
-				String trip = rs.getString("trip");
-
+				String price = rs.getString("price");
+				
+				String idSeat = rs.getString("idSeat");
+				String date = rs.getString("date");
 				String status = rs.getString("status");
-		Ticket ticket = new Ticket(idUser, idUser, idUser, status, status, status, status, status, status, status, status, status);
-				list.add(ticket); 
-			} 
-			
+				TicketFullname ticket = new TicketFullname(idTicket, idBus, departure, destination, fullname, phone, time, price, idSeat,
+						date, status);
+				list.add(ticket);
+			}
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-			
-		
-			
+
 		return list;
 
 	}
@@ -68,33 +66,40 @@ public class TicketModel {
 	}
 	
 	
-	public Ticket getOneTicket (int idTicket) {
-		
-		Connection cnConnection  = new JDBCConnection().getJDBCConnection();
-		Ticket tk1 = null ;
+	public static ArrayList<Ticket> getOneUserListTickets(int idUser) {
+		ArrayList<Ticket> list1 = new ArrayList<Ticket>();
 		try {
-			String sql = "SELECT * FROM ticket where idTicket=?";
-			
-			PreparedStatement statement = cnConnection.prepareStatement(sql);
-				statement.setInt(1, idTicket);
-				ResultSet rsResultSet = statement.executeQuery();
-				if (rsResultSet.next()) {
-					tk1 =new Ticket(rsResultSet.getInt(1), rsResultSet.getInt(2), rsResultSet.getInt(3), rsResultSet.getString(4), 
-							rsResultSet.getString(5), rsResultSet.getString(6), rsResultSet.getString(7), rsResultSet.getString(8), 
-							rsResultSet.getString(9), rsResultSet.getString(10), rsResultSet.getString(11), rsResultSet.getString(12)) ;
-					
-					statement.close();
-					cnConnection.close();
-	
-				} 
-			
-			
+			String sql = "SELECT * FROM ticket WHERE idUser=?";
+			 
+			Connection connection = new JDBCConnection().getJDBCConnection();
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, idUser);
+			ResultSet rs = statement.executeQuery();
+			while (rs.next()) {
+				int idTicket = rs.getInt("idTicket");
+				int idBus = rs.getInt("idBus");
+				String idSeat = rs.getString("idSeat");
+				 idUser = rs.getInt("idUser");
+				String price = rs.getString("price");
+				String date = rs.getString("date");
+				String departure = rs.getString("departure");
+				String destination = rs.getString("destination");
+				String phone = rs.getString("phone");
+				String time = rs.getString("time");
+				String trip = rs.getString("trip");
+				String status = rs.getString("status");
+				Ticket ticket1= new Ticket(idTicket, idBus, idUser, departure, destination, phone, time, trip, price, date, status, idSeat);
+				
+				list1.add(ticket1);
+				
+			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e);
 		}
-		return tk1;
 		
-
+		return list1;
+		
+		
 	}
 	public static ArrayList getAllIdBus() {
 		ArrayList<Ticket>listicket = new ArrayList<Ticket>();

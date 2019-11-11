@@ -90,12 +90,13 @@ public class BookingServlet extends HttpServlet {
 		String price = request.getParameter("price");
 		String date = request.getParameter("date");
 		String[] n = request.getParameterValues("n");
+		String status ="Đã đặt";
 		HttpSession session = request.getSession();
 		Users idUser = (Users) session.getAttribute("userlogin");
 		for (String string : n) {
 			BusModel busModel = new BusModel();
 			boolean result = BusModel.booking(departure, string, destination, time, price, date,
-					Integer.parseInt(idBus), idUser.getIdUser());
+					Integer.parseInt(idBus), idUser.getIdUser(),status);
 		}
 
 		session.setAttribute("date", date);

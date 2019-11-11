@@ -17,7 +17,7 @@ public class JDBCConnection {
 		Connection cone = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			cone = DriverManager.getConnection("jdbc:mysql://localhost:3308/bus", "root", "");
+			cone = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus", "root", "");
 		} catch (Exception e) {
 		}
 		return cone;

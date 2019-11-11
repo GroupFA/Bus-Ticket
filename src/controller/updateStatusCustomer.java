@@ -1,29 +1,25 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entities.Ticket;
-import entities.TicketFullname;
 import model.TicketModel;
 
 /**
- * Servlet implementation class ShowAllTicket
+ * Servlet implementation class updateStatusCustomer
  */
-@WebServlet("/ShowAllTicket")
-public class ShowAllTicket extends HttpServlet {
+@WebServlet("/updateStatusCustomer")
+public class updateStatusCustomer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShowAllTicket() {
+    public updateStatusCustomer() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,11 +30,19 @@ public class ShowAllTicket extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
-		request.setCharacterEncoding("utf-8"); 
+		request.setCharacterEncoding("utf-8");
 		TicketModel ticketModel = new TicketModel();
-		ArrayList<TicketFullname> list = ticketModel.getListTicket();
-		request.setAttribute("ticket", list);  
-		request.getRequestDispatcher("/WEB-INF/view/viewSeller/indexSeller.jsp").forward(request, response);
+
+		String idTicket = request.getParameter("idTicket");
+		System.out.println(idTicket+"Id vé");
+		String status = "Đã Hủy";
+		try {
+			boolean result = ticketModel.updateStatus(idTicket, status);
+			System.out.println(ticketModel.updateStatus(idTicket, status));
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		response.sendRedirect(request.getContextPath() + "/ViewCartCustomer");
 	}
 
 	/**

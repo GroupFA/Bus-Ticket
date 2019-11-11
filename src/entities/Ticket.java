@@ -2,112 +2,86 @@ package entities;
 
 public class Ticket {
 	
+		int idTicket , idBus , idUser ;
+		String departure , destination , Phone ,time , trip, price  , date  ,status , idSeat;
 		public int getIdTicket() {
-		return idTicket;
-	}
-
-	public void setIdTicket(int idTicket) {
-		this.idTicket = idTicket;
-	}
-
-	public int getIdBus() {
-		return idBus;
-	}
-
-	public void setIdBus(int idBus) {
-		this.idBus = idBus;
-	}
-
-	public int getIdUser() {
-		return idUser;
-	}
-
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
-	}
-
-	public String getIdSeat() {
-		return idSeat;
-	}
-
-	public void setIdSeat(String idSeat) {
-		this.idSeat = idSeat;
-	}
-
-	public String getDeparture() {
-		return departure;
-	}
-
-	public void setDeparture(String departure) {
-		this.departure = departure;
-	}
-
-	public String getDestination() {
-		return destination;
-	}
-
-	public void setDestination(String destination) {
-		this.destination = destination;
-	}
-
-	public String getPhone() {
-		return Phone;
-	}
-
-	public void setPhone(String phone) {
-		Phone = phone;
-	}
-
-	public String getTime() {
-		return time;
-	}
-
-	public void setTime(String time) {
-		this.time = time;
-	}
-
-	public String getTrip() {
-		return trip;
-	}
-
-	public void setTrip(String trip) {
-		this.trip = trip;
-	}
-
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-		int idTicket , idBus, idUser ;
-	
-
-		public Ticket(int idTicket, int idBus, int idUser, String idSeat, String departure, String destination,
-				String phone, String time, String trip, String price, String date, String status) {
+			return idTicket;
+		}
+		public void setIdTicket(int idTicket) {
+			this.idTicket = idTicket;
+		}
+		public int getIdBus() {
+			return idBus;
+		}
+		public void setIdBus(int idBus) {
+			this.idBus = idBus;
+		}
+		public int getIdUser() {
+			return idUser;
+		}
+		public void setIdUser(int idUser) {
+			this.idUser = idUser;
+		}
+		public String getDeparture() {
+			return departure;
+		}
+		public void setDeparture(String departure) {
+			this.departure = departure;
+		}
+		public String getDestination() {
+			return destination;
+		}
+		public void setDestination(String destination) {
+			this.destination = destination;
+		}
+		public String getPhone() {
+			return Phone;
+		}
+		public void setPhone(String phone) {
+			Phone = phone;
+		}
+		public String getTime() {
+			return time;
+		}
+		public void setTime(String time) {
+			this.time = time;
+		}
+		public String getTrip() {
+			return trip;
+		}
+		public void setTrip(String trip) {
+			this.trip = trip;
+		}
+		public String getPrice() {
+			return price;
+		}
+		public void setPrice(String price) {
+			this.price = price;
+		}
+		public String getDate() {
+			return date;
+		}
+		public void setDate(String date) {
+			this.date = date;
+		}
+		public String getStatus() {
+			return status;
+		}
+		public void setStatus(String status) {
+			this.status = status;
+		}
+		public String getIdSeat() {
+			return idSeat;
+		}
+		public void setIdSeat(String idSeat) {
+			this.idSeat = idSeat;
+		}
+		public Ticket(int idTicket, int idBus, int idUser, String departure, String destination, String phone,
+				String time, String trip, String price, String date, String status, String idSeat) {
 			super();
 			this.idTicket = idTicket;
 			this.idBus = idBus;
 			this.idUser = idUser;
-			this.idSeat = idSeat;
 			this.departure = departure;
 			this.destination = destination;
 			Phone = phone;
@@ -116,13 +90,14 @@ public class Ticket {
 			this.price = price;
 			this.date = date;
 			this.status = status;
+			this.idSeat = idSeat;
 		}
-
-		String idSeat;
-		
-		String departure , destination , Phone ,time , trip, price  , date  ,status;
 		
 	
+		
+		
+		
+		
+		
 	}
-
 

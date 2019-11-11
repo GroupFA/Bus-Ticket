@@ -176,7 +176,7 @@
 														<ol class="seats" type="A">
 														
 															<c:forEach var="seat" items="${listseat}">
-																<li class="seat" <c:if test="${seat.isStatus() == true}">style="display: none"</c:if>>
+																<li class="seat" <c:if test="${seat.isStatus() == true}">style="background-color:blue"</c:if>>
 																<input name="n" type="checkbox" value="${seat.getIdSeat()}"
 																	id="${seat.getIdSeat()}" /> <label
 																	for="${seat.getIdSeat()}">${seat.getIdSeat()}</label></li>
