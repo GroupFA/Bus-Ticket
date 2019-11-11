@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import com.sun.org.apache.xml.internal.serializer.utils.StringToIntTable;
 
-
+import entities.Seat;
 import entities.Ticket;
 
 public class TicketModel {
@@ -27,7 +27,7 @@ public class TicketModel {
 	
 				int idTicket = rs.getInt("idTicket");
 				int idBus = rs.getInt("idBus");
-				int idSeat = rs.getInt("idSeat");
+				String idSeat = rs.getString("idSeat");
 				int idUser = rs.getInt("idUser");
 				String price = rs.getString("price");
 				String date = rs.getString("date");
@@ -38,7 +38,7 @@ public class TicketModel {
 				String trip = rs.getString("trip");
 
 				String status = rs.getString("status");
-		Ticket ticket = new Ticket(idTicket, idBus, idSeat, idUser, departure, destination, phone, time, trip, price, date, status);
+		Ticket ticket = new Ticket(idUser, idUser, idUser, status, status, status, status, status, status, status, status, status);
 				list.add(ticket); 
 			} 
 			
@@ -79,7 +79,7 @@ public class TicketModel {
 				statement.setInt(1, idTicket);
 				ResultSet rsResultSet = statement.executeQuery();
 				if (rsResultSet.next()) {
-					tk1 =new Ticket(rsResultSet.getInt(1), rsResultSet.getInt(2), rsResultSet.getInt(3), rsResultSet.getInt(4), 
+					tk1 =new Ticket(rsResultSet.getInt(1), rsResultSet.getInt(2), rsResultSet.getInt(3), rsResultSet.getString(4), 
 							rsResultSet.getString(5), rsResultSet.getString(6), rsResultSet.getString(7), rsResultSet.getString(8), 
 							rsResultSet.getString(9), rsResultSet.getString(10), rsResultSet.getString(11), rsResultSet.getString(12)) ;
 					
@@ -108,15 +108,17 @@ public class TicketModel {
 				int idTicket = rs.getInt(1);
 				int idBus = rs.getInt(8);	
 				int idUser = rs.getInt(10);
-				int idSeat = rs.getInt(9);
-				String date1 = rs.getString(11);
+				String idSeat = rs.getString(9);
+				String date = rs.getString(11);
 				String departure = rs.getString(2);
 				String destination = rs.getString(3);
 				String phone = rs.getString(4);
 				String time = rs.getString(5);
 				String trip = rs.getString(6);
 				String price = rs.getString(7);
-				ticket = new Ticket(idTicket, idBus, idSeat, idUser, date1, departure, destination, phone, time, trip, price);
+						String status = rs.getString(12);
+						
+				ticket = new Ticket(idTicket, idBus, idUser, idSeat, departure, destination, phone, time, trip, price, date, status);
 				listicket.add(ticket);
 			}
 		} catch (SQLException e) {
@@ -126,12 +128,12 @@ public class TicketModel {
 
 		return listicket;
 	}
-	public static boolean checkIdSeatAndDate(int idSeatInput,String dateInput) {
+	public static boolean checkIdSeatAndDate(String idSeatInput,String dateInput) {
 		Ticket ticket = null;
 		try {
 			String sql = "select * from ticket where idSeat = ? and date = ?";
 			PreparedStatement pr = JDBCConnection.getJDBCConnection().prepareStatement(sql);
-			pr.setInt(1, idSeatInput);
+			pr.setString(1, idSeatInput);
 			pr.setString(2, dateInput);
 			ResultSet rs = pr.executeQuery();
 
@@ -157,7 +159,7 @@ public class TicketModel {
 			ResultSet rs = pr.executeQuery();
 
 			while (rs.next()) {
-				Seat seat = new Seat(rs.getInt(1));
+				Seat seat = new Seat(rs.getString(1));
 				list.add(seat);
 			}
 		} catch (SQLException e) {
@@ -178,7 +180,7 @@ public class TicketModel {
 			ResultSet rs = pr.executeQuery();
 
 			while (rs.next()) {
-				Seat seat = new Seat(rs.getInt(1));
+				Seat seat = new Seat(rs.getString(1));
 				list.add(seat);
 			}
 		} catch (SQLException e) {
@@ -186,4 +188,5 @@ public class TicketModel {
 			e.printStackTrace();
 		}
 		return list;
+}
 }

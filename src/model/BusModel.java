@@ -116,7 +116,7 @@ public static ArrayList<Seat> getListBusSeat(int id) {
 			ResultSet rs = statement.executeQuery(sql);
 			System.out.println(rs.next());
 			while (rs.next()) {
-				int idSeat = rs.getInt(1);
+				String idSeat = rs.getString(1);
 				
 				int idBus = rs.getInt(2);
 				Seat seat = new Seat();

@@ -94,7 +94,7 @@ public class BookingServlet extends HttpServlet {
 		Users idUser = (Users) session.getAttribute("userlogin");
 		for (String string : n) {
 			BusModel busModel = new BusModel();
-			boolean result = busModel.booking(departure, string, destination, time, price, date,
+			boolean result = BusModel.booking(departure, string, destination, time, price, date,
 					Integer.parseInt(idBus), idUser.getIdUser());
 		}
 

@@ -1,7 +1,16 @@
 package entities;
 
 public class Seat{
-	int idBus,idSeat;
+	int idBus;
+	String idSeat;
+	public String getIdSeat() {
+		return idSeat;
+	}
+
+	public void setIdSeat(String idSeat) {
+		this.idSeat = idSeat;
+	}
+
 	boolean status;
 	
 	public Seat() {}
@@ -10,7 +19,7 @@ public class Seat{
 		return status;
 	}
 	
-	public Seat(int idSeat) {
+	public Seat(String idSeat) {
 		this.idSeat = idSeat;
 	}
 
@@ -26,12 +35,6 @@ public class Seat{
 		this.idBus = idBus;
 	}
 
-	public int getIdSeat() {
-		return idSeat;
-	}
 
-	public void setIdSeat(int idSeat) {
-		this.idSeat = idSeat;
-	}
 	
 }
