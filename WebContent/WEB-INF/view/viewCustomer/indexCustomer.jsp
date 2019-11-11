@@ -12,6 +12,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet"
 	href="bootstrap/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -85,12 +87,15 @@
 			</div>
 			<!--đóng carousel  -->
 		</div>
+		
 		<!-- đóng col  -->
+	
 	</div>
+	
 	<div class="container">
 		<div class="box-search">
 			<input type="hidden" class="currentDate" value="28/10/2019">
-			<form action="search" method="GET">
+			
 				<input class="agencyType" type="hidden" name="agencyType" value="1">
 				<table width="100%" cellspacing="0" class="table-search">
 					<tbody>
@@ -103,15 +108,14 @@
 									<option value="Điểm đến" selected>Điểm đến</option>
 									<option>Cà Mau</option>
 							</select></td>
-							<td><input class="form-control" type="date" name="bday">
-							</td>
+							
 
 
 							<td><input type="submit" class="btn-search" value="Tìm vé"></td>
 						</tr>
 					</tbody>
 				</table>
-			</form>
+			
 		</div>
 	</div>
 	<section class="page-section cta">
@@ -124,13 +128,19 @@
 								<div class="row">
 									<h3 class="text-primary text-uppercase">Các tuyến đường
 										phổ biến</h3>
+										<div class="form-group">
+											<label for="">Ngày khởi hành</label>
+											<div class="controls">
+											
+											</div>
+										</div>
 									<div class="section-list" id="Star-sai-gon">
 										<h3 class="text-uppercase text-success">
 											<span class="sprite ico-drive"></span> Sài Gòn <i
 												class="fa fa-exchange"></i>
 										</h3>
 										<div class="table-responsive">
-											<table class="table ">
+											<table class="table">
 												<thead>
 													<tr class="bg-light-green">
 														<th>STT</th>
@@ -140,6 +150,7 @@
 														<th data-hide="phone">Quãng đường</th>
 														<th data-hide="phone">Thời gian</th>
 														<th data-hide="phone">Số chuyến</th>
+														<th> ngay khoi hanh</th>
 														<th data-hide="phone">Giá vé</th>
 														<th data-hide="phone">Giờ chạy</th>
 														<th></th>
@@ -147,7 +158,9 @@
 												</thead>
 												<tbody action="ShowAllBus" method="get">
 													<c:forEach var="idBus" items="${idBus}">
+													<form action="ShowAllBus" method="post">
 														<tr class="route-row1375">
+														<input type="text" hidden="hidden" name="idBus" value="${idBus.getIdBus()}">
 															<td>${idBus.getIdBus()}</td>
 															<td>${idBus.getDeparture()}</td>
 															<td>${idBus.getDestination()}</td>
@@ -155,6 +168,8 @@
 															<td>${idBus.getKilomet()}km</td>
 															<td>${idBus.getTime()}</td>
 															<td>${idBus.getTrip()}chuyến/ngày</td>
+															<td>	<input class="form-control" id="mydate" type="date"
+													name="date"></td>
 															<td>
 																<p>
 																	<strong class="text-primary">
@@ -165,13 +180,21 @@
 															<td><a class="br-btn-flat br-watch-schedule" href="">
 																	<i class="fa fa-clock-o icon-flat text-success"></i>
 															</a></td>
-															<td><a href="${pageContext.request.contextPath}/BookingServlet?idBus=${idBus.getIdBus()}&&idUser=${userlogin.getIdUser()}"
-															class="btn br-btn-default btn-flat futa-book-ticket">
-																<i
-																class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
-																vé
-														</a></td>
+															<td>
+																<%-- <a
+																href="${pageContext.request.contextPath}/BookingServlet?idBus=${idBus.getIdBus()}&idUser=${userlogin.getIdUser()}&date=${date}"
+																;
+																id="getday"
+																class="btn br-btn-default btn-flat futa-book-ticket">
+																	<i
+																	class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
+																	vé
+															</a></td>
+ --%>
+																<button type="submit" class="btn btn-success btn-flat">Tiếp
+																	tục</button>
 														</tr>
+</form>
 													</c:forEach>
 												</tbody>
 											</table>
@@ -180,6 +203,7 @@
 								</div>
 							</div>
 						</section>
+						
 					</div>
 				</div>
 			</div>

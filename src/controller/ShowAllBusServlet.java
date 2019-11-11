@@ -8,8 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import entities.Bus;
+import entities.Users;
 import model.BusModel;
 
 /**
@@ -34,13 +36,18 @@ public class ShowAllBusServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
+		String date = request.getParameter("date");
+		String idBus = request.getParameter("idBus");
+		HttpSession session = request.getSession();
+		Users idUser = (Users) session.getAttribute("userlogin");
 		ArrayList<Bus> listBus = BusModel.getListBus();
 		
 		
 		request.setAttribute("idBus", listBus);
-
-		request.getRequestDispatcher("/WEB-INF/view/viewCustomer/indexCustomer.jsp").forward(request, response);
+		session.setAttribute("date",date);
 		
+		request.getRequestDispatcher("/WEB-INF/view/viewCustomer/indexCustomer.jsp").forward(request, response);
+
 	}
 
 	/**
@@ -50,9 +57,12 @@ public class ShowAllBusServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("utf-8");
-		
-		
-		doGet(request, response);
+		String date = request.getParameter("date");
+		String idBus = request.getParameter("idBus");
+		HttpSession session = request.getSession();
+		Users idUser = (Users) session.getAttribute("userlogin");
+		session.setAttribute("date",date);
+		response.sendRedirect(request.getContextPath()+"/BookingServlet?idBus="+idBus +"&idUser="+ idUser.getIdUser()+"&date="+date);
 	}
 
 }

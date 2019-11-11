@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import entities.Bus;
+import entities.Seat;
+import entities.SeatWithStatus;
 import entities.Users;
 
 public class BusModel {
@@ -74,12 +76,12 @@ public class BusModel {
 
 		return bus;
 	}
-	public static boolean booking( String departure, String destination,
+	public static boolean booking( String departure,String n, String destination,
 			String time, String price,String date, int idBus, int idUser) {
 
 		try {
 
-			String sql = "INSERT INTO `ticket`( `departure`,`destination`,`time`,`price`, `idBus`,`idUser`,`date`) VALUES (?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO `ticket`( `departure`,`destination`,`time`,`price`, `idBus`,`idUser`,`date`,`idSeat`) VALUES (?,?,?,?,?,?,?,?)";
 
 
 			
@@ -92,6 +94,7 @@ public class BusModel {
 			pr.setInt(5,  idBus);
 			pr.setInt(6,  idUser);
 			pr.setString(7,date);
+			pr.setString(8,n);
 			pr.executeUpdate();
 
 
@@ -104,5 +107,55 @@ public class BusModel {
 
 
 	}
+public static ArrayList<Seat> getListBusSeat(int id) {
+		
+		ArrayList<Seat> listSeat =new ArrayList<>();
+		try {
+			String sql="SELECT * FROM `seat` where idBus = "+id;
+			Statement statement = JDBCConnection.getJDBCConnection().createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			System.out.println(rs.next());
+			while (rs.next()) {
+				int idSeat = rs.getInt(1);
+				
+				int idBus = rs.getInt(2);
+				Seat seat = new Seat();
+				seat.setIdSeat(idSeat);
+				seat.setIdBus(idBus);
+				
+				listSeat.add(seat);
+				
+
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return listSeat;
+		
+	}
+
+public static ArrayList<SeatWithStatus> getListSeatWithStatus(int id) {
+	
+	ArrayList<SeatWithStatus> listSeat =new ArrayList<>();
+	try {
+		String sql="SELECT * FROM `seat` where idBus = "+id;
+		Statement statement = JDBCConnection.getJDBCConnection().createStatement();
+		ResultSet rs = statement.executeQuery(sql);
+		System.out.println(rs.next());
+		while (rs.next()) {
+			int idSeat = rs.getInt(1);
+			
+			int idBus = rs.getInt(2);
+			SeatWithStatus seat = new SeatWithStatus(idSeat, idBus, 0);
+			listSeat.add(seat);
+		}
+
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
+	return listSeat;
+	
+}
 
 }
