@@ -40,14 +40,15 @@
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
-						<li><a href="#"><i class="fa fa-truck" aria-hidden="true"></i>Lịch
-								trình xe chạy</a></li>
-						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Mua
-								vé</a></li>
+						<li><a
+							href="${pageContext.request.contextPath}/InsertUserServlet"><i
+								class="fa fa-truck" aria-hidden="true"></i>Tạo người dùng</a></li>
+						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Đặt
+								vai trò</a></li>
 						<li class="pull-right diff"><a href="#"><span
-								class="hidden-xs">Đăng nhập</span></a></li>
+								class="hidden-xs"></span></a></li>
 						<li class="pull-right"><a target="_blank" href="#"><i
-								class="fa fa-facebook-square"></i> Đăng ký</a></li>
+								class="fa fa-facebook-square"></i>Chào Admin</a></li>
 					</ul>
 				</div>
 			</div>

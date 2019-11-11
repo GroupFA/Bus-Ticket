@@ -143,7 +143,7 @@
 											<table class="table">
 												<thead>
 													<tr class="bg-light-green">
-														<th>STT</th>
+														<th>Mã tuyến</th>
 														<th data-toggle="true">Bến đi</th>
 														<th>Bến đến</th>
 														<th data-hide="phone">Loại xe</th>
