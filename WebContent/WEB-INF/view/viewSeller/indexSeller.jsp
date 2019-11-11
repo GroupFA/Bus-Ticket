@@ -89,7 +89,7 @@
 						<th>Time</th>
 						<th>Price</th>
 						<th>Name</th>
-				
+
 						<th>Phone</th>
 						<th></th>
 					</tr>
@@ -104,7 +104,7 @@
 							<td>${ticket.getTime() }</td>
 							<td>${ticket.getPrice() }.VND</td>
 							<td>John</td>
-					
+
 							<td>${ticket.getPhone() }</td>
 							<td><a href="updateStatus?idTicket=${ticket.getIdTicket()}"
 								value="update">Hủy vé</a></td>
@@ -113,7 +113,76 @@
 				</tbody>
 			</table>
 		</div>
+		<section class="page-section cta">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-12 mx-auto">
+						<div class="cta-inner text-center rounded">
+							<section id="body-content">
+								<div class="container">
+									<div class="row">
+										<h3 class="text-primary text-uppercase">Xem Ghế</h3>
+										<div class="section-list" id="Star-sai-gon">
+											<h3 class="text-uppercase text-success">
+												<span class="sprite ico-drive"></span> Sài Gòn <i
+													class="fa fa-exchange"></i>
+											</h3>
+											<div class="table-responsive">
+												<table class="table ">
+													<thead>
+														<tr class="bg-light-green">
+															<th>STT</th>
+															<th data-toggle="true">Bến đi</th>
+															<th>Bến đến</th>
+															<th data-hide="phone">Số chuyến</th>
+															<th data-hide="phone">Giá tiền</th>
+															<th data-hide="phone">Chọn ngày</th>
+															<th data-hide="phone">Xem ghế</th>
+															<th></th>
+														</tr>
+													</thead>
+													<tbody action="ShowAllBus" method="get">
+														<c:forEach var="idBus" items="${idBus}">
+															<form action="ShowAllBus2" method="post">
+															<tr class="route-row1375"> 
+															<input type="text" hidden="hidden" name ="idBusH"+ value = "${idBus.getIdBus()}">
+																<td>${idBus.getIdBus()}</td>
+																<td>${idBus.getDeparture()}</td>
+																<td>${idBus.getDestination()}</td>
+																<td>${idBus.getTrip()}chuyến/ngày</td>
+																<td>
+																	<p>
+																		<strong class="text-primary">
+																			${idBus.getPrice()}<sup>đ/vé</sup>
+																		</strong>
+																	</p>
+																</td>
 
+																<td><input type="date" name="seatDate"></td>
+																<td>
+																	<%-- <a href="${pageContext.request.contextPath}/ShowSeatServet?idBusH=${idBus.getIdBus()}&&date="
+															class="btn br-btn-default btn-flat futa-book-ticket">
+																<i
+																class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Kiểm tra
+														</a> --%>
+																	<button   class="btn btn-success"
+																		type="submit">Kiểm tra</button>
+																</td>
+															</tr>
+															</form>
+														</c:forEach>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 	</div>
 </body>
 

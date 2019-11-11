@@ -56,9 +56,11 @@
             <div class="panel">
               <p class="text-center text-primary text-uppercase">${bus.getDeparture()} - ${bus.getDestination()} <span>${date}</span>
               </p>
+              
               <form  action="BookingServlet" class="form-horizontal"
 						method="post">
                 <fieldset>
+               <input value="${bus.getIdBus()}" name="idBusH"/>  
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="form-group">
@@ -107,7 +109,7 @@
                       <div class="form-group">
                         <label for="">Ngày khởi hành</label>
                         <div class="controls">
-                          <input class="form-control" type="date" name="bday">
+                          <input class="form-control" type="date" name="date">
                         </div>
                       </div>
                     </div>
