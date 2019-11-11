@@ -44,7 +44,7 @@ public class AccountServlet extends HttpServlet {
 					response.sendRedirect(request.getContextPath()+"/showAllUser");
 					return;
 				} else if (nd.getRole().equals("Seller")) {
-					response.sendRedirect(request.getContextPath()+"/ShowAllTicket");
+					response.sendRedirect(request.getContextPath()+"/ShowAllBus2");
 					return;
 				}
 				else if (nd.getRole().equals("Customer")) {

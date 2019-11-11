@@ -2,8 +2,49 @@ package entities;
 
 public class Ticket {
 	
+
 		int idTicket , idBus , idUser ;
 		String departure , destination , Phone ,time , trip, price  , date  ,status , idSeat;
+
+		
+		
+		public Ticket(int idTicket, int idBus, int idSeat, int idUser, String departure, String destination,
+				String phone, String time, String trip, String price, String date, String status) {
+			super();
+			this.idTicket = idTicket;
+			this.idBus = idBus;
+			this.idSeat = idSeat;
+			this.idUser = idUser;
+			this.departure = departure;
+			this.destination = destination;
+			Phone = phone;
+			this.time = time;
+			this.trip = trip;
+			this.price = price;
+			this.date = date;
+			this.status = status;
+		}
+		
+		
+		
+		public Ticket(int idTicket, int idBus, int idSeat, int idUser, String departure, String destination,
+				String time, String trip, String price, String date, String status) {
+			super();
+			this.idTicket = idTicket;
+			this.idBus = idBus;
+			this.idSeat = idSeat;
+			this.idUser = idUser;
+			this.departure = departure;
+			this.destination = destination;
+			this.time = time;
+			this.trip = trip;
+			this.price = price;
+			this.date = date;
+			this.status = status;
+		}
+
+
+
 		public int getIdTicket() {
 			return idTicket;
 		}

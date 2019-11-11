@@ -51,19 +51,32 @@ public class CheckOutServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		int idBus = Integer.parseInt(request.getParameter("idBus"));
-//		String departure = request.getParameter("departure");
-//		String destination = request.getParameter("destination");
-//		String time = request.getParameter("time");
-//		String price = request.getParameter("price");
-//		String date = request.getParameter("bday");
-//		String phone = request.getParameter("phone");
-//		HttpSession session = request.getSession();
-//		
+
+		int idBus = Integer.parseInt(request.getParameter("idBus"));
+		System.out.println(idBus);
+		String departure = request.getParameter("departure");
+		String destination = request.getParameter("destination");
+		String time = request.getParameter("time");
+		String price = request.getParameter("price");
+		String date = request.getParameter("date");
+		String phone = request.getParameter("phone");
+		String ListTicket = request.getParameter("listSeat");
+		String idListSeatString = ListTicket.substring(1);
+		System.out.println("a"+idListSeatString);
+		String idSeat[] = idListSeatString.split(" ");
+		HttpSession session = request.getSession();
+		int idUser=20;
 //	Users idUser = (Users) session.getAttribute("userlogin");
-//	session.setAttribute("date",date);
-//       BusModel busModel = new BusModel();
+	session.setAttribute("date",date);
+       BusModel busModel = new BusModel();
 //       boolean result =busModel.booking(departure, destination, time, price,date, idBus,idUser.getIdUser(),phone);
+       for(int i =0;i<idSeat.length;i++){
+    	   System.out.println("idSEAT"+idSeat[i]);
+    	   boolean result =busModel.booking(departure, destination, time, price,date, idBus,idSeat[i],idUser);
+       }
+     
+       
+
 		
 	}
 
