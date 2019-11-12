@@ -39,12 +39,13 @@
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
-								<li><a href="${pageContext.request.contextPath}/ShowAllTicket"><i class="fa fa-bus" aria-hidden="true">ssss</i>
-						
-						<li class="pull-right diff"><a href="#"><span
-								class="hidden-xs"></span></a></li>
-						<li class="pull-right"><a target="_blank" href="#"><i
-								class="fa fa-facebook-square"></i>Chào Nhân viên</a></li>
+						<li><a href="${pageContext.request.contextPath}/ShowAllBus2"><i
+								class="fa fa-bus" aria-hidden="true">Lọc người dùng</i>
+
+								<li class="pull-right diff"><a href="#"><span
+										class="hidden-xs"></span></a></li>
+								<li class="pull-right"><a target="_blank" href="#"><i
+										class="fa fa-facebook-square"></i>Chào Nhân viên</a></li>
 					</ul>
 				</div>
 			</div>
@@ -61,19 +62,30 @@
 										<div class="shopee-searchbar__main">
 											<form role="search" class="form-control" autocomplete="off">
 												<input aria-label="Tìm kiếm" class="form-control"
-													maxlength="128" placeholder="Tìm kiếm" autocomplete="off"
-													value="">
+													name="keyFilter" maxlength="128" placeholder="Tìm kiếm"
+													autocomplete="off" value="">
 											</form>
 										</div>
 									</div>
 								</td>
 								<td><select class="form-control">
 										<!-- <option value="-1" label="Chọn trạng thái" selected="selected">Chọn trạng thái</option> -->
-										<option value="0" label="Chổ ngồi đã đặt">Chổ ngồi đã
-											đặt</option>
-										<option value="1" label="Tất cả chổ ngồi trống">Tất
-											cả chổ ngồi trống</option>
+										<a>
+											<option value="1" label="Chổ ngồi đã đặt" name="keyFilter">1
+											</option>
+									</a>
+
+										<a>
+											<option value="0" name="keyFilter"
+												label="Tất cả chổ ngồi trống">2</option>
+									</a>
+
 								</select></td>
+								<td><a
+									href="${pageContext.request.contextPath}/ShowAllTicket">
+										<button type="submit" class="btn-search"
+											value="Tìm kiếm người dùng">Tìm kiếm</button>
+								</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -88,12 +100,10 @@
 						<th>Destination</th>
 						<th>Time</th>
 						<th>Price</th>
-
 						<th>Name</th>
-
 						<th>Phone</th>
-						<th>Trạng thái<th>
-						<th></th>
+						<th>Trạng thái</th>
+						
 					</tr>
 				</thead>
 				<tbody>
@@ -105,14 +115,19 @@
 							<td>${ticket.getDestination() }</td>
 							<td>${ticket.getTime() }</td>
 							<td>${ticket.getPrice() }.VND</td>
-
-							<td>${ticket.getFullname() }</td>					
-
+							<td>${ticket.getFullname() }</td>
 							<td>John</td>
-
-
-							<td>${ticket.getPhone() }</td>
-							<td>${ticket.getStatus() }</td>
+							<td>${ticket.getPhone() }</td>					
+							<td><c:set var="salary" scope="session"
+									value="${ticket.getStatus()}" /> <c:if test="${salary ==1 }">
+									<c:out value="Đã đặt" />
+								</c:if>
+							</td>
+								<td><c:set var="salary" scope="session"
+									value="${ticket.getStatus()}" /> <c:if test="${salary == 0 }">
+									<c:out value="Đã Hủy" />
+								</c:if>
+							</td>							
 							<td><a href="updateStatus?idTicket=${ticket.getIdTicket()}"
 								value="update">Hủy vé</a></td>
 						</tr>
@@ -120,76 +135,7 @@
 				</tbody>
 			</table>
 		</div>
-		<section class="page-section cta">
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-12 mx-auto">
-						<div class="cta-inner text-center rounded">
-							<section id="body-content">
-								<div class="container">
-									<div class="row">
-										<h3 class="text-primary text-uppercase">Xem Ghế</h3>
-										<div class="section-list" id="Star-sai-gon">
-											<h3 class="text-uppercase text-success">
-												<span class="sprite ico-drive"></span> Sài Gòn <i
-													class="fa fa-exchange"></i>
-											</h3>
-											<div class="table-responsive">
-												<table class="table ">
-													<thead>
-														<tr class="bg-light-green">
-															<th>STT</th>
-															<th data-toggle="true">Bến đi</th>
-															<th>Bến đến</th>
-															<th data-hide="phone">Số chuyến</th>
-															<th data-hide="phone">Giá tiền</th>
-															<th data-hide="phone">Chọn ngày</th>
-															<th data-hide="phone">Xem ghế</th>
-															<th></th>
-														</tr>
-													</thead>
-													<tbody action="ShowAllBus" method="get">
-														<c:forEach var="idBus" items="${idBus}">
-															<form action="ShowAllBus2" method="post">
-															<tr class="route-row1375"> 
-															<input type="text" hidden="hidden" name ="idBusH"+ value = "${idBus.getIdBus()}">
-																<td>${idBus.getIdBus()}</td>
-																<td>${idBus.getDeparture()}</td>
-																<td>${idBus.getDestination()}</td>
-																<td>${idBus.getTrip()}chuyến/ngày</td>
-																<td>
-																	<p>
-																		<strong class="text-primary">
-																			${idBus.getPrice()}<sup>đ/vé</sup>
-																		</strong>
-																	</p>
-																</td>
 
-																<td><input type="date" name="seatDate"></td>
-																<td>
-																	<%-- <a href="${pageContext.request.contextPath}/ShowSeatServet?idBusH=${idBus.getIdBus()}&&date="
-															class="btn br-btn-default btn-flat futa-book-ticket">
-																<i
-																class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Kiểm tra
-														</a> --%>
-																	<button   class="btn btn-success"
-																		type="submit">Kiểm tra</button>
-																</td>
-															</tr>
-															</form>
-														</c:forEach>
-													</tbody>
-												</table>
-											</div>
-										</div>
-									</div>
-								</div>
-							</section>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 	</div>
 </body>
 

@@ -41,7 +41,7 @@ public class ShowAllBusServlet2 extends HttpServlet {
 		request.setAttribute("idBus", listBus);
 		
 
-		request.getRequestDispatcher("/WEB-INF/view/viewSeller/indexSeller.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/view/viewSeller/FilterSeat.jsp").forward(request, response);
 	}
 
 	/**

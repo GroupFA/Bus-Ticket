@@ -13,6 +13,7 @@ import com.sun.org.apache.xml.internal.serializer.utils.StringToIntTable;
 import entities.Seat;
 import entities.Ticket;
 import entities.TicketFullname;
+import entities.Users;
 
 public class TicketModel {
 
@@ -194,4 +195,44 @@ public class TicketModel {
 		}
 		return list;
 }
+
+
+	public static ArrayList<TicketFullname> filterTicket( String keyFilter) {
+		ArrayList<TicketFullname> list = new ArrayList<>();
+		try {
+			String sql ="select idTicket, idBus, departure, destination, user.fullName, phone, time, price,  idSeat, date, status from ticket, user where ticket.idUser = user.idUser and status =?; ";
+			
+			Connection connection = new JDBCConnection().getJDBCConnection();
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setString(1, keyFilter);
+			ResultSet rs = statement.executeQuery();
+			
+
+			while (rs.next()) {
+				int idTicket = rs.getInt("idTicket");
+				int idBus = rs.getInt("idBus");
+				String departure = rs.getString("departure");
+				String destination = rs.getString("destination");
+				String fullname = rs.getString("fullName");
+				String phone = rs.getString("phone");
+				String time = rs.getString("time");
+				String price = rs.getString("price");
+				
+				String idSeat = rs.getString("idSeat");
+				String date = rs.getString("date");
+				String status = rs.getString("status");
+				TicketFullname ticket = new TicketFullname(idTicket, idBus, departure, destination, fullname, phone, time, price, idSeat, date, status);
+				list.add(ticket);
+			}
+			System.out.println(list+"aaaaa44");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+		return list;
+
+	}
+		
+	
+	
 }

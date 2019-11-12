@@ -82,10 +82,10 @@
 									<label class="label">Gender</label>
 									<div class="p-t-10">
 										<label class="radio-container m-r-45">Male <input
-											type="radio" checked="checked" name="gender"> <span
+											type="radio" checked="checked" name="gender" value="Nam"> <span
 											class="checkmark"></span>
 										</label> <label class="radio-container">Female <input
-											type="radio" name="gender"> <span class="checkmark"></span>
+											type="radio" name="gender" value="Nu"> <span class="checkmark"></span>
 										</label>
 									</div>
 								</div>

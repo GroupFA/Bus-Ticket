@@ -34,9 +34,20 @@ public class ShowAllTicket extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html;charset=UTF-8");
-		request.setCharacterEncoding("utf-8"); 
+		request.setCharacterEncoding("utf-8");
+		String keyFilter = request.getParameter("keyFilter");
+		System.out.println(keyFilter+"aaaaa");
+		
 		TicketModel ticketModel = new TicketModel();
-		ArrayList<TicketFullname> list = ticketModel.getListTicket();
+		ArrayList<TicketFullname> list = new ArrayList<>();
+		if (keyFilter!= null) {
+			list= ticketModel.filterTicket(keyFilter);
+		}if (keyFilter == null) {
+			list = ticketModel.getListTicket();
+			
+		}
+
+		System.out.println(list+"hhheheheh");
 		request.setAttribute("ticket", list);  
 		request.getRequestDispatcher("/WEB-INF/view/viewSeller/indexSeller.jsp").forward(request, response);
 	}
