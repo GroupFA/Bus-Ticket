@@ -61,8 +61,7 @@ public class ShowAllBusServlet extends HttpServlet {
 		String idBus = request.getParameter("idBus");
 		HttpSession session = request.getSession();
 		Users idUser = (Users) session.getAttribute("userlogin");
-		session.setAttribute("date",date);
-		response.sendRedirect(request.getContextPath()+"/BookingServlet?idBus="+idBus +"&idUser="+ idUser.getIdUser()+"&date="+date);
+		session.setAttribute("date",date);response.sendRedirect(request.getContextPath()+"/BookingServlet?idBus="+idBus +"&idUser="+ idUser.getIdUser()+"&date="+date);
 	}
 
 }

@@ -12,7 +12,7 @@ import entities.Ticket;
 
 public class SeatDao {
 
-	public static List<Seat> findSeatByDateTrip(String idBus,String date){
+	public static List<Seat> findSeatByDateTrip(int idBus,String date){
 		 
 		List<Seat> list = new ArrayList<>();
 		ResultSet rs = null;
@@ -22,7 +22,7 @@ public class SeatDao {
 		String sql = " SELECT s.idSeat,s.Seatname FROM seat as s,ticket as ti where ti.idBus=? and ti.date=? and s.idSeat=ti.idSeat and ti.status='1'";
 		try {
 			 preparedStatement = connection.prepareStatement(sql);
-			 preparedStatement.setString(1, idBus);
+			 preparedStatement.setInt(1, idBus);
 			 preparedStatement.setString(2, date); 
 			 rs = preparedStatement.executeQuery();
 			 
@@ -42,8 +42,5 @@ public class SeatDao {
 		
 		return list;
 	}
-public static void main(String[] args) {
-	System.out.println(findSeatByDateTrip("2","2019-05-28"));
-}
 
 }
