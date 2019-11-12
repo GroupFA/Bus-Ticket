@@ -61,14 +61,14 @@ public class BookingServlet extends HttpServlet {
 		System.out.println(date);
 		Bus bus = BusModel.getIdBus(idBus);
 		ArrayList<Seat> listSeat = BusModel.getListBusSeat(idBus);
-		System.out.println("" + listSeat.size());
+		System.out.println("1" + listSeat.size());
 		for (Seat seat : listSeat) {
 			seat.setStatus(false);
 			if (TicketModel.checkIdSeatAndDate(seat.getIdSeat(), date)) {
 				seat.setStatus(true);
 			}
 		}
-		System.out.println("" + listSeat.size());
+		System.out.println("2" + listSeat.size());
 		request.setAttribute("listseat", listSeat);
 
 		request.setAttribute("bus", bus);
@@ -90,7 +90,7 @@ public class BookingServlet extends HttpServlet {
 		String price = request.getParameter("price");
 		String date = request.getParameter("date");
 		String[] n = request.getParameterValues("n");
-		String status ="Đã đặt";
+		String status ="1";
 		HttpSession session = request.getSession();
 		Users idUser = (Users) session.getAttribute("userlogin");
 		for (String string : n) {

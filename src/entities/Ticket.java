@@ -8,7 +8,7 @@ public class Ticket {
 
 		
 		
-		public Ticket(int idTicket, int idBus, int idSeat, int idUser, String departure, String destination,
+		public Ticket(int idTicket, int idBus, String idSeat, int idUser, String departure, String destination,
 				String phone, String time, String trip, String price, String date, String status) {
 			super();
 			this.idTicket = idTicket;
@@ -27,7 +27,7 @@ public class Ticket {
 		
 		
 		
-		public Ticket(int idTicket, int idBus, int idSeat, int idUser, String departure, String destination,
+		public Ticket(int idTicket, int idBus, String idSeat, int idUser, String departure, String destination,
 				String time, String trip, String price, String date, String status) {
 			super();
 			this.idTicket = idTicket;

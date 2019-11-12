@@ -39,8 +39,8 @@
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
-						<!-- <li><a href="#"><i class="fa fa-truck" aria-hidden="true"></i>Tạo người dùng</a></li>
-            <li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Đặt vai trò</a></li> -->
+								<li><a href="${pageContext.request.contextPath}/ShowAllTicket"><i class="fa fa-bus" aria-hidden="true">ssss</i>
+						
 						<li class="pull-right diff"><a href="#"><span
 								class="hidden-xs"></span></a></li>
 						<li class="pull-right"><a target="_blank" href="#"><i

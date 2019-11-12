@@ -36,7 +36,7 @@ public class BusModel {
 				System.out.println(listBus.size()+ bus.toString());
 				listBus.add(bus);
 				
-
+				
 			}
 
 		} catch (Exception e) {

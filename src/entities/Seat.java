@@ -1,16 +1,9 @@
 package entities;
 
-
-
-	
-
 public class Seat {
 	int idBus;
 	String idSeat;
 	String seatName;
-	
-	
-	
 	
 	public Seat(String idSeat, String seatName) {
 		super();
@@ -19,11 +12,6 @@ public class Seat {
 	}
 
 
-
-
-	public Seat() {
-		 
-	}
 
 	public String getIdSeat() {
 		return idSeat;

@@ -35,7 +35,7 @@ public class updateStatus extends HttpServlet {
 		HttpSession session = request.getSession();
 		String idTicket = request.getParameter("idTicket");
 		System.out.println(idTicket+"day la id");
-		String status = "Đã Hủy";
+		String status = "0";
 		try {
 			boolean result = ticketModel.updateStatus(idTicket, status);
 			System.out.println(ticketModel.updateStatus(idTicket, status));

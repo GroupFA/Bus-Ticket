@@ -72,7 +72,7 @@ public class CheckOutServlet extends HttpServlet {
 //       boolean result =busModel.booking(departure, destination, time, price,date, idBus,idUser.getIdUser(),phone);
        for(int i =0;i<idSeat.length;i++){
     	   System.out.println("idSEAT"+idSeat[i]);
-    	   boolean result =busModel.booking(departure, destination, time, price,date, idBus,idSeat[i],idUser);
+ //   	   boolean result =busModel.booking(departure, destination, time, price,date, idBus,idSeat[i],idUser);
        }
      
        
