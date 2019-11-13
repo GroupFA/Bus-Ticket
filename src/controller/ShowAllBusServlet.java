@@ -61,7 +61,13 @@ public class ShowAllBusServlet extends HttpServlet {
 		String idBus = request.getParameter("idBus");
 		HttpSession session = request.getSession();
 		Users idUser = (Users) session.getAttribute("userlogin");
+		if(date.trim().equals("")) {
+			ArrayList<Bus> listBus = BusModel.getListBus();
+			request.setAttribute("idBus", listBus);
+			request.getRequestDispatcher("/WEB-INF/view/viewCustomer/indexCustomer.jsp").forward(request, response);
+		}else {
 		session.setAttribute("date",date);response.sendRedirect(request.getContextPath()+"/BookingServlet?idBus="+idBus +"&idUser="+ idUser.getIdUser()+"&date="+date);
 	}
+		}
 
 }

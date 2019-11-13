@@ -39,14 +39,11 @@
 
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
+						<li><a href="${pageContext.request.contextPath}/ShowAllBus"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
-						<li class="pull-right"><a
-							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
-								nhật thông tin</a></li>
 					</ul>
 				</div>
 			</div>
@@ -65,9 +62,9 @@
 									<tbody>
 										<tr>
 											<td>UserName:<span style="color: red;">(*)</span></td>
-											<td><input class="form-control input-sm" id="FullName"
-												name="username" type="text" value="${user.getUsername()}">
-												<span class="field-validation-valid"
+											<td><input readonly="readonly" class="form-control input-sm" id="FullName" 
+												name="username" value="${user.getUsername()}">
+												<span  class="field-validation-valid"
 												data-valmsg-for="FullName" data-valmsg-replace="true"></span>
 											</td>
 										</tr>
@@ -89,9 +86,9 @@
 											</td>
 										</tr>
 										<tr>
-											<td>Role:<span style="color: red;">(*)</span></td>
+											
 											<td><input class="form-control input-sm"
-												readonly="readlonly" id="FullName" name="role" type="text"
+												readonly="readlonly" id="FullName" name="role" type="hidden"
 												value="${user.getRole()}"> <span
 												class="field-validation-valid" data-valmsg-for="FullName"
 												data-valmsg-replace="true"></span></td>
@@ -135,16 +132,14 @@
 										<tr>
 											<td>Email <span style="color: red;">(*)</span></td>
 											<td><input class="form-control input-sm" id="Email"
-												name="email" type="text"> <span
-												class="field-validation-valid" data-valmsg-for="Email"
-												data-valmsg-replace="true">${user.getEmail()}</span></td>
+												name="email" type="text" value="${user.getEmail()}">
 										</tr>
 										<tr>
 										<tr>
-											<td>ID User:</td>
-											<td><input readonly="readlonly"
+											
+											<td><input readonly="readlonly" hidden="hidden"
 												class="form-control input-sm" id="Address" name="idUser"
-												type="text" value="${user.getIdUser()}"></td>
+												type="hidden" value="${user.getIdUser()}"></td>
 										</tr>
 										<tr>
 											<td colspan="2" class="text-right">

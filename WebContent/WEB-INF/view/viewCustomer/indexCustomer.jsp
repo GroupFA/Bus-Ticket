@@ -50,8 +50,7 @@
 
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
+						
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
@@ -132,7 +131,6 @@
 									<h3 class="text-primary text-uppercase">Các tuyến đường
 										phổ biến</h3>
 										<div class="form-group">
-											<label for="">Ngày khởi hành</label>
 											<div class="controls">
 											
 											</div>
@@ -153,7 +151,7 @@
 														<th data-hide="phone">Quãng đường</th>
 														<th data-hide="phone">Thời gian</th>
 														<th data-hide="phone">Số chuyến</th>
-														<th> ngay khoi hanh</th>
+														<th> Ngày khởi hành</th>
 														<th data-hide="phone">Giá vé</th>
 														<th data-hide="phone">Giờ chạy</th>
 														<th></th>
@@ -171,7 +169,7 @@
 															<td>${idBus.getKilomet()}km</td>
 															<td>${idBus.getTime()}</td>
 															<td>${idBus.getTrip()}chuyến/ngày</td>
-															<td>	<input class="form-control" id="mydate" type="date"
+															<td>	<input class="form-control" id="${idBus.getIdBus()}" type="date"
 													name="date"></td>
 															<td>
 																<p>
@@ -185,7 +183,7 @@
 															</a></td>
 															<td>
 																
-																<button type="submit" class="btn btn-success btn-flat">Tiếp
+																<button onclick="checkday(this,${idBus.getIdBus()})" class="btn btn-success btn-flat">Tiếp
 																	tục</button>
 														</tr>
 </form>
@@ -204,5 +202,20 @@
 		</div>
 	</section>
 </body>
-
+<script type="text/javascript" >
+function checkday(submit,id) {
+	var checkday = document.getElementById(id).value;
+	var daystart = new Date(checkday);
+	var daynow = new Date();
+	if(checkday=="")
+		{
+		alert("chon ngay di ban")
+		}else if(daynow > daystart){
+		alert("khong the di ve qua khu");
+		submit.type="button";
+	}else{
+		submit.type="submit";
+	} 
+	
+}</script>
 </html>

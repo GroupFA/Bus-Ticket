@@ -71,13 +71,14 @@ public class BookingServlet extends HttpServlet {
 		
 		Users user = (Users) session.getAttribute("userlogin");
 		int idUser = user.getIdUser();
-//		 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-//		   LocalDateTime now = LocalDateTime.now();
-//		   
-//		   String date = dtf.format(now);
+		 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		   LocalDateTime now = LocalDateTime.now();
+		   
+		   String realdate = dtf.format(now);
+		   request.setAttribute("realdate", realdate);
 		request.setAttribute("date", date);
-		
-		System.out.println(date);
+		request.setAttribute("user", user);
+	
 		
 		Bus bus = BusModel.getIdBus(idBus);
 		
@@ -116,10 +117,41 @@ public class BookingServlet extends HttpServlet {
 		String price = request.getParameter("price");
 		String date = request.getParameter("date");
 		String phone = request.getParameter("phone");
-
+		String message = "";
 		String ListTicket = request.getParameter("listSeat");
+		if(ListTicket.trim().equals("")) {
+			response.getWriter().append("Served at: ").append(request.getContextPath());
+			HttpSession session = request.getSession();
+			String id = request.getParameter("idBus");
+			int idBus1 = Integer.parseInt(id);
+			String date1 = request.getParameter("date");
+			System.out.println(date1+"ngay "+idBus1);
+			SeatDao seatDao = new SeatDao();
+			
+			List<Seat> listSeats = new ArrayList<Seat>();
+			
+			try {
+				listSeats = seatDao.findSeatByDateTrip(idBus1, date1 );
+				System.out.println(listSeats);
+				request.setAttribute("ListSeat", listSeats);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			Users user = (Users) session.getAttribute("userlogin");
+			int idUser = user.getIdUser();
+			request.setAttribute("date", date1);
+			
+			
+			Bus bus = BusModel.getIdBus(idBus1);
+			
+			request.setAttribute("bus", bus);
+			message ="chon ghe di ban";
+			request.setAttribute("messageerror", message);
+			request.getRequestDispatcher("/WEB-INF/view/viewCustomer/Booking.jsp").forward(request, response);
+			
+		}else {
 		String idListSeatString = ListTicket.substring(1);
-		System.out.println("a" + idListSeatString);
 		String idSeat[] = idListSeatString.split(" ");
 
 		HttpSession session = request.getSession();
@@ -131,13 +163,19 @@ public class BookingServlet extends HttpServlet {
 		session.setAttribute("date", date);
 		BusModel busModel = new BusModel();
 //       boolean result =busModel.booking(departure, destination, time, price,date, idBus,idUser.getIdUser(),phone);
+		
+		
 		for (int i = 0; i < idSeat.length; i++) {
 			System.out.println("idSEAT" + idSeat[i]);
-			boolean result = busModel.booking(departure, idSeat[i], destination, time, price, date, idBus, idUser, "1");
+			boolean result = busModel.booking(departure, idSeat[i], destination, time, price, date, idBus, idUser, "1",phone);
+		
 		}
-
 		response.sendRedirect(
 				request.getContextPath() + "/CheckOutServlet?idBus=" + idBus + "&idUser=" + idUser + "&date" + date );
+		}
+
+		
+	}
 	}
 
-}
+

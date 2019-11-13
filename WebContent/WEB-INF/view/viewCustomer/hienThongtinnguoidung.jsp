@@ -39,14 +39,14 @@
 
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
+						<li><ahref="${pageContext.request.contextPath}/ShowAllBus"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
 						<li class="pull-right"><a
 							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
-								nhật thông tin</a></li>
+								nhật lại thông tin</a></li>
 					</ul>
 				</div>
 			</div>
@@ -67,7 +67,7 @@
 										<tbody>
 											<tr>
 												<td>UserName:<span style="color: red;">(*)</span></td>
-												<td><input class="form-control input-sm" id="FullName"
+												<td><input readonly="readonly" class="form-control input-sm" id="FullName"
 													name="username" type="text" value="${user.getUsername()}">
 													<span class="field-validation-valid"
 													data-valmsg-for="FullName" data-valmsg-replace="true"></span>
@@ -76,7 +76,7 @@
 
 											<tr>
 												<td>FullName:<span style="color: red;">(*)</span></td>
-												<td><input class="form-control input-sm" id="FullName"
+												<td><input readonly="readonly"  class="form-control input-sm" id="FullName"
 													name="fullname" type="text" value="${user.getFullName()}">
 													<span class="field-validation-valid"
 													data-valmsg-for="FullName" data-valmsg-replace="true"></span>
@@ -84,16 +84,16 @@
 											</tr>
 											<tr>
 												<td>Password:<span style="color: red;">(*)</span></td>
-												<td><input class="form-control input-sm" id="FullName"
+												<td><input readonly="readonly"  class="form-control input-sm" id="FullName"
 													name="password" type="text" value="${user.getPassword()}">
 													<span class="field-validation-valid"
 													data-valmsg-for="FullName" data-valmsg-replace="true"></span>
 												</td>
 											</tr>
 											<tr>
-												<td>Role:<span style="color: red;">(*)</span></td>
+												
 												<td><input class="form-control input-sm"
-													readonly="readlonly" id="FullName" name="role" type="text"
+													readonly="readlonly" id="FullName" name="role" type="hidden"
 													value="${user.getRole()}"> <span
 													class="field-validation-valid" data-valmsg-for="FullName"
 													data-valmsg-replace="true"></span></td>
@@ -123,30 +123,29 @@
 										<tbody>
 											<tr>
 												<td>Điện thoại <span style="color: red;">(*)</span></td>
-												<td><input class="form-control input-sm" id="Phone"
+												<td><input readonly="readonly"  class="form-control input-sm" id="Phone"
 													name="phoneNum" type="text" value="${user.getPhoneNum()}"><span
 													class="field-validation-valid" data-valmsg-for="Phone"
 													data-valmsg-replace="true"></span></td>
 											</tr>
 											<tr>
 												<td>Địa chỉ</td>
-												<td><input class="form-control input-sm" id="Address"
+												<td><input readonly="readonly" class="form-control input-sm" id="Address"
 													name="address" type="text" value="${user.getAddress()}">
 												</td>
 											</tr>
 											<tr>
 												<td>Email <span style="color: red;">(*)</span></td>
-												<td><input class="form-control input-sm" id="Email"
-													name="email" type="text"> <span
-													class="field-validation-valid" data-valmsg-for="Email"
-													data-valmsg-replace="true"></span></td>
+												<td><input readonly="readonly"  class="form-control input-sm" id="Email"
+													name="email" type="text" value="${user.getEmail()}"> 
+													</td>
 											</tr>
 											<tr>
 											<tr>
-												<td>ID User:</td>
+												
 												<td><input readonly="readlonly"
 													class="form-control input-sm" id="Address" name="idUser"
-													type="text" value="${user.getIdUser()}"></td>
+													type="hidden"value="${user.getIdUser()}"></td>
 											</tr>
 										</tbody>
 									</table>

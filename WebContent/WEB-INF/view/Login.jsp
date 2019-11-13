@@ -62,7 +62,7 @@
 							placeholder="Enter password"> <span
 							class="focus-input100"></span>
 					</div>
-
+					<p style="color:red">${messageerror}</p>
 					<div class="flex-sb-m w-full p-b-30">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox"

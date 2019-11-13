@@ -4,5 +4,6 @@ encoding//WebContent/WEB-INF/view/viewAdmin/indexAdmin.jsp=UTF-8
 encoding//WebContent/WEB-INF/view/viewSeller/FilterSeat.jsp=UTF-8
 encoding//WebContent/WEB-INF/view/viewSeller/indexSeller.jsp=UTF-8
 encoding//WebContent/index.jsp=UTF-8
+encoding//src/controller/RegisterServlet.java=UTF-8
 encoding//src/model/AccountModel.java=UTF-8
 encoding//src/model/BusModel.java=UTF-8

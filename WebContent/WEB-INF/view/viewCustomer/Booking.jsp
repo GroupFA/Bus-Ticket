@@ -115,6 +115,7 @@ label.trong {
 					</div>
 				</div>
 			</div>
+			<p style="color:red">${messageerror}</p>
 			<section id="body-content">
 				<div id="steps" class="container">
 					<ul class="list-step clearfix">
@@ -133,7 +134,7 @@ label.trong {
 							<div class="panel">
 								<p class="text-center text-primary text-uppercase">${bus.getDeparture()}
 
-									- ${bus.getDestination()} <span>${date}</span>
+									- ${bus.getDestination()} <span>${realdate}</span>
 								</p>
 								<fieldset>
 									<div class="row">
@@ -191,11 +192,18 @@ label.trong {
 														type="text" value="${date}">
 												</div>
 											</div>
+											<div class="form-group">
+												<div class="controls">
+													<label for="">phone</label> <input
+														class="form-control input-sm" id="destination" name="phone"
+														type="text" value="${user.getPhoneNum()}">
+												</div>
+											</div>
 
 											<div class="form-section">
 												<div
 													class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-ms-12">
-													<a class="btn btn-primary btn-flat"> Quay lại</a>
+													<a href="${pageContext.request.contextPath}/ShowAllBus" class="btn btn-primary btn-flat"> Quay lại</a>
 													<button type="submit" class="btn btn-success btn-flat">Tiếp
 														tục</button>
 														 

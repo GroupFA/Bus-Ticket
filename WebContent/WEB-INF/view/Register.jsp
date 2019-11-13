@@ -49,14 +49,14 @@
 						<div class="row row-space">
 							<div class="col-2">
 								<div class="input-group">
-									<label class="label">Full name</label> <input
-										class="input--style-4" type="text" name="fullName">
+									<label class="label">Full name</label> <input 
+										class="input--style-4" type="text" name="fullName" required="">
 								</div>
 							</div>
 							<div class="col-2">
 								<div class="input-group">
 									<label class="label">Username</label> <input
-										class="input--style-4" type="text" name="usersName">
+										class="input--style-4" type="text" name="usersName" required="">
 								</div>
 							</div>
 
@@ -66,13 +66,13 @@
 							<div class="col-2">
 								<div class="input-group">
 									<label class="label">Password</label> <input
-										class="input--style-4" type="password" name="passWord">
+										class="input--style-4" type="password" name="passWord" required="">
 								</div>
 							</div>
 							<div class="col-2">
 								<div class="input-group">
 									<label class="label">Confirm password</label> <input
-										class="input--style-4" type="password" name="repassword">
+										class="input--style-4" type="password" name="repassword" required="">
 								</div>
 							</div>
 						</div>
@@ -82,10 +82,10 @@
 									<label class="label">Gender</label>
 									<div class="p-t-10">
 										<label class="radio-container m-r-45">Male <input
-											type="radio" checked="checked" name="gender" value="Nam"> <span
+											type="radio" checked="checked" name="gender" value="Nam" required=""> <span
 											class="checkmark"></span>
 										</label> <label class="radio-container">Female <input
-											type="radio" name="gender" value="Nu"> <span class="checkmark"></span>
+											type="radio" name="gender" value="Nu"> <span class="checkmark" required=""></span>
 										</label>
 									</div>
 								</div>
@@ -95,20 +95,20 @@
 							<div class="col-2">
 								<div class="input-group">
 									<label class="label">Email</label> <input
-										class="input--style-4" type="email" name="Email">
+										class="input--style-4" type="email" name="Email" required="">
 								</div>
 							</div>
 							<div class="col-2">
 								<div class="input-group">
 									<label class="label">Phone Number</label> <input
-										class="input--style-4" type="text" name="phoneNum">
+										class="input--style-4" type="number" name="phoneNum" required="">
 								</div>
 							</div>
 						</div>
 						<div class="row row-space">
 
 							<label class="label">Address</label> <input
-								class="input--style-4" type="text" name="address">
+								class="input--style-4" type="text" name="address" required="">
 
 						</div>
 
