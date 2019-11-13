@@ -84,15 +84,6 @@ public class BusModel {
 
 			String sql = "INSERT INTO `ticket`( `departure`,`destination`,`time`,`price`, `idBus`,`idUser`,`date`,`idSeat`,`status`) VALUES (?,?,?,?,?,?,?,?,?)";
 
-	//public static boolean booking( String departure, String destination,
-			//String time, String price,String date, int idBus,String idSeat, int idUser) {
-
-		//try {
-
-			//String sql = "INSERT INTO `ticket`( `departure`,`destination`,`time`,`price`, `idBus`,`idSeat`,`idUser`,`date`,`status`) "
-					//+ "VALUES (?,?,?,?,?,?,?,?,'1')";
-
-
 
 			
 			PreparedStatement pr = JDBCConnection.getJDBCConnection().prepareStatement(sql);

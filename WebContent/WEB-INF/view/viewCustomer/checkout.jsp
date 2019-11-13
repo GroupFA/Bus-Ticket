@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+	
+	<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -23,16 +24,17 @@
 </head>
 
 <body>
+
   <div id="sb-site">
     <div class="br-header">
       <div id="top-nav" class="hidden-xs">
         <div class="container">
           <ul class="clearfix">
-            <li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i> Trang chủ</a></li>
+            <li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i> Trang chủ</a></li>
             <li><a href="#"><i class="fa fa-truck" aria-hidden="true"></i>Lịch trình xe chạy</a></li>
             <li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Mua vé</a></li>
             <li class="pull-right diff"><a href="#"><span class="hidden-xs">Đăng nhập</span></a></li>
-            <li class="pull-right"><a target="_blank" href="#"><i class="fa fa-facebook-square"></i> Đăng ký</a></li>
+            <li class="pull-right"><a target="_blank" href="#"><i class="fa fa-facebook-square"></i> Đăng ký</a></li>
           </ul>
         </div>
       </div>
@@ -54,34 +56,28 @@
               <p class="text-center text-uppercase text-primary">
                 <strong>Thông tin đặt vé</strong>
               </p>
-              <form action="CheckOutServlet"
-						method="post">
+             <pr>
+             <pr>
+              <form action="CheckOutServlet" method="post">
                 <div class="form-group">
                   <div class="col-md-12">
                     <table class="table">
                       <tbody>
                         <tr>
                           <td class="col-xs-3">Tuyến:</td>
-                         <input class="form-control input-sm" id="departure"
-												name="departure" type="text" value="${bus.getDeparture()}">
-                        </tr>
-                        <tr>
-                          <td class="col-xs-3">Tuyến:</td>
-                          <input class="form-control input-sm" id="destination"
-												name="destination" type="text" value="${bus.getDestination()}">
+                          <td class="col-xs-9" colspan="3" name="departure" ng-bind-html="step2Info.selectRoute.Name">${bus.getDeparture()}</td>
+                           <td class="col-xs-9" colspan="3" name="destination" ng-bind-html="step2Info.selectRoute.Name">${bus.getDestination()}</td>
                         </tr>
                         <tr>
                           <td>Ngày đi:</td>
                           <td>
-                              <input class="form-control input-sm" id="destination"
-												name="time" type="text" value="${bus.getTime()}">
-                           <input class="form-control input-sm" id="destination"
-												name="bday" type="text" value="${date}">
+                            <span name="time" ng-bind-html="step2Info.departureTime.Time">${bus.getTime()}</span>
+                            <span name="bday" ng-bind-html="step1Info.departureDate|svcDate">${date}</span>
                           </td>
-                          <td>Ghế/giường:</td>
+                          <td>Số vé</td>
                           <td>
                             <!-- ngRepeat: s in step2Info.selectSeats --><span
-                              ng-repeat="s in step2Info.selectSeats">A14</span>
+                              ng-repeat="s in step2Info.selectSeats">${bus.getIdBus()}</span>
                             <!-- end ngRepeat: s in step2Info.selectSeats -->
                           </td>
                         </tr>
@@ -93,28 +89,24 @@
                         </tr>
                         <tr class="sperator">
                           <td>Họ tên:</td>
-                             <input class="form-control input-sm" id="destination"
-												name="fullname" type="text" value="${user.getFullName()}">
+                          <td name="fullname" ng-bind-html="step3Info.CustName">${user.getFullName()}</td>
+                          <td>Ngày sinh:</td>
+                          <td ng-bind-html="step3Info.CustBirthDay|svcDate"></td>
                         </tr>
                         <tr>
                           <td>Email:</td>
-                             <input class="form-control input-sm" id="destination"
-												name="email" type="text" value="${user.getEmail()}">
-												 
-                             <input class="form-control input-sm" id="destination"
-												name="idBus" type="text" value="${bus.getIdBus()}">
-                         
+                          <td name="email" ng-bind-html="step3Info.CustEmail">${user.getEmail()}</td>
                           <td>SĐT:</td>
                           <td>
-                            <input class="form-control input-sm" id="destination"
-												name="phone" type="text" value="${user.getPhoneNum()}">
+                            <span name="phone" ng-bind-html="step3Info.CustMobile">${user.getPhoneNum()}</span>
+                            <span ng-bind-html="step3Info.CustMobile2"></span>
                           </td>
                         </tr>
                         <tr>
                           <td>Tổng tiền:</td>
                           <td colspan="3">
-                             <input class="form-control input-sm" id="destination"
-												name="price" type="text" value="${price}">
+                            <strong class="text-primary"
+                            name="price" ng-bind-html="step2Info.total|svcMoney">${price}<sup>₫</sup></strong>
                           </td>
                         </tr>
                       </tbody>
@@ -123,18 +115,10 @@
                 </div>
                 <div class="form-group">
                   <div class="col-lg-12 col-md-12 col-sm-2 col-xs-12 col-ms-12">
-                    <a class="btn btn-primary btn-block btn-flat">
+                    <a ng-click="prev()" class="btn btn-primary btn-block btn-flat">
                       <i class="fa fa-arrow-left icon-flat bg-btn-actived"></i> Quay lại
                     </a>
                   </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-lg-12 col-md-12 col-sm-2 col-xs-12 col-ms-12">
-                    <a class="btn btn-primary btn-block btn-flat">
-                      <button type="submit" class="btn btn-success btn-flat">Thanh Toan</button>
-                    </a>
-                  </div>
-                </div>
                 </div>
               </form>
             </div>
@@ -143,6 +127,7 @@
       </div>
     </section>
   </div>
+  
 </body>
 
 </html>

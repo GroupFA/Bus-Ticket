@@ -108,30 +108,36 @@ public class BookingServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		String idBus = request.getParameter("idBus");
-		
+		int idBus = Integer.parseInt(request.getParameter("idBus"));
+		System.out.println(idBus);
 		String departure = request.getParameter("departure");
 		String destination = request.getParameter("destination");
 		String time = request.getParameter("time");
 		String price = request.getParameter("price");
 		String date = request.getParameter("date");
-		String[] n = request.getParameterValues("n");
-		String status ="1";
+		String phone = request.getParameter("phone");
+
+		String ListTicket = request.getParameter("listSeat");
+		String idListSeatString = ListTicket.substring(1);
+		System.out.println("a" + idListSeatString);
+		String idSeat[] = idListSeatString.split(" ");
+
 		HttpSession session = request.getSession();
-		Users idUser = (Users) session.getAttribute("userlogin");
-		
-		for (String string : n) {
-			BusModel busModel = new BusModel();
-			//boolean result = BusModel.booking(departure, string, destination, time, price, date,
-				//	Integer.parseInt(idBus), idUser.getIdUser(),status);
+		Users user = (Users) session.getAttribute("userlogin");
+		int idUser = user.getIdUser();
+
+		System.out.println(idUser);
+//	Users idUser = (Users) session.getAttribute("userlogin");
+		session.setAttribute("date", date);
+		BusModel busModel = new BusModel();
+//       boolean result =busModel.booking(departure, destination, time, price,date, idBus,idUser.getIdUser(),phone);
+		for (int i = 0; i < idSeat.length; i++) {
+			System.out.println("idSEAT" + idSeat[i]);
+			boolean result = busModel.booking(departure, idSeat[i], destination, time, price, date, idBus, idUser, "1");
 		}
 
-		session.setAttribute("date", date);
-		session.setAttribute("price", price);
-
 		response.sendRedirect(
-				request.getContextPath() + "/CheckOutServlet?idBus=" + idBus + "&idUser=" + idUser.getIdUser() + "&date" + date );
+				request.getContextPath() + "/CheckOutServlet?idBus=" + idBus + "&idUser=" + idUser + "&date" + date );
 	}
 
 }

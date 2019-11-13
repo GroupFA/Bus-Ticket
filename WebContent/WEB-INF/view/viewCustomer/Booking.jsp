@@ -127,7 +127,7 @@ label.trong {
 				</div>
 				<div class="container">
 					<div class="row">
-					<form action="${pageContext.request.contextPath}/CheckOutServlet"
+					<form action="${pageContext.request.contextPath}/BookingServlet"
 									method="post">
 						<div class="col-sm-4 col-xs-12 col-ms-12">
 							<div class="panel">
@@ -159,7 +159,7 @@ label.trong {
 												<div class="controls">
 													<label for="">Giờ khởi hành</label> <input
 														class="form-control input-sm" id="destination"
-														name="price" type="text" value="${bus.getTime()}">
+														name="time" type="text" value="${bus.getTime()}">
 												</div>
 											</div>
 											<div class="form-group">
