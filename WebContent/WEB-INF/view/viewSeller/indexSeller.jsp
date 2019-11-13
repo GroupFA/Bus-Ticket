@@ -118,18 +118,20 @@
 							<td>${ticket.getFullname() }</td>
 							<td>John</td>
 							<td>${ticket.getPhone() }</td>					
-							<td><c:set var="salary" scope="session"
+							<td>
+							
+							<c:set var="salary" scope="session"
 									value="${ticket.getStatus()}" /> <c:if test="${salary ==1 }">
-									<c:out value="Đã đặt" />
+								<c:out value="Đã đặt" />
+									
 								</c:if>
-							</td>
-								<td><c:set var="salary" scope="session"
+							
+								<c:set var="salary" scope="session"
 									value="${ticket.getStatus()}" /> <c:if test="${salary == 0 }">
 									<c:out value="Đã Hủy" />
 								</c:if>
-							</td>							
-							<td><a href="updateStatus?idTicket=${ticket.getIdTicket()}"
-								value="update">Hủy vé</a></td>
+							
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
