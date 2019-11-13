@@ -31,12 +31,16 @@
 <title>Document</title>
 <link rel="stylesheet" href="css/Cart.css">
 </head>
+<style>
+body{
+background-color: white;
+}
+</style>
 
 <body>
 	<div id="sb-site">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
-
 				<div class="container">
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
@@ -44,6 +48,9 @@
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
+						<li class="pull-right"><a
+							href="${pageContext.request.contextPath}/ViewCartCustomer?idUser=${userlogin.getIdUser()}">Lịch
+								sử mua vé</a></li>
 						<li class="pull-right"><a
 							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
 								nhật thông tin</a></li>
@@ -56,8 +63,6 @@
 				<div id="user-infomations" class="container">
 					<form action="UpdateNdServlet" class="form-horizontal"
 						method="post">
-						<input name="__RequestVerificationToken" type="hidden"
-							value="7FbmdXF5ZJggXa89psEoGMafXyYcTv94H28ge51LsqxRUw0P-SpnBL1FVzHjRn1D2Sh45bJp2Kl20q3-EMZnQXG2QYo1">
 						<div class="row">
 							<div class=" col-lg-6 col-md-6 col-sm-12 col-sm-12 col-xs-12">
 								<h3 class="text-uppercase bg-success">Thông tin cá nhân</h3>
@@ -122,9 +127,7 @@
 										<tr>
 											<td>Điện thoại <span style="color: red;">(*)</span></td>
 											<td><input class="form-control input-sm" id="Phone"
-												name="phoneNum" type="text" value="${user.getPhoneNum()}"><span
-												class="field-validation-valid" data-valmsg-for="Phone"
-												data-valmsg-replace="true"></span></td>
+												name="phoneNum" type="text" value="${user.getPhoneNum()}"></td>
 										</tr>
 										<tr>
 											<td>Địa chỉ</td>
@@ -135,9 +138,7 @@
 										<tr>
 											<td>Email <span style="color: red;">(*)</span></td>
 											<td><input class="form-control input-sm" id="Email"
-												name="email" type="text"> <span
-												class="field-validation-valid" data-valmsg-for="Email"
-												data-valmsg-replace="true">${user.getEmail()}</span></td>
+												name="email" type="text" value="${user.getEmail()}"></td>
 										</tr>
 										<tr>
 										<tr>

@@ -46,8 +46,6 @@
 						<li><a
 							href="${pageContext.request.contextPath}/InsertUserServlet"><i
 								class="fa fa-truck" aria-hidden="true"></i>Tạo người dùng</a></li>
-						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Đặt
-								vai trò</a></li>
 						<li class="pull-right diff"><a href="#"><span
 								class="hidden-xs"></span></a></li>
 						<li class="pull-right"><a target="_blank" href="#"><i

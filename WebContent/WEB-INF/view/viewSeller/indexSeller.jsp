@@ -29,6 +29,18 @@
 <!------ Include the above in your HEAD tag ---------->
 <title>Document</title>
 <link rel="stylesheet" href="css/Cart.css">
+<style>
+th {
+    width: 120px;
+}
+body {
+    background: white;
+    background-color: white !important;
+}
+select.form-control {
+    height: 34px;
+}
+</style>
 </head>
 
 <body>
@@ -40,17 +52,15 @@
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
 						<li><a href="${pageContext.request.contextPath}/ShowAllBus2"><i
-								class="fa fa-bus" aria-hidden="true">Lọc người dùng</i>
-
-								<li class="pull-right diff"><a href="#"><span
-										class="hidden-xs"></span></a></li>
-								<li class="pull-right"><a target="_blank" href="#"><i
-										class="fa fa-facebook-square"></i>Chào Nhân viên</a></li>
+								class="fa fa-bus" aria-hidden="true"></i> Tìm kiếm ghế</a></li>
+						<li class="pull-right diff"><a href="#"><span
+								class="hidden-xs"></span></a></li>
+						<li class="pull-right"><a target="_blank" href="#"><i
+								class="fa fa-facebook-square"></i>Chào Nhân viên</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<!-- ngView:  -->
 		<div class="container">
 			<div class="search">
 				<form>
@@ -69,15 +79,8 @@
 									</div>
 								</td>
 								<td><select class="form-control">
-										<!-- <option value="-1" label="Chọn trạng thái" selected="selected">Chọn trạng thái</option> -->
-										<a>
-											<option value="1" label="Chổ ngồi đã đặt" name="keyFilter">1
-											</option>
-									</a>
-
-										<a>
-											<option value="0" name="keyFilter"
-												label="Tất cả chổ ngồi trống">2</option>
+										<a><option value="1" label="Chổ ngồi đã đặt" name="keyFilter">1</option></a>
+										<a><option value="0" name="keyFilter" label="Tất cả chổ ngồi trống">2</option>
 									</a>
 
 								</select></td>
@@ -92,7 +95,7 @@
 				</form>
 			</div>
 			<table class="table-dsachve">
-				<h3 class="text-primary text-uppercase">Tất cả vé đã đặt</h3>
+				<h3 class="">Tất cả vé đã đặt</h3>
 				<thead>
 					<tr>
 						<th>Idbus</th>
@@ -103,11 +106,10 @@
 						<th>Name</th>
 						<th>Phone</th>
 						<th>Trạng thái</th>
-						
+
 					</tr>
 				</thead>
 				<tbody>
-
 					<c:forEach var="ticket" items="${ticket}">
 						<tr>
 							<td values="${ticket.getIdTicket()}">${ticket.getIdBus() }</td>
@@ -116,28 +118,22 @@
 							<td>${ticket.getTime() }</td>
 							<td>${ticket.getPrice() }.VND</td>
 							<td>${ticket.getFullname() }</td>
-							<td>John</td>
-							<td>${ticket.getPhone() }</td>					
-							<td>
-							
-							<c:set var="salary" scope="session"
+							<td>${ticket.getPhone() }</td>
+							<td><c:set var="salary" scope="session"
 									value="${ticket.getStatus()}" /> <c:if test="${salary ==1 }">
-								<c:out value="Đã đặt" />
-									
-								</c:if>
-							
-								<c:set var="salary" scope="session"
+									<c:out value="Đã đặt" />
+
+								</c:if> <c:set var="salary" scope="session"
 									value="${ticket.getStatus()}" /> <c:if test="${salary == 0 }">
 									<c:out value="Đã Hủy" />
-								</c:if>
-							
-							</td>
+								</c:if></td>
+							<td><a href="updateStatus?idTicket=${ticket.getIdTicket()}"
+								value="update">Hủy vé</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-
 	</div>
 </body>
 

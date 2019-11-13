@@ -99,6 +99,16 @@ label.trong {
 	width: 30px;
 	height: 30px;
 }
+.panel{
+background-color: white !important;
+}
+body{
+background-color: white;
+}
+.seatCharts-cell.seatCharts-space {
+    background-color: white !important;
+    color: white;
+}
 </style>
 <body>
 	<div id="sb-site">
@@ -112,25 +122,27 @@ label.trong {
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
 						<li class="pull-right"><a
+							href="${pageContext.request.contextPath}/ViewCartCustomer?idUser=${userlogin.getIdUser()}">Lịch
+								sử mua vé</a></li>
+						<li class="pull-right"><a
 							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
 								nhật thông tin</a></li>
 					</ul>
 				</div>
 
-				//<div class="container">
-					//<div class="row">
-					//<form action="${pageContext.request.contextPath}/BookingServlet"
+				<div class="container">
+					<div class="row">
+					<form action="${pageContext.request.contextPath}/BookingServlet"
 									method="post">
-
-			//</div>
+</div>
+		</div>
 		</div>
 		<section id="body-content">
 			<div id="steps" class="container">
 				<ul class="list-step clearfix">
-					<li>Chọn tuyến <span></span>
-					</li>
-					<li class="active first">Chọn ghế <span></span></li>
-					<li><span></span></li>
+					<li>Chọn tuyến</li>
+					<li class="active first">Chọn ghế</li>
+					<li>Thông tin khách hàng</li>
 					<li>Thanh toán <span></span></li>
 				</ul>
 			</div>
@@ -180,7 +192,7 @@ label.trong {
 											</div>
 											<div class="form-group">
 												<div class="controls">
-													<label for="">kilomet</label> <input
+													<label for="">Kilomet</label> <input
 														class="form-control input-sm" id="destination"
 														name="kilomet" type="text" value="${bus.getKilomet()}">
 												</div>
@@ -190,7 +202,7 @@ label.trong {
 												<div class="controls">
 													<label for="">Mã tuyến</label> <input
 														class="form-control input-sm" id="destination"
-														name="idBus" type="text" value="${bus.getIdBus()}">
+														name="idBus" type="text" value="${bus.getIdBus()}" >
 												</div>
 											</div>
 											<div class="form-group">

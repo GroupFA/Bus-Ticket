@@ -31,6 +31,11 @@
 <title>Document</title>
 <link rel="stylesheet" href="css/Cart.css">
 </head>
+<style>
+body{
+background-color: white;
+}
+</style>
 
 <body>
 	<div id="sb-site">
@@ -45,6 +50,9 @@
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
 						<li class="pull-right"><a
+							href="${pageContext.request.contextPath}/ViewCartCustomer?idUser=${userlogin.getIdUser()}">Lịch
+								sử mua vé</a></li>
+						<li class="pull-right"><a
 							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
 								nhật thông tin</a></li>
 					</ul>
@@ -54,7 +62,7 @@
 		<div class="container">
 			<div>
 				<section id="body-content">
-					<h3 class="text-primary text-uppercase">Đã cập nhật thành công</h3>
+					<h3>Đã cập nhật thành công</h3>
 					<div id="user-infomations" class="container">
 						<form action="UpdateNdServlet" class="form-horizontal"
 							method="post">
@@ -137,9 +145,7 @@
 											<tr>
 												<td>Email <span style="color: red;">(*)</span></td>
 												<td><input class="form-control input-sm" id="Email"
-													name="email" type="text"> <span
-													class="field-validation-valid" data-valmsg-for="Email"
-													data-valmsg-replace="true"></span></td>
+													name="email" type="text" value="${user.getEmail()}"></td>
 											</tr>
 											<tr>
 											<tr>

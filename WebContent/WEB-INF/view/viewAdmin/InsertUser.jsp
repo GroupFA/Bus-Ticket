@@ -43,8 +43,6 @@
 						<li><a
 							href="${pageContext.request.contextPath}/InsertUserServlet"><i
 								class="fa fa-truck" aria-hidden="true"></i>Tạo người dùng</a></li>
-						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Đặt
-								vai trò</a></li>
 						<li class="pull-right diff"><a href="#"><span
 								class="hidden-xs"></span></a></li>
 						<li class="pull-right"><a target="_blank" href="#"><i
@@ -65,17 +63,18 @@
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
-										<label for="">Username <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
-											<input type="text" class="form-control" name="username"
-												required="" ng-maxlength="80" value="">
+											<label for="">Tên đăng nhập: <span
+												class="text-primary">*</span></label> <input type="text"
+												class="form-control" name="username" required=""
+												ng-maxlength="80" value="">
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
-										<label for="">Di động <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
+											<label for="">Di động <span class="text-primary">*</span></label>
 											<input type="text" class="form-control" name="phoneNum"
 												placeholder="Số di động" required="" ng-maxlength="30"
 												vietnam-phone="" value="">
@@ -86,8 +85,8 @@
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
-										<label for="">Fullname <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
+											<label for="">Họ và tên <span class="text-primary">*</span></label>
 											<input type="text" class="form-control" name="fullname"
 												required="" ng-maxlength="80" value="">
 										</div>
@@ -95,8 +94,8 @@
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
-										<label for="">address <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
+											<label for="">Địa chỉ <span class="text-primary">*</span></label>
 											<input type="text" class="form-control" name="address"
 												required="" ng-maxlength="80" value="">
 										</div>
@@ -106,8 +105,8 @@
 							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
-										<label for="">password <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
+											<label for="">Mật khẩu <span class="text-primary">*</span></label>
 											<input type="text" class="form-control" name="password"
 												required="" ng-maxlength="80" value="">
 										</div>
@@ -115,8 +114,8 @@
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
-										<label for="">Email <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
+											<label for="">Email <span class="text-primary">*</span></label>
 											<input class="form-control" type="email" name="email"
 												placeholder="Địa chỉ email" required="" value="">
 										</div>
@@ -128,8 +127,8 @@
 
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
-										<label for="">Role <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
+											<label for="">Chức vụ <span class="text-primary">*</span></label>
 											<select name="role" id="" class="form-control" value="">
 
 												<option name="role" value="Admin">Admin</option>
@@ -143,20 +142,17 @@
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
-										<label for="">ID User <span class="text-primary">*</span></label>
 										<div class="controls no-icon">
+											<label for="">ID User <span class="text-primary">*</span></label>
 											<input type="text" class="form-control" name="idUser"
 												readonly="readonly" required="" ng-maxlength="80" value="">
 										</div>
 									</div>
 								</div>
-
-							</div>
-							<div class="row">
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
-										<label for="">Gender <span class="text-primary">*</span></label>
-										<div class="input-group" value="">
+										<div class="controls no-icon">
+											<label for="">Gender <span class="text-primary">*</span></label>
 											<div class="p-t-10">
 												<label class="radio-container m-r-45">Male <input
 													type="radio" checked="checked" name="gender" value="Nam">
@@ -169,19 +165,18 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-									<a class="btn btn-primary btn-flat"><i
-										class="fa fa-arrow-left icon-flat bg-btn-actived"></i> Quay
-										lại</a> <a>
+
+							</div>
+							
+								<div class="pull-right diff">									
 										<button type="submit" class="btn btn-success  btn-flat">
-											<i class="fa fa-arrow-right icon-flat bg-success"></i> Them
+											<i class="fa fa-arrow-right icon-flat bg-success"></i>Thêm
 
 										</button>
-									</a>
+									
 								</div>
 
 
-							</div>
 
 						</fieldset>
 					</form>

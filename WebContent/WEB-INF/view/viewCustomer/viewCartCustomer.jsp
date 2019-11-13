@@ -47,14 +47,15 @@
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
 								Trang chủ</a></li>
-						<li><a href="#"><i class="fa fa-truck" aria-hidden="true"></i>Lịch
-								trình xe chạy</a></li>
-						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i>Mua
-								vé</a></li>
-						<li class="pull-right diff"><a href="#"><span
-								class="hidden-xs">Đăng nhập</span></a></li>
-						<li class="pull-right"><a target="_blank" href="#"> Đăng
-								ký </a></li>
+						<li class="pull-right diff"><a
+							href="${pageContext.request.contextPath}/AccountServlet"><span
+								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
+						<li class="pull-right"><a
+							href="${pageContext.request.contextPath}/ViewCartCustomer?idUser=${userlogin.getIdUser()}">Lịch
+								sử mua vé</a></li>
+						<li class="pull-right"><a
+							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
+								nhật thông tin</a></li>
 					</ul>
 				</div>
 			</div>

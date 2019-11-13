@@ -210,7 +210,7 @@ table { border-collapse:collapse }
 }
 .box-search {
     position: absolute;
-    width: 942px;
+    width: 956px;
     height: 46px;
     margin: 0 88px;
     padding: 15px 10px;
@@ -553,11 +553,12 @@ margin-top: 0px !important;
 }
 
 body {
-  background-color: white !important;    background: whitesmoke !important;
+    background: white;
+    background-color: whitesmoke;
 }
 .text-uppercase {
   text-align: left;
-  margin-top: -40px;
+  margin-top: 10px;
   /* text-transform: uppercase; */
 }
 select.form-control {
