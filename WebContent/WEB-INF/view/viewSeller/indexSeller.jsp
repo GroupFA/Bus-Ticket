@@ -72,15 +72,24 @@ select.form-control {
 										<div class="shopee-searchbar__main">
 											<form role="search" class="form-control" autocomplete="off">
 												<input aria-label="Tìm kiếm" class="form-control"
-													name="keyFilter" maxlength="128" placeholder="Tìm kiếm"
+													maxlength="128" placeholder="Tìm kiếm"
 													autocomplete="off" value="">
 											</form>
 										</div>
 									</div>
 								</td>
-								<td><select class="form-control">
-										<a><option value="1" label="Chổ ngồi đã đặt" name="keyFilter">1</option></a>
-										<a><option value="0" name="keyFilter" label="Tất cả chổ ngồi trống">2</option>
+
+								<td><select class="form-control"  name="keyFilter">
+										<!-- <option value="-1" label="Chọn trạng thái" selected="selected">Chọn trạng thái</option> -->
+										<a>
+											<option value="1" label="Chổ ngồi đã đặt" name="keyFilter">1
+											</option>
+									</a>
+
+										<a>
+											<option value="0" name="keyFilter"
+												label="Tất cả chổ ngồi trống">2</option>
+
 									</a>
 
 								</select></td>
@@ -121,15 +130,24 @@ select.form-control {
 							<td>${ticket.getPhone() }</td>
 							<td><c:set var="salary" scope="session"
 									value="${ticket.getStatus()}" /> <c:if test="${salary ==1 }">
-									<c:out value="Đã đặt" />
 
-								</c:if> <c:set var="salary" scope="session"
+								
+
+
+								<c:out value="Đã đặt" />
+								<td><a href="updateStatus?idTicket=${ticket.getIdTicket()}"
+								value="update">Hủy vé</a></td>
+									
+								</c:if>
+							
+								<c:set var="salary" scope="session"
 									value="${ticket.getStatus()}" /> <c:if test="${salary == 0 }">
 									<c:out value="Đã Hủy" />
-								</c:if></td>
-							<td><a href="updateStatus?idTicket=${ticket.getIdTicket()}"
-								value="update">Hủy vé</a></td>
-						</tr>
+								</c:if>
+							
+							</td>
+							
+				</tr>
 					</c:forEach>
 				</tbody>
 			</table>
