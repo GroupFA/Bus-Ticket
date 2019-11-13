@@ -116,13 +116,13 @@ label.trong {
 								nhật thông tin</a></li>
 					</ul>
 				</div>
-
-				//<div class="container">
-					//<div class="row">
-					//<form action="${pageContext.request.contextPath}/BookingServlet"
+</div>
+				<div class="container">
+					<div class="row">
+					<form action="${pageContext.request.contextPath}/BookingServlet"
 									method="post">
 
-			//</div>
+			</div>
 		</div>
 		<section id="body-content">
 			<div id="steps" class="container">

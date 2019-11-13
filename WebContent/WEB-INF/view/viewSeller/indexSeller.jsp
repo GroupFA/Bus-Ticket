@@ -62,13 +62,13 @@
 										<div class="shopee-searchbar__main">
 											<form role="search" class="form-control" autocomplete="off">
 												<input aria-label="Tìm kiếm" class="form-control"
-													name="keyFilter" maxlength="128" placeholder="Tìm kiếm"
+													maxlength="128" placeholder="Tìm kiếm"
 													autocomplete="off" value="">
 											</form>
 										</div>
 									</div>
 								</td>
-								<td><select class="form-control">
+								<td><select class="form-control"  name="keyFilter">
 										<!-- <option value="-1" label="Chọn trạng thái" selected="selected">Chọn trạng thái</option> -->
 										<a>
 											<option value="1" label="Chổ ngồi đã đặt" name="keyFilter">1
@@ -92,7 +92,7 @@
 				</form>
 			</div>
 			<table class="table-dsachve">
-				<h3 class="text-primary text-uppercase">Tất cả vé đã đặt</h3>
+				<h3 class="">Tất cả vé đã đặt</h3>
 				<thead>
 					<tr>
 						<th>Idbus</th>
@@ -123,6 +123,8 @@
 							<c:set var="salary" scope="session"
 									value="${ticket.getStatus()}" /> <c:if test="${salary ==1 }">
 								<c:out value="Đã đặt" />
+								<td><a href="updateStatus?idTicket=${ticket.getIdTicket()}"
+								value="update">Hủy vé</a></td>
 									
 								</c:if>
 							
@@ -132,6 +134,7 @@
 								</c:if>
 							
 							</td>
+							
 						</tr>
 					</c:forEach>
 				</tbody>

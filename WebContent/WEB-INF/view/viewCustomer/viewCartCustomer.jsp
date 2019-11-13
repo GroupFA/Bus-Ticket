@@ -79,9 +79,9 @@
 													<th data-hide="phone">Số Xe</th>
 													<th data-hide="phone">Giá Vé</th>
 													<th data-hide="phone">Thời gian</th>
-													
+
 													<th data-hide="phone">Ngày đặt</th>
-														<th data-hide="phone">Trạng Thái</th>
+													<th data-hide="phone">Trạng Thái</th>
 													<th></th>
 												</tr>
 											</thead>
@@ -92,13 +92,25 @@
 														<td>${pd.getDeparture() }</td>
 														<td>${pd.getDestination() }</td>
 														<td>${pd.getIdBus() }</td>
-														<td>${pd.getPrice() }</td>
+														<td>${pd.getPrice() }.đ</td>
 														<td>${pd.getTime() }</td>
-													
+
 														<td>${pd.getDate() }</td>
-														<td>${pd.getStatus() }</td>
-												<td><a href="updateStatusCustomer?idTicket=${pd.getIdTicket()}&&idUser=${idUser}"
-								value="update">Hủy vé</a></td>
+														<td><c:set var="salary" scope="session"
+																value="${pd.getStatus()}" /> <c:if
+																test="${salary ==1 }">
+																<c:out value="Đã đặt" />
+																<td><a
+															href="updateStatusCustomer?idTicket=${pd.getIdTicket()}&&idUser=${idUser}"
+															value="update">Hủy vé</a></td>
+
+															</c:if> <c:set var="salary" scope="session"
+																value="${pd.getStatus()}" /> <c:if
+																test="${salary == 0 }">
+																<c:out value="Đã Hủy" />
+															</c:if>
+															</td>
+														
 													</tr>
 												</c:forEach>
 											</tbody>
