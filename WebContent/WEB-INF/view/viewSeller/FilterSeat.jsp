@@ -13,7 +13,8 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
-
+<!-- <link rel="stylesheet"
+	href="bootstrap/assets/bootstrap/css/bootstrap.min.css"> -->
 <!-- Optional theme -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
@@ -30,6 +31,12 @@
 <link rel="stylesheet" href="css/Cart.css">
 </head>
 <style>
+#top-nav ul li {
+    margin-left: 45px;
+    float: left;
+    padding: 10px 20px;
+    list-style: none;
+}
 body {
 	background: white;
 	background-color: white !important;
@@ -37,21 +44,30 @@ body {
 .row {
     margin-left: 40px;
 }
+img {
+	margin-left: 180px;
+	position: absolute;
+	width: 250px;
+	height: 50px;
+	margin-top: -5px;
+}
 </style>
 <body>
-	<div id="sb-site">
+<div id="sb-site">
+	
+	<img src="./images/logo2.png">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
-						<li><a href="${pageContext.request.contextPath}/ShowAllBus2"><i
-								class="fa fa-bus" aria-hidden="true"></i> Tìm kiếm ghế</a></li>
+						<li></li><li></li> 
+						<li><a
+							href="${pageContext.request.contextPath}/ShowAllBus2"><i
+								class="fa fa-truck" aria-hidden="true"></i>Tìm kiếm ghế</a></li>
 						<li class="pull-right diff"><a href="#"><span
 								class="hidden-xs"></span></a></li>
 						<li class="pull-right"><a target="_blank" href="#"><i
-								class="fa fa-facebook-square"></i>Chào Nhân viên</a></li>
+								class="fa fa-facebook-square"></i>Chào Admin</a></li>
 					</ul>
 				</div>
 			</div>

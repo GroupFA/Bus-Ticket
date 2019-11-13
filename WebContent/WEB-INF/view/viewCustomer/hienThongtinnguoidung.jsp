@@ -35,17 +35,22 @@
 body{
 background-color: white;
 }
+img {
+	margin-left: 180px;
+	position: absolute;
+	width: 250px;
+	height: 50px;
+	margin-top: -5px;
+}
 </style>
 
 <body>
 	<div id="sb-site">
+	<img src="./images/logo2.png">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
-
 				<div class="container">
-					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
+					<ul class="clearfix">						
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
@@ -62,7 +67,7 @@ background-color: white;
 		<div class="container">
 			<div>
 				<section id="body-content">
-					<h3>Đã cập nhật thành công</h3>
+					<h3 class="text-primary ">Đã cập nhật thành công</h3>
 					<div id="user-infomations" class="container">
 						<form action="UpdateNdServlet" class="form-horizontal"
 							method="post">
@@ -74,16 +79,16 @@ background-color: white;
 									<table class="table form-info">
 										<tbody>
 											<tr>
-												<td>UserName:<span style="color: red;">(*)</span></td>
+												<td>Tên đăng nhập:<span style="color: red;">(*)</span></td>
 												<td><input class="form-control input-sm" id="FullName"
-													name="username" type="text" value="${user.getUsername()}">
+													name="username" type="text" value="${user.getUsername()}" readonly="readlonly">
 													<span class="field-validation-valid"
 													data-valmsg-for="FullName" data-valmsg-replace="true"></span>
 												</td>
 											</tr>
 
 											<tr>
-												<td>FullName:<span style="color: red;">(*)</span></td>
+												<td>Họ và tên:<span style="color: red;">(*)</span></td>
 												<td><input class="form-control input-sm" id="FullName"
 													name="fullname" type="text" value="${user.getFullName()}">
 													<span class="field-validation-valid"
@@ -91,7 +96,7 @@ background-color: white;
 												</td>
 											</tr>
 											<tr>
-												<td>Password:<span style="color: red;">(*)</span></td>
+												<td>Mật khẩu:<span style="color: red;">(*)</span></td>
 												<td><input class="form-control input-sm" id="FullName"
 													name="password" type="text" value="${user.getPassword()}">
 													<span class="field-validation-valid"
@@ -99,7 +104,7 @@ background-color: white;
 												</td>
 											</tr>
 											<tr>
-												<td>Role:<span style="color: red;">(*)</span></td>
+												<td>Chức vụ:<span style="color: red;">(*)</span></td>
 												<td><input class="form-control input-sm"
 													readonly="readlonly" id="FullName" name="role" type="text"
 													value="${user.getRole()}"> <span
@@ -107,14 +112,14 @@ background-color: white;
 													data-valmsg-replace="true"></span></td>
 											</tr>
 											<tr>
-												<td>Gender:<span style="color: red;">(*)</span></td>
+												<td>Giới tính:<span style="color: red;">(*)</span></td>
 												<td>
 													<div class="input-group" value="${user.getGender()}">
 														<div class="p-t-10">
-															<label class="radio-container m-r-45">Male <input
+															<label class="radio-container m-r-45">Nam <input
 																type="radio" checked="checked" name="gender" value="Nam">
 																<span class="checkmark"></span>
-															</label> <label class="radio-container">Female <input
+															</label> <label class="radio-container">Nữ <input
 																type="radio" name="gender" value="Nữ"> <span
 																class="checkmark"></span>
 															</label>

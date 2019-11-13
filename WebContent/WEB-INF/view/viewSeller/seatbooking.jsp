@@ -47,10 +47,25 @@
 	href="jQuery-Seat-Charts/jquery.seat-charts.css">
 <!-- <link rel="stylesheet" type="text/css" href="jQuery-Seat-Charts/style.css"> -->
 <script src="jQuery-Seat-Charts/jquery-1.11.0.min.js"></script>
+<!-- <link rel="stylesheet"
+	href="bootstrap/assets/bootstrap/css/bootstrap.min.css"> -->
 <!------ Include the above in your HEAD tag ---------->
 <title>Document</title>
 <link rel="stylesheet" href="css/Cart.css">
 <style>
+#top-nav ul li {
+    margin-left: 45px;
+    float: left;
+    padding: 10px 20px;
+    list-style: none;
+}
+img {
+	margin-left: 180px;
+	position: absolute;
+	width: 250px;
+	height: 50px;
+	margin-top: -5px;
+}
 span.seatCharts-legendDescription {
     margin-left: 80px;
     float: left;
@@ -145,19 +160,21 @@ div#seat-map {
 </style>
 </head>
 <body>
-	<div id="sb-site">
+<div id="sb-site">
+	
+	<img src="./images/logo2.png">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
-						<li><a href="${pageContext.request.contextPath}/ShowAllBus2"><i
-								class="fa fa-bus" aria-hidden="true"></i> Tìm kiếm ghế</a></li>
+						<li></li><li></li> 
+						<li><a
+							href="${pageContext.request.contextPath}/ShowAllBus2"><i
+								class="fa fa-truck" aria-hidden="true"></i>Tìm kiếm ghế</a></li>
 						<li class="pull-right diff"><a href="#"><span
 								class="hidden-xs"></span></a></li>
 						<li class="pull-right"><a target="_blank" href="#"><i
-								class="fa fa-facebook-square"></i>Chào Nhân viên</a></li>
+								class="fa fa-facebook-square"></i>Chào Admin</a></li>
 					</ul>
 				</div>
 			</div>
