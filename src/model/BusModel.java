@@ -78,11 +78,11 @@ public class BusModel {
 	}
 
 	public static boolean booking( String departure,String seat, String destination,
-			String time, String price,String date, int idBus, int idUser,String status) {
+			String time, String price,String date, int idBus, int idUser,String status,String phone) {
 
 		try {
 
-			String sql = "INSERT INTO `ticket`( `departure`,`destination`,`time`,`price`, `idBus`,`idUser`,`date`,`idSeat`,`status`) VALUES (?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO `ticket`( `departure`,`destination`,`time`,`price`, `idBus`,`idUser`,`date`,`idSeat`,`status`,`Phone`) VALUES (?,?,?,?,?,?,?,?,?,?)";
 
 
 			
@@ -98,6 +98,7 @@ public class BusModel {
 			pr.setString(7,date);
 			pr.setString(8,seat);
 			pr.setString(9, status );
+			pr.setString(10, phone );
 
 			
 

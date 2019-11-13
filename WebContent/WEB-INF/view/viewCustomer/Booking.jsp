@@ -111,6 +111,7 @@ background-color: white;
 }
 </style>
 <body>
+
 	<div id="sb-site">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
@@ -127,6 +128,20 @@ background-color: white;
 						<li class="pull-right"><a
 							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
 								nhật thông tin</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<p style="color:red">${messageerror}</p>
+			<section id="body-content">
+				<div id="steps" class="container">
+					<ul class="list-step clearfix">
+						<li>Chọn tuyến <span></span>
+						</li>
+						<li class="active first">Chọn ghế <span></span></li>
+						<li>Thông tin khách hàng <span></span></li>
+						<li>Thanh toán <span></span></li>
+
 					</ul>
 				</div>
 
@@ -159,7 +174,10 @@ background-color: white;
 						<div class="col-sm-4 col-xs-12 col-ms-12">
 							<div class="panel">
 								<p class="text-center text-primary text-uppercase">${bus.getDeparture()}
-									- ${bus.getDestination()} <span>${date}</span>
+
+
+									- ${bus.getDestination()} <span>${realdate}</span>
+
 								</p>
 								<fieldset>
 									<div class="row">
@@ -217,11 +235,18 @@ background-color: white;
 														type="text" value="${date}">
 												</div>
 											</div>
+											<div class="form-group">
+												<div class="controls">
+													<label for="">phone</label> <input
+														class="form-control input-sm" id="destination" name="phone"
+														type="text" value="${user.getPhoneNum()}">
+												</div>
+											</div>
 
 											<div class="form-section">
 												<div
 													class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-ms-12">
-													<a class="btn btn-primary btn-flat"> Quay lại</a>
+													<a href="${pageContext.request.contextPath}/ShowAllBus" class="btn btn-primary btn-flat"> Quay lại</a>
 													<button type="submit" class="btn btn-success btn-flat">Tiếp
 														tục</button>
 

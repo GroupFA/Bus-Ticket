@@ -39,7 +39,7 @@ public class AccountServlet extends HttpServlet {
 //		Account nd = acmodel.LoginAccount(username, password);
 	
 //		System.out.print(nd.getUsername() + nd.getPassword());
-		if (nd != null) {
+		if (nd.getUsername() != null) {
 				if (nd.getRole().equals("Admin")) {
 					response.sendRedirect(request.getContextPath()+"/showAllUser");
 					return;
@@ -55,13 +55,13 @@ public class AccountServlet extends HttpServlet {
 					return;
 				}
 				
-			} else {
-				message = "sai password";
-				page = "ctctrcr.jsp";
-
-			}
+			}else{
+				message = "sai password hoac username";
+				page = "/WEB-INF/view/Login.jsp";
+				
+				}
 		
-			request.setAttribute("thong bao", message);
+			request.setAttribute("messageerror", message);
 			request.getRequestDispatcher(page).forward(request, response);
 		}
 

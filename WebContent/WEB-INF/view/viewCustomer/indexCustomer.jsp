@@ -49,8 +49,7 @@
 			<div id="top-nav" class="hidden-xs">
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
+						
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
@@ -120,6 +119,13 @@
 								<div class="row">
 									<h3 class="text-primary text-uppercase">Các tuyến đường
 										phổ biến</h3>
+
+										<div class="form-group">
+											<div class="controls">
+											
+											</div>
+										</div>
+
 									<div class="section-list" id="Star-sai-gon">
 										<h3 class="text-uppercase text-success">
 											<span class="sprite ico-drive"></span> Sài Gòn <i
@@ -132,6 +138,7 @@
 														<th>Mã tuyến</th>
 														<th>Bến đi</th>
 														<th>Bến đến</th>
+
 														<th>Loại xe</th>
 														<th>Quãng đường</th>
 														<th>Thời gian</th>
@@ -139,35 +146,42 @@
 														<th>Ngày khởi hành</th>
 														<th>Giá vé</th>
 														<th>Giờ chạy</th>
+
 														<th></th>
 													</tr>
 												</thead>
 												<tbody action="ShowAllBus" method="get">
 													<c:forEach var="idBus" items="${idBus}">
-														<form action="ShowAllBus" method="post">
-															<tr class="route-row1375">
-																<input type="text" hidden="hidden" name="idBus"
-																	value="${idBus.getIdBus()}">
-																<td>${idBus.getIdBus()}</td>
-																<td>${idBus.getDeparture()}</td>
-																<td>${idBus.getDestination()}</td>
-																<td>${idBus.getCategory()}</td>
-																<td>${idBus.getKilomet()}km</td>
-																<td>${idBus.getTime()}</td>
-																<td>${idBus.getTrip()}chuyến/ngày</td>
-																<td><input class="form-control" id="mydate"
-																	type="date" name="date"></td>
-																<td><p>
-																		<strong class="text-primary">${idBus.getPrice()}<sup>đ/vé</sup>
-																		</strong>
-																	</p></td>
-																<td></td>
-																<td>
 
-																	<button type="submit" class="btn btn-success btn-flat">Tiếp
-																		tục</button>
-															</tr>
-														</form>
+													<form action="ShowAllBus" method="post">
+														<tr class="route-row1375">
+														<input type="text" hidden="hidden" name="idBus" value="${idBus.getIdBus()}">
+															<td>${idBus.getIdBus()}</td>
+															<td>${idBus.getDeparture()}</td>
+															<td>${idBus.getDestination()}</td>
+															<td>${idBus.getCategory()}</td>
+															<td>${idBus.getKilomet()}km</td>
+															<td>${idBus.getTime()}</td>
+															<td>${idBus.getTrip()}chuyến/ngày</td>
+															<td>	<input class="form-control" id="${idBus.getIdBus()}" type="date"
+													name="date"></td>
+															<td>
+																<p>
+																	<strong class="text-primary">
+																		${idBus.getPrice()}<sup>đ/vé</sup>
+																	</strong>
+																</p>
+															</td>
+															<td><a class="br-btn-flat br-watch-schedule" href="">
+																	<i class="fa fa-clock-o icon-flat text-success"></i>
+															</a></td>
+															<td>
+																
+																<button onclick="checkday(this,${idBus.getIdBus()})" class="btn btn-success btn-flat">Tiếp
+																	tục</button>
+														</tr>
+</form>
+
 													</c:forEach>
 												</tbody>
 											</table>
@@ -183,5 +197,20 @@
 		</div>
 	</section>
 </body>
-
+<script type="text/javascript" >
+function checkday(submit,id) {
+	var checkday = document.getElementById(id).value;
+	var daystart = new Date(checkday);
+	var daynow = new Date();
+	if(checkday=="")
+		{
+		alert("chon ngay di ban")
+		}else if(daynow > daystart){
+		alert("khong the di ve qua khu");
+		submit.type="button";
+	}else{
+		submit.type="submit";
+	} 
+	
+}</script>
 </html>

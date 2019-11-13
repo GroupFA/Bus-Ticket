@@ -56,8 +56,7 @@ width:280px
 			<div id="top-nav" class="hidden-xs">
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
+						
 						<li><a href="#"><i class="fa fa-truck" aria-hidden="true"></i></a></li>
 						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i></a></li>
 						<li class="pull-right diff"><a

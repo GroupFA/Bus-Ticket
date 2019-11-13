@@ -24,16 +24,16 @@ public class AccountModel {
 
 		Users ac = new Users();
 		try {
-			String sql = "select * from user where username = ?";
+			String sql = "select * from user where username = ? and password =?";
 			PreparedStatement pr = JDBCConnection.getJDBCConnection().prepareStatement(sql);
 
 			pr.setString(1, re.getUsername());
-
+			pr.setString(2,re.getPassword() );
 			ResultSet rs = pr.executeQuery();
 
 			if (rs.next()) {
 
-				if (rs.getString(2).equals(re.getUsername()) && rs.getString(3).equals(re.getPassword())) {
+				
 					ac.setIdUser(rs.getInt(1));
 					ac.setUsername(rs.getString(2));
 					ac.setPassword(rs.getString(3));
@@ -43,15 +43,15 @@ public class AccountModel {
 					ac.setPhoneNum(rs.getString(7));
 					ac.setRole(rs.getString(8));
 					ac.setEmail(rs.getString(9));
-					return ac;
+					
 				}
 
-			}
+			
 		} catch (Exception e) {
 			System.out.println(e);
 			
 		}
-		return null;// loginthat bai ???
+		return ac;// loginthat bai ???
 
 	}
 
