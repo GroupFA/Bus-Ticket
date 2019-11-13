@@ -47,7 +47,6 @@
 	<div id="sb-site">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
-
 				<div class="container">
 					<ul class="clearfix">
 						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
@@ -55,9 +54,9 @@
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
-								
-								<li class="pull-right"><a
-							href="${pageContext.request.contextPath}/ViewCartCustomer?idUser=${userlogin.getIdUser()}">Lịch sử mua vé</a></li>
+						<li class="pull-right"><a
+							href="${pageContext.request.contextPath}/ViewCartCustomer?idUser=${userlogin.getIdUser()}">Lịch
+								sử mua vé</a></li>
 						<li class="pull-right"><a
 							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
 								nhật thông tin</a></li>
@@ -65,7 +64,6 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="carousel">
 			<div id="carousel-id" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
@@ -90,35 +88,26 @@
 			</div>
 			<!--đóng carousel  -->
 		</div>
-		
 		<!-- đóng col  -->
-	
 	</div>
-	
 	<div class="container">
 		<div class="box-search">
-			<input type="hidden" class="currentDate" value="28/10/2019">
-			
-				<input class="agencyType" type="hidden" name="agencyType" value="1">
-				<table width="100%" cellspacing="0" class="table-search">
-					<tbody>
-						<tr>
-							<td><select class="form-control">
-									<option value="Điểm đi" selected>Điểm đi</option>
-									<option>Sài gòn</option>
-							</select></td>
-							<td><select class="form-control">
-									<option value="Điểm đến" selected>Điểm đến</option>
-									<option>Cà Mau</option>
-							</select></td>
-							
-
-
-							<td><input type="submit" class="btn-search" value="Tìm vé"></td>
-						</tr>
-					</tbody>
-				</table>
-			
+			<table width="100%" cellspacing="0" class="table-search">
+				<tbody>
+					<tr>
+						<td><select class="form-control">
+								<option value="Điểm đi" selected>Điểm đi</option>
+								<option>Sài gòn</option>
+						</select></td>
+						<td><select class="form-control">
+								<option value="Điểm đến" selected>Điểm đến</option>
+								<option>Cà Mau</option>
+						</select></td>
+						<td><input class="form-control" id="mydate" type="date" name="date"></td>
+						<td><input type="submit" class="btn-search" value="Tìm vé"></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 	<section class="page-section cta">
@@ -131,12 +120,6 @@
 								<div class="row">
 									<h3 class="text-primary text-uppercase">Các tuyến đường
 										phổ biến</h3>
-										<div class="form-group">
-											<label for="">Ngày khởi hành</label>
-											<div class="controls">
-											
-											</div>
-										</div>
 									<div class="section-list" id="Star-sai-gon">
 										<h3 class="text-uppercase text-success">
 											<span class="sprite ico-drive"></span> Sài Gòn <i
@@ -147,48 +130,44 @@
 												<thead>
 													<tr class="bg-light-green">
 														<th>Mã tuyến</th>
-														<th data-toggle="true">Bến đi</th>
+														<th>Bến đi</th>
 														<th>Bến đến</th>
-														<th data-hide="phone">Loại xe</th>
-														<th data-hide="phone">Quãng đường</th>
-														<th data-hide="phone">Thời gian</th>
-														<th data-hide="phone">Số chuyến</th>
-														<th> ngay khoi hanh</th>
-														<th data-hide="phone">Giá vé</th>
-														<th data-hide="phone">Giờ chạy</th>
+														<th>Loại xe</th>
+														<th>Quãng đường</th>
+														<th>Thời gian</th>
+														<th>Số chuyến</th>
+														<th>Ngày khởi hành</th>
+														<th>Giá vé</th>
+														<th>Giờ chạy</th>
 														<th></th>
 													</tr>
 												</thead>
 												<tbody action="ShowAllBus" method="get">
 													<c:forEach var="idBus" items="${idBus}">
-													<form action="ShowAllBus" method="post">
-														<tr class="route-row1375">
-														<input type="text" hidden="hidden" name="idBus" value="${idBus.getIdBus()}">
-															<td>${idBus.getIdBus()}</td>
-															<td>${idBus.getDeparture()}</td>
-															<td>${idBus.getDestination()}</td>
-															<td>${idBus.getCategory()}</td>
-															<td>${idBus.getKilomet()}km</td>
-															<td>${idBus.getTime()}</td>
-															<td>${idBus.getTrip()}chuyến/ngày</td>
-															<td>	<input class="form-control" id="mydate" type="date"
-													name="date"></td>
-															<td>
-																<p>
-																	<strong class="text-primary">
-																		${idBus.getPrice()}<sup>đ/vé</sup>
-																	</strong>
-																</p>
-															</td>
-															<td><a class="br-btn-flat br-watch-schedule" href="">
-																	<i class="fa fa-clock-o icon-flat text-success"></i>
-															</a></td>
-															<td>
-																
-																<button type="submit" class="btn btn-success btn-flat">Tiếp
-																	tục</button>
-														</tr>
-</form>
+														<form action="ShowAllBus" method="post">
+															<tr class="route-row1375">
+																<input type="text" hidden="hidden" name="idBus"
+																	value="${idBus.getIdBus()}">
+																<td>${idBus.getIdBus()}</td>
+																<td>${idBus.getDeparture()}</td>
+																<td>${idBus.getDestination()}</td>
+																<td>${idBus.getCategory()}</td>
+																<td>${idBus.getKilomet()}km</td>
+																<td>${idBus.getTime()}</td>
+																<td>${idBus.getTrip()}chuyến/ngày</td>
+																<td><input class="form-control" id="mydate"
+																	type="date" name="date"></td>
+																<td><p>
+																		<strong class="text-primary">${idBus.getPrice()}<sup>đ/vé</sup>
+																		</strong>
+																	</p></td>
+																<td></td>
+																<td>
+
+																	<button type="submit" class="btn btn-success btn-flat">Tiếp
+																		tục</button>
+															</tr>
+														</form>
 													</c:forEach>
 												</tbody>
 											</table>
@@ -197,7 +176,7 @@
 								</div>
 							</div>
 						</section>
-						
+
 					</div>
 				</div>
 			</div>

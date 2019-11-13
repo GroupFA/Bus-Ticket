@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +31,6 @@
 	rel="stylesheet" type="text/css" />
 <!------ Include the above in your HEAD tag ---------->
 <title>Document</title>
-<link rel="stylesheet" href="css/cart.js">
 <link rel="stylesheet" href="css/Cart.css">
 </head>
 <style>
@@ -101,9 +99,7 @@ width:280px
 	</div>
 	<div class="container">
 		<div class="box-search">
-			<input type="hidden" class="currentDate" value="28/10/2019">
 			<form action="search" method="GET">
-				<input class="agencyType" type="hidden" name="agencyType" value="1">
 				<table width="100%" cellspacing="0" class="table-search">
 					<tbody>
 						<tr>
@@ -117,8 +113,6 @@ width:280px
 							</select></td>
 							<td class="date"><input class="form-control col-sm-12" type="date" >
 							</td>
-
-
 							<td><input type="submit" class="btn-search" value="Tìm vé"></td>
 						</tr>
 					</tbody>
@@ -126,7 +120,6 @@ width:280px
 			</form>
 		</div>
 	</div>
-
 	<section class="page-section cta">
 		<div class="container">
 			<div class="row">
@@ -147,14 +140,14 @@ width:280px
 												<thead>
 													<tr class="bg-light-green">
 														<th>Mã tuyến</th>
-														<th data-toggle="true">Bến đi</th>
+														<th>Bến đi</th>
 														<th>Bến đến</th>
-														<th data-hide="phone">Loại xe</th>
-														<th data-hide="phone">Quãng đường</th>
-														<th data-hide="phone">Thời gian</th>
-														<th data-hide="phone">Số chuyến</th>
-														<th data-hide="phone">Giá vé</th>
-														<th data-hide="phone">Giờ chạy</th>
+														<th>Loại xe</th>
+														<th>Quãng đường</th>
+														<th>Thời gian</th>
+														<th>Số chuyến</th>
+														<th>Giá vé</th>
+														<th>Giờ chạy</th>
 														<th></th>
 													</tr>
 												</thead>
@@ -173,9 +166,7 @@ width:280px
 																</strong>
 															</p>
 														</td>
-														<td><a class="br-btn-flat br-watch-schedule" href="">
-																<i class="fa fa-clock-o icon-flat text-success"></i>
-														</a></td>
+														<td></td>
 														<td><a href="${pageContext.request.contextPath}/AccountServlet"
 															class="btn br-btn-default btn-flat futa-book-ticket">
 																<i
@@ -197,9 +188,7 @@ width:280px
 																</strong>
 															</p>
 														</td>
-														<td><a class="br-btn-flat br-watch-schedule" href="">
-																<i class="fa fa-clock-o icon-flat text-success"></i>
-														</a></td>
+														<td></td>
 														<td><a href=""
 															class="btn br-btn-default btn-flat futa-book-ticket">
 																<i
@@ -221,9 +210,7 @@ width:280px
 																</strong>
 															</p>
 														</td>
-														<td><a class="br-btn-flat br-watch-schedule" href="">
-																<i class="fa fa-clock-o icon-flat text-success"></i>
-														</a></td>
+														<td></td>
 														<td><a href="${pageContext.request.contextPath}/AccountServlet"
 															class="btn br-btn-default btn-flat futa-book-ticket">
 																<i
@@ -245,9 +232,7 @@ width:280px
 																</strong>
 															</p>
 														</td>
-														<td><a class="br-btn-flat br-watch-schedule" href="">
-																<i class="fa fa-clock-o icon-flat text-success"></i>
-														</a></td>
+														<td></td>
 														<td><a href="${pageContext.request.contextPath}/AccountServlet"
 															class="btn br-btn-default btn-flat futa-book-ticket">
 																<i

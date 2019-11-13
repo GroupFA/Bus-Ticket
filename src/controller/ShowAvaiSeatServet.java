@@ -34,7 +34,7 @@ public class ShowAvaiSeatServet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 
-		String idBus = request.getParameter("idBusH");
+		int idBus = Integer.parseInt(request.getParameter("idBusH"));
 		String date = request.getParameter("date");
 		System.out.println(date+"ngay "+idBus);
 		SeatDao seatDao = new SeatDao();

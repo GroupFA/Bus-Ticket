@@ -44,6 +44,10 @@
 <link rel="stylesheet" href="css/Cart.css">
 </head>
 <style>
+div.seatCharts-seat.selected {
+	background-color: #f0ad4e;
+}
+
 ul.seatCharts-legendList {
 	width: 10px;
 }
@@ -97,42 +101,40 @@ label.trong {
 }
 </style>
 <body>
-
-		<div id="sb-site">
-			<div class="br-header">
-				<div id="top-nav" class="hidden-xs">
-					<div class="container">
-						<ul class="clearfix">
-							<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-									Trang chủ</a></li>
-							<li class="pull-right diff"><a
-								href="${pageContext.request.contextPath}/AccountServlet"><span
-									class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
-							<li class="pull-right"><a
-								href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
-									nhật thông tin</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<section id="body-content">
-				<div id="steps" class="container">
-					<ul class="list-step clearfix">
-						<li>Chọn tuyến <span></span>
-						</li>
-						<li class="active first">Chọn ghế <span></span></li>
-						<li>Thông tin khách hàng <span></span></li>
-						<li>Thanh toán <span></span></li>
+	<div id="sb-site">
+		<div class="br-header">
+			<div id="top-nav" class="hidden-xs">
+				<div class="container">
+					<ul class="clearfix">
+						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
+								Trang chủ</a></li>
+						<li class="pull-right diff"><a
+							href="${pageContext.request.contextPath}/AccountServlet"><span
+								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
+						<li class="pull-right"><a
+							href="${pageContext.request.contextPath}/UpdateNdServlet?idUser=${userlogin.getIdUser()}">Cập
+								nhật thông tin</a></li>
 					</ul>
 				</div>
-				<div class="container">
-					<div class="row">
+			</div>
+		</div>
+		<section id="body-content">
+			<div id="steps" class="container">
+				<ul class="list-step clearfix">
+					<li>Chọn tuyến <span></span>
+					</li>
+					<li class="active first">Chọn ghế <span></span></li>
+					<li><span></span></li>
+					<li>Thanh toán <span></span></li>
+				</ul>
+			</div>
+			<div class="container">
+				<div class="row">
 					<form action="${pageContext.request.contextPath}/CheckOutServlet"
-									method="post">
+						method="post">
 						<div class="col-sm-4 col-xs-12 col-ms-12">
 							<div class="panel">
 								<p class="text-center text-primary text-uppercase">${bus.getDeparture()}
-
 									- ${bus.getDestination()} <span>${date}</span>
 								</p>
 								<fieldset>
@@ -179,7 +181,7 @@ label.trong {
 											<div class="form-group">
 
 												<div class="controls">
-													<label for="">Mã xe</label> <input
+													<label for="">Mã tuyến</label> <input
 														class="form-control input-sm" id="destination"
 														name="idBus" type="text" value="${bus.getIdBus()}">
 												</div>
@@ -198,7 +200,7 @@ label.trong {
 													<a class="btn btn-primary btn-flat"> Quay lại</a>
 													<button type="submit" class="btn btn-success btn-flat">Tiếp
 														tục</button>
-														 
+
 												</div>
 											</div>
 										</div>
@@ -221,56 +223,29 @@ label.trong {
 									</tbody>
 								</table>
 
-								
-									<div class="">
-										<input name="listSeat" id="listsbooking" hidden="hidden"/> 
-										<%-- 	<input name="idBus" value="<%=request.getParameter("idBus")%>" /> 
-											
-											<input value="<%=request.getParameter("date")%>" name="date" /> --%>
-										<div class="row">
 
-											<div class="col-sm-8 col-xs-12 col-ms-12">
-												<div id="seat-map">
-												<!-- 	<div class="front-indicator">Front</div> -->
-												</div>
+								<div class="">
+									<input name="listSeat" id="listsbooking" hidden="hidden" />
+									<div class="row">
+										<div class="col-sm-8 col-xs-12 col-ms-12">
+											<div id="seat-map">
 											</div>
-											<div class="col-sm-4 col-xs-12 col-ms-12">
-												<div class="booking-details">
+										</div>
+										<div class="col-sm-4 col-xs-12 col-ms-12">
+											<div class="booking-details">
 
-													<div id="legend"></div>
-												</div>
+												<div id="legend"></div>
 											</div>
 										</div>
 									</div>
-								</form>
-
-
-								<%-- <div class="row">
-									<c:forEach var="seat" items="${listseat}">
-										<div class="col-xs-4 col-sm-4">
-											<div class="plane">
-												<ol class="cabin fuselage">
-													<li class="row">
-														<ol class="seats" type="A">
-															<li class="seat"
-																<c:if test="${seat.isStatus() == true}"></c:if>><input
-																name="n" type="checkbox" value="${seat.getIdSeat()}"
-																id="${seat.getIdSeat()}" /> <label
-																for="${seat.getIdSeat()}">${seat.getIdSeat()}</label></li>
-														</ol>
-													</li>
-												</ol>
-											</div>
-										</div>
-									</c:forEach>
-
-								</div> --%>
-
+								</div>
 							</div>
-						</div>
-					</div>
-			</section>
-		</div>
+					</form>
+				</div>
+			</div>
+	</div>
+	</section>
+	</div>
 
 	<script src="jQuery-Seat-Charts/jquery-1.11.0.min.js"></script>
 	<script src="jQuery-Seat-Charts/jquery.seat-charts.js"></script>
@@ -316,8 +291,8 @@ label.trong {
 						node : $('#legend'),
 					    items : [
 						
-							[ 'e', 'available',   'Available Seat'],
-							[ 'f', 'unavailable', 'Already Booked']
+							[ 'e', 'available',   'Ghế trống'],
+							[ 'f', 'unavailable', 'Ghế đặt']
 					    ]					
 					},
 					click: function () {
