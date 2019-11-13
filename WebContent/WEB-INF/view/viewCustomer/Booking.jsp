@@ -114,8 +114,13 @@ img {
 					<div class="row">
 					<form action="${pageContext.request.contextPath}/BookingServlet"
 									method="post">
+
 </div>
 		</div>
+
+
+			</div>
+
 		</div>
 		<section id="body-content">
 			<div id="steps" class="container">
