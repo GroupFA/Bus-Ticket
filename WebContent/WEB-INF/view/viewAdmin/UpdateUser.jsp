@@ -27,23 +27,53 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
+	<link rel="stylesheet"
+	href="bootstrap/assets/bootstrap/css/bootstrap.min.css">
 <!------ Include the above in your HEAD tag ---------->
 <title>Document</title>
 <link rel="stylesheet" href="css/Cart.css">
+<style>
+img {
+	margin-left: 180px;
+	position: absolute;
+	width: 250px;
+	height: 50px;
+	margin-top: -8px;
+}
+#top-nav ul li {
+    margin-left: 45px;
+    float: left;
+    padding: 10px 20px;
+    list-style: none;
+}
+body {
+    background-color: white !important;
+}
+select.form-control {
+    height: 38px;
+}
+button.btn.btn-success.btn-flat {
+    margin-left: 900px;
+    margin-top: -39px;
+}
+a.btn.btn-primary.btn-flat {
+    margin-left: 800px;
+}
+</style>
 </head>
 
 <body>
 	<div id="sb-site">
+	
+	<img src="./images/logo2.png">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
+						<li></li><li></li> 
 						<li><a
 							href="${pageContext.request.contextPath}/InsertUserServlet"><i
 								class="fa fa-truck" aria-hidden="true"></i>Tạo người dùng</a></li>
-
 						<li class="pull-right diff"><a href="#"><span
 								class="hidden-xs"></span></a></li>
 						<li class="pull-right"><a target="_blank" href="#"><i
@@ -159,13 +189,13 @@
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
 										<div class="controls no-icon">
-											<label for="">Gender <span class="text-primary">*</span></label>
+											<label for="">Giới tính <span class="text-primary">*</span></label>
 											<div class="input-group" value="${user.getGender()}">
 												<div class="p-t-10">
-													<label class="radio-container m-r-45">Male <input
+													<label class="radio-container m-r-45">Nam <input
 														type="radio" checked="checked" name="gender" value="Nam">
 														<span class="checkmark"></span>
-													</label> <label class="radio-container">Female <input
+													</label> <label class="radio-container">Nữ <input
 														type="radio" name="gender" value="Nữ"> <span
 														class="checkmark"></span>
 													</label>
@@ -174,9 +204,6 @@
 										</div>
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
-										<a class="btn btn-primary btn-flat"><i
-											class="fa fa-arrow-left icon-flat bg-btn-actived"></i> Quay
-											lại</a> <a>
 											<button type="submit" class="btn btn-success  btn-flat">
 												<i class="fa fa-arrow-right icon-flat bg-success"></i>Tiếp
 												tục

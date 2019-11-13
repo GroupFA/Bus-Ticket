@@ -33,16 +33,35 @@
 <!------ Include the above in your HEAD tag ---------->
 <title>Document</title>
 <link rel="stylesheet" href="css/Cart.css">
+<style>
+th {
+    width: 200;
+}
+img {
+	margin-left: 180px;
+	position: absolute;
+	width: 250px;
+	height: 50px;
+	margin-top: -5px;
+}
+#top-nav ul li {
+    margin-left: 45px;
+    float: left;
+    padding: 10px 20px;
+    list-style: none;
+}
+</style>
 </head>
 
 <body>
 	<div id="sb-site">
+	
+	<img src="./images/logo2.png">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
+						<li></li><li></li> 
 						<li><a
 							href="${pageContext.request.contextPath}/InsertUserServlet"><i
 								class="fa fa-truck" aria-hidden="true"></i>Tạo người dùng</a></li>
@@ -90,14 +109,14 @@
 												dùng</h3>
 											<thead>
 												<tr>
-													<th style="text-align: left; padding-right: 35;">Username</th>
-													<th style="text-align: left; padding-right: 35;">Password</th>
-													<th style="text-align: left; padding-right: 35;">Fullname</th>
-													<th style="text-align: left; padding-right: 35;">gender</th>
+													<th style="text-align: left; padding-right: 35;">Tên đăng nhập</th>
+													<th style="text-align: left; padding-right: 35;">Mật khẩu</th>
+													<th style="text-align: left; padding-right: 35;">Họ và tên</th>
+													<th style="text-align: left; padding-right: 35;">Giới tính</th>
 													<th class="wrapper"
-														style="text-align: left; padding-right: 35;">address</th>
-													<th style="text-align: left; padding-right: 35;">phoneNumber</th>
-													<th style="text-align: left; padding-right: 35;">role</th>
+														style="text-align: left; padding-right: 35;">Địa chỉ</th>
+													<th style="text-align: left; padding-right: 35;">Số di động</th>
+													<th style="text-align: left; padding-right: 35;">Chức vụ</th>
 													<th style="text-align: left; padding-right: 35;">Email</th>
 													<th></th>
 												</tr>

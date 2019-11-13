@@ -37,16 +37,28 @@
 	href="bootstrap/assets/bootstrap/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="css/Cart.css">
+<style>
+img {
+	margin-left: 180px;
+	position: absolute;
+	width: 250px;
+	height: 50px;
+	margin-top: -5px;
+}
+h5.text-primary {
+    font-family: inherit;
+}
+</style>
 </head>
 
 <body>
 	<div id="sb-site">
+	<img src="./images/logo2.png">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
+						
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
@@ -70,6 +82,7 @@
 						<section id="body-content">
 							<div class="container">
 								<div class="row">
+								<h5 class="text-primary ">Lịch sử mua vé</h5>
 									<div class="table-responsive">
 										<table class="table ">
 											<thead>

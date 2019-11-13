@@ -38,13 +38,24 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
+	
 <!------ Include the above in your HEAD tag ---------->
 <title>Document</title>
 <link rel="stylesheet" href="css/Cart.css">
+<style>
+img {
+	margin-left: 180px;
+	position: absolute;
+	width: 250px;
+	height: 50px;
+	margin-top: -5px;
+}
+</style>
 </head>
 
 <body>
 	<div id="sb-site">
+		<img src="./images/logo2.png">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
 				<div class="container">

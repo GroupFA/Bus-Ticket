@@ -21,7 +21,8 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	crossorigin="anonymous">
-
+<link rel="stylesheet"
+	href="bootstrap/assets/bootstrap/css/bootstrap.min.css">
 <!-- Latest compiled and minified JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -30,16 +31,42 @@
 <!------ Include the above in your HEAD tag ---------->
 <title>Document</title>
 <link rel="stylesheet" href="css/Cart.css">
+<style>
+button.btn.btn-success.btn-flat {
+    margin-left: -100px;
+    margin-top: -50px;
+}
+img {
+	margin-left: 180px;
+	position: absolute;
+	width: 250px;
+	height: 50px;
+	margin-top: -8px;
+}
+#top-nav ul li {
+    margin-left: 45px;
+    float: left;
+    padding: 10px 20px;
+    list-style: none;
+}
+body {
+    background-color: white !important;
+}
+select.form-control {
+    height: 38px;
+}
+</style>
 </head>
 
 <body>
 	<div id="sb-site">
+	
+	<img src="./images/logo2.png">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
+						<li></li><li></li> 
 						<li><a
 							href="${pageContext.request.contextPath}/InsertUserServlet"><i
 								class="fa fa-truck" aria-hidden="true"></i>Tạo người dùng</a></li>
@@ -152,12 +179,12 @@
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-ms-12">
 									<div class="form-group clearfix">
 										<div class="controls no-icon">
-											<label for="">Gender <span class="text-primary">*</span></label>
+											<label for="">Giới tính <span class="text-primary">*</span></label>
 											<div class="p-t-10">
-												<label class="radio-container m-r-45">Male <input
+												<label class="radio-container m-r-45">Nam <input
 													type="radio" checked="checked" name="gender" value="Nam">
 													<span class="checkmark"></span>
-												</label> <label class="radio-container">Female <input
+												</label> <label class="radio-container">Nữ <input
 													type="radio" name="gender" value="Nữ"> <span
 													class="checkmark"></span>
 												</label>

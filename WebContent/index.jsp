@@ -35,28 +35,44 @@
 </head>
 <style>
 section#body-content {
-      margin-top: 45px;
+	margin-top: 45px;
 }
+
 .box-search table .btn-search {
-    /* padding: 13px 44px 30px; */
-    background: #e54443;
-    color: #fff;
-    font-size: 12px;
-    text-decoration: none;
-    text-transform: uppercase;
-    border: 0;
-    margin-right:-20px;}
-.date{
-width:280px
+	/* padding: 13px 44px 30px; */
+	background: #e54443;
+	color: #fff;
+	font-size: 12px;
+	text-decoration: none;
+	text-transform: uppercase;
+	border: 0;
+	margin-right: -20px;
+}
+
+.date {
+	width: 280px
+}
+
+img {
+	margin-left: 180px;
+	position: absolute;
+	width: 250px;
+	height: 50px;
+	margin-top: -8px;
 }
 </style>
 <body>
 	<div id="sb-site">
+		<img src="./images/logo2.png">
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
 				<div class="container">
 					<ul class="clearfix">
-						
+
+
+						<!-- <li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
+								Trang chủ</a></li> -->
+
 						<li><a href="#"><i class="fa fa-truck" aria-hidden="true"></i></a></li>
 						<li><a href="#"><i class="fa fa-taxi" aria-hidden="true"></i></a></li>
 						<li class="pull-right diff"><a
@@ -110,8 +126,8 @@ width:280px
 									<option value="Điểm đến" selected>Điểm đến</option>
 									<option>Cà Mau</option>
 							</select></td>
-							<td class="date"><input class="form-control col-sm-12" type="date" >
-							</td>
+							<td class="date"><input class="form-control col-sm-12"
+								type="date"></td>
 							<td><input type="submit" class="btn-search" value="Tìm vé"></td>
 						</tr>
 					</tbody>
@@ -166,7 +182,8 @@ width:280px
 															</p>
 														</td>
 														<td></td>
-														<td><a href="${pageContext.request.contextPath}/AccountServlet"
+														<td><a
+															href="${pageContext.request.contextPath}/AccountServlet"
 															class="btn br-btn-default btn-flat futa-book-ticket">
 																<i
 																class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
@@ -210,7 +227,8 @@ width:280px
 															</p>
 														</td>
 														<td></td>
-														<td><a href="${pageContext.request.contextPath}/AccountServlet"
+														<td><a
+															href="${pageContext.request.contextPath}/AccountServlet"
 															class="btn br-btn-default btn-flat futa-book-ticket">
 																<i
 																class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua
@@ -232,7 +250,8 @@ width:280px
 															</p>
 														</td>
 														<td></td>
-														<td><a href="${pageContext.request.contextPath}/AccountServlet"
+														<td><a
+															href="${pageContext.request.contextPath}/AccountServlet"
 															class="btn br-btn-default btn-flat futa-book-ticket">
 																<i
 																class="fa fa-ticket icon-flat text-primary icon-bg-default"></i>Mua

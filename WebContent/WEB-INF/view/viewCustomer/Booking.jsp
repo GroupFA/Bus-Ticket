@@ -71,34 +71,7 @@ div#seat-map {
 	width: 300px;
 }
 
-.seat label {
-	display: block;
-	position: relative;
-	width: 150px;
-	text-align: center;
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 1.5rem;
-	padding: 4px 0;
-	background: #f42536;
-	border-radius: 5px;
-	animation-duration: 300ms;
-	animation-fill-mode: both;
-}
 
-.seat3 {
-	background-color: #bada55;
-	/* color: #bada55; */
-	height: 30px;
-	width: 30px;
-	margin-left: 20px;
-}
-
-label.trong {
-	background-color: #f42536;
-	width: 30px;
-	height: 30px;
-}
 .panel{
 background-color: white !important;
 }
@@ -109,16 +82,24 @@ background-color: white;
     background-color: white !important;
     color: white;
 }
+img {
+	margin-left: 180px;
+	position: absolute;
+	width: 250px;
+	height: 50px;
+	margin-top: -5px;
+}
+
 </style>
 <body>
 
-	<div id="sb-site">
+	<div id="sb-site"><img src="./images/logo2.png">
+
 		<div class="br-header">
 			<div id="top-nav" class="hidden-xs">
 				<div class="container">
 					<ul class="clearfix">
-						<li><a href="#"><i class="fa fa-bus" aria-hidden="true"></i>
-								Trang chủ</a></li>
+						
 						<li class="pull-right diff"><a
 							href="${pageContext.request.contextPath}/AccountServlet"><span
 								class="hidden-xs">Hi, ${userlogin.getFullName()}</span></a></li>
